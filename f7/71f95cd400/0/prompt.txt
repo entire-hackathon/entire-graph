@@ -1,0 +1,1 @@
+add the --format json to Delta export step
