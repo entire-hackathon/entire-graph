@@ -21,6 +21,26 @@ async function gitBody(repo: string, ref: string): Promise<string> {
   }
 }
 
+/** The Entire-Checkpoint trailer of the newest commit in base..head that has one. */
+async function trailerInRange(repo: string, base: string, head: string): Promise<string | null> {
+  try {
+    const { stdout } = await execa("git", [
+      "-C",
+      repo,
+      "log",
+      "--format=%H %(trailers:key=Entire-Checkpoint,valueonly)",
+      `${base}..${head}`,
+    ]);
+    for (const line of stdout.split("\n")) {
+      const id = line.split(" ")[1]?.trim();
+      if (id) return id;
+    }
+  } catch {
+    /* fall through */
+  }
+  return null;
+}
+
 async function capturedIntent(repo: string, id: string): Promise<string | null> {
   for (const rel of [`.entire/intent/${id}.json`, `.entire/intents/${id}.json`]) {
     try {
@@ -37,6 +57,7 @@ async function capturedIntent(repo: string, id: string): Promise<string | null> 
 export interface IntentContext {
   readonly repo: string;
   readonly head: string;
+  readonly base?: string | undefined;
   readonly prTitle?: string | undefined;
   readonly prBody?: string | undefined;
 }
@@ -45,11 +66,17 @@ export async function resolveIntent(
   ctx: IntentContext,
 ): Promise<{ intent: IntentModel | null; checkpoint: string | undefined }> {
   const body = await gitBody(ctx.repo, ctx.head);
-  const id = TRAILER.exec(body)?.[1];
+  const id =
+    TRAILER.exec(body)?.[1] ??
+    (ctx.base ? await trailerInRange(ctx.repo, ctx.base, ctx.head) : null) ??
+    undefined;
 
   if (id) {
     const captured = await capturedIntent(ctx.repo, id);
-    const text = captured ?? body.split("\n").filter((l) => !TRAILER.test(l)).join("\n").trim();
+    const trailerBody = TRAILER.test(body)
+      ? body.split("\n").filter((l) => !TRAILER.test(l)).join("\n").trim()
+      : "";
+    const text = captured ?? trailerBody;
     if (text) {
       return { intent: { source: "checkpoint-trailer", text, keywords: keywords(text) }, checkpoint: id };
     }

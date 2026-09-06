@@ -56,6 +56,7 @@ export async function runReview(
   const intentCtx: IntentContext = {
     repo: req.repo,
     head: req.range.head,
+    base: req.range.base,
     prTitle: req.prTitle,
     prBody: req.prBody,
   };
