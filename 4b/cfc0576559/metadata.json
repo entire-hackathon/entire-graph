@@ -3,7 +3,7 @@
   "checkpoint_id": "4bcfc0576559",
   "strategy": "manual-commit",
   "branch": "build/blast-radius",
-  "checkpoints_count": 1,
+  "checkpoints_count": 2,
   "files_touched": null,
   "sessions": [
     {
@@ -12,6 +12,13 @@
       "compact_transcript": "/4b/cfc0576559/0/transcript.jsonl",
       "content_hash": "/4b/cfc0576559/0/content_hash.txt",
       "prompt": "/4b/cfc0576559/0/prompt.txt"
+    },
+    {
+      "metadata": "/4b/cfc0576559/1/metadata.json",
+      "transcript": "/4b/cfc0576559/1/full.jsonl",
+      "compact_transcript": "/4b/cfc0576559/1/transcript.jsonl",
+      "content_hash": "/4b/cfc0576559/1/content_hash.txt",
+      "prompt": ""
     }
   ],
   "token_usage": {
