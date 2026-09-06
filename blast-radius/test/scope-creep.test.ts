@@ -5,6 +5,7 @@ import type { BlastRadius, ChangeSet, ChangedSymbol, IntentModel } from "../src/
 const emptyRadius: BlastRadius = {
   origin: [],
   nodes: [],
+  originEdges: [],
   sectionTotals: { callers: 0, callees: 0, type_consumers: 0, data_flows: 0, co_changes: 0, siblings: 0 },
 };
 const intent = (t: string): IntentModel => ({ source: "commit-message", text: t, keywords: keywords(t) });

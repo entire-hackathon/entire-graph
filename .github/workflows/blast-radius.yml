@@ -67,6 +67,7 @@ jobs:
             --entire-graph "$GITHUB_WORKSPACE/bin/entire-graph" \
             --base "$BASE" --head "$HEAD" \
             --pr-title "${PR_TITLE:-}" --pr-body "${PR_BODY:-}" \
+            --blob-url-base "${{ github.server_url }}/${{ github.repository }}/blob/$HEAD" \
             --out "$RUNNER_TEMP/blast-radius.md"
           {
             echo "## 🧨 Blast Radius"

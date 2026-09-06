@@ -23,6 +23,7 @@ program
   .option("--out <file>", "write here instead of stdout")
   .option("--pr-title <s>", "PR title (intent fallback)")
   .option("--pr-body <s>", "PR body (intent fallback)")
+  .option("--blob-url-base <url>", "https://host/owner/repo/blob/<sha> — makes symbols clickable")
   .option("--dependents-threshold <n>", "wide-reaching-change threshold", (v) => parseInt(v, 10))
   .option("--max-tests <n>", "cap the recommended test list", (v) => parseInt(v, 10))
   .option("--fail-on-findings", "exit non-zero when scope findings exist")
@@ -46,6 +47,7 @@ program
         prBody: opts.prBody,
         scope: opts.dependentsThreshold ? { wideThreshold: opts.dependentsThreshold } : {},
         maxTests: opts.maxTests,
+        render: { repoBlobUrlBase: opts.blobUrlBase, toolUrl: "[Blast Radius](https://github.com/entire-hackathon/entire-graph/tree/main/blast-radius)" },
         log,
       });
 

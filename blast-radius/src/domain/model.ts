@@ -51,10 +51,17 @@ export interface RadiusNode {
   readonly isTest: boolean;
 }
 
+/** A call edge between two changed symbols (`from` calls `to`) — for the diagram. */
+export interface OriginEdge {
+  readonly from: string;
+  readonly to: string;
+}
+
 export interface BlastRadius {
   readonly origin: readonly ChangedSymbol[];
   readonly nodes: readonly RadiusNode[];
   readonly sectionTotals: Readonly<Record<RadiusSection, number>>;
+  readonly originEdges: readonly OriginEdge[];
 }
 
 export interface IntentModel {

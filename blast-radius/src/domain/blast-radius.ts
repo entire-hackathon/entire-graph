@@ -4,7 +4,7 @@
  *  - a node that is itself a changed symbol is the origin, not the blast — dropped
  *  - drop external callees (fmt.Errorf etc.) as review noise
  */
-import type { BlastRadius, ChangedSymbol, RadiusNode, RadiusSection } from "./model.js";
+import type { BlastRadius, ChangedSymbol, OriginEdge, RadiusNode, RadiusSection } from "./model.js";
 import { symbolKey } from "./model.js";
 
 function emptyTotals(): Record<RadiusSection, number> {
@@ -29,12 +29,27 @@ export function computeBlastRadius(
   const originKeys = new Set(origin.map((s) => symbolKey(s.ref)));
   const originNames = new Set(origin.map((s) => s.ref.qualifiedName));
   const byKey = new Map<string, RadiusNode>();
+  const edgeSeen = new Set<string>();
+  const originEdges: OriginEdge[] = [];
 
   for (const list of nodeLists) {
     for (const node of list) {
       if (node.ref.external && node.section === "callees") continue;
       const key = symbolKey(node.ref);
-      if (originKeys.has(key) || originNames.has(node.ref.qualifiedName)) continue;
+      if (originKeys.has(key) || originNames.has(node.ref.qualifiedName)) {
+        // one changed symbol calling another: keep it as an edge for the diagram
+        if (node.section === "callers") {
+          for (const o of node.originSymbols) {
+            if (o === node.ref.qualifiedName || !originNames.has(o)) continue;
+            const e = `${node.ref.qualifiedName} ${o}`;
+            if (!edgeSeen.has(e)) {
+              edgeSeen.add(e);
+              originEdges.push({ from: node.ref.qualifiedName, to: o });
+            }
+          }
+        }
+        continue;
+      }
       const existing = byKey.get(key);
       byKey.set(key, existing ? merge(existing, node) : node);
     }
@@ -45,5 +60,5 @@ export function computeBlastRadius(
   );
   const sectionTotals = emptyTotals();
   for (const n of nodes) sectionTotals[n.section] += 1;
-  return { origin: [...origin], nodes, sectionTotals };
+  return { origin: [...origin], nodes, sectionTotals, originEdges };
 }

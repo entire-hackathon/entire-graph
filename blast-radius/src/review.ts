@@ -5,7 +5,7 @@
  */
 import { computeBlastRadius } from "./domain/blast-radius.js";
 import type { AnalysisReport } from "./domain/model.js";
-import { renderMarkdown } from "./domain/render.js";
+import { renderMarkdown, type RenderOptions } from "./domain/render.js";
 import { detectScopeCreep, type ScopeOptions } from "./domain/scope-creep.js";
 import { selectTests } from "./domain/test-select.js";
 import { resolveIntent, type IntentContext } from "./adapters/intent.js";
@@ -18,6 +18,7 @@ export interface ReviewRequest {
   readonly prBody?: string | undefined;
   readonly scope?: ScopeOptions;
   readonly maxTests?: number | undefined;
+  readonly render?: RenderOptions;
   readonly log?: (msg: string) => void;
 }
 
@@ -63,5 +64,5 @@ export async function runReview(
     findings,
     testPlan,
   };
-  return { report, markdown: renderMarkdown(report) };
+  return { report, markdown: renderMarkdown(report, req.render ?? {}) };
 }
