@@ -1,0 +1,117 @@
+{
+  "cli_version": "0.10.5",
+  "checkpoint_id": "7a0383f452a0",
+  "session_id": "a4d7ef45-6ca0-4e36-b325-7190900c0755",
+  "strategy": "manual-commit",
+  "created_at": "2026-09-06T06:21:51.7543759Z",
+  "branch": "build/blast-radius",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 1206,
+    "cache_creation_tokens": 1321789,
+    "cache_read_tokens": 278947814,
+    "output_tokens": 521616,
+    "api_call_count": 603
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01Pu8s1T89HWmYmp9ijRqaP3",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:brainstorming"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 26,
+        "end": 27,
+        "entry_ids": [
+          "02dd44d3-7cbd-4d8a-bbf5-fc1ffbfc1221"
+        ],
+        "tool_use_id": "toolu_01Pu8s1T89HWmYmp9ijRqaP3"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01Pu8s1T89HWmYmp9ijRqaP3"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:brainstorming",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_019DTHqaGwHhPoY7CVVVhq9w",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "artifact-design"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 1786,
+        "end": 1787,
+        "entry_ids": [
+          "0d9fc46a-73e6-406d-9dd5-fcf401c5131e"
+        ],
+        "tool_use_id": "toolu_019DTHqaGwHhPoY7CVVVhq9w"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_019DTHqaGwHhPoY7CVVVhq9w"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: artifact-design",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01WzCZK4Pz2t6gLR5ZNL7inW",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "artifact-diagramming"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 1904,
+        "end": 1905,
+        "entry_ids": [
+          "8c690d50-ada7-47b8-a0a2-02721eaedc28"
+        ],
+        "tool_use_id": "toolu_01WzCZK4Pz2t6gLR5ZNL7inW"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01WzCZK4Pz2t6gLR5ZNL7inW"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: artifact-diagramming",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 5
+  }
+}
