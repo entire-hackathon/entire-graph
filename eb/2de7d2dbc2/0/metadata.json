@@ -1,0 +1,81 @@
+{
+  "cli_version": "0.10.5",
+  "checkpoint_id": "eb2de7d2dbc2",
+  "session_id": "3503c620-fadf-4e69-a118-23f6c364e814",
+  "strategy": "manual-commit",
+  "created_at": "2026-09-06T08:14:10.3226334Z",
+  "branch": "build/blast-radius",
+  "checkpoints_count": 6,
+  "save_step_count": 1,
+  "files_touched": [],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5",
+  "turn_id": "befbfec2a16d",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 392,
+    "cache_creation_tokens": 326028,
+    "cache_read_tokens": 44141289,
+    "output_tokens": 173516,
+    "api_call_count": 196
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-sql/1.0/warehouses/11252eaf71f9151a-2026-09-06T07:53:08.179024Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "sql/1.0/warehouses/11252eaf71f9151a"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "37e175f8fb80",
+      "timestamp": "2026-09-06T07:53:08.179024Z",
+      "native": {
+        "command": "/sql/1.0/warehouses/11252eaf71f9151a"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/sql/1.0/warehouses/11252eaf71f9151a",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01P5nSf3z8sJQ7pzx3soBH1z",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "anthropic-skills:pptx"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "befbfec2a16d",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 1016,
+        "end": 1017,
+        "entry_ids": [
+          "653b311a-ea40-40e2-a1b2-e8595ae18046"
+        ],
+        "tool_use_id": "toolu_01P5nSf3z8sJQ7pzx3soBH1z"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01P5nSf3z8sJQ7pzx3soBH1z"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: anthropic-skills:pptx",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 9
+  }
+}
