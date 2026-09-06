@@ -167,30 +167,61 @@ export function databricksConfigFromEnv(env: NodeJS.ProcessEnv = process.env): D
 
 type Fetch = typeof fetch;
 
+interface StatementResponse {
+  statement_id?: string;
+  status?: { state?: string; error?: { message?: string } };
+}
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+async function api(cfg: DatabricksConfig, path: string, init: RequestInit, fetchImpl: Fetch): Promise<StatementResponse> {
+  const res = await fetchImpl(`${cfg.host}${path}`, {
+    ...init,
+    headers: { authorization: `Bearer ${cfg.token}`, "content-type": "application/json", ...init.headers },
+  });
+  if (!res.ok) {
+    throw new Error(`Databricks SQL API ${res.status}: ${(await res.text()).slice(0, 400)}`);
+  }
+  return (await res.json()) as StatementResponse;
+}
+
+/**
+ * Submit one statement and wait for it to finish. A cold Free Edition warehouse
+ * can take ~30-60s to start, so on a wait-timeout we keep polling rather than
+ * cancelling. `maxWaitMs` bounds the total wait (default 3 min).
+ */
 async function runStatement(
   cfg: DatabricksConfig,
   statement: string,
   parameters: ReturnType<typeof toSqlParameters> | undefined,
   fetchImpl: Fetch,
+  maxWaitMs = 180_000,
 ): Promise<void> {
-  const res = await fetchImpl(`${cfg.host}/api/2.0/sql/statements`, {
-    method: "POST",
-    headers: { authorization: `Bearer ${cfg.token}`, "content-type": "application/json" },
-    body: JSON.stringify({
-      warehouse_id: cfg.warehouseId,
-      statement,
-      ...(parameters ? { parameters } : {}),
-      wait_timeout: "30s",
-      on_wait_timeout: "CANCEL",
-    }),
-  });
-  if (!res.ok) {
-    throw new Error(`Databricks SQL API ${res.status}: ${(await res.text()).slice(0, 400)}`);
+  let body = await api(
+    cfg,
+    "/api/2.0/sql/statements",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        warehouse_id: cfg.warehouseId,
+        statement,
+        ...(parameters ? { parameters } : {}),
+        wait_timeout: "30s",
+        on_wait_timeout: "CONTINUE",
+      }),
+    },
+    fetchImpl,
+  );
+
+  const deadline = Date.now() + maxWaitMs;
+  while (body.status?.state === "PENDING" || body.status?.state === "RUNNING") {
+    if (Date.now() > deadline) throw new Error(`Databricks statement still ${body.status.state} after ${maxWaitMs / 1000}s (warehouse cold?)`);
+    await sleep(2_000);
+    body = await api(cfg, `/api/2.0/sql/statements/${body.statement_id}`, { method: "GET" }, fetchImpl);
   }
-  const body = (await res.json()) as { status?: { state?: string; error?: { message?: string } } };
-  const state = body.status?.state;
-  if (state !== "SUCCEEDED") {
-    throw new Error(`Databricks statement ${state ?? "UNKNOWN"}: ${body.status?.error?.message ?? "no detail"}`);
+
+  if (body.status?.state !== "SUCCEEDED") {
+    throw new Error(`Databricks statement ${body.status?.state ?? "UNKNOWN"}: ${body.status?.error?.message ?? "no detail"}`);
   }
 }
 
