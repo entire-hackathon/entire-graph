@@ -1,0 +1,24 @@
+{
+  "cli_version": "0.10.5",
+  "checkpoint_id": "04705250a713",
+  "strategy": "manual-commit",
+  "branch": "build/blast-radius",
+  "checkpoints_count": 1,
+  "files_touched": null,
+  "sessions": [
+    {
+      "metadata": "/04/705250a713/0/metadata.json",
+      "transcript": "/04/705250a713/0/full.jsonl",
+      "compact_transcript": "/04/705250a713/0/transcript.jsonl",
+      "content_hash": "/04/705250a713/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 1042,
+    "cache_creation_tokens": 1237101,
+    "cache_read_tokens": 213359086,
+    "output_tokens": 457532,
+    "api_call_count": 521
+  }
+}
