@@ -1,0 +1,146 @@
+{
+  "base": "4172fb30~1",
+  "head": "4172fb30",
+  "files": [
+    {
+      "path": "internal/sem/provider.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "fileRelationScan",
+          "old_signature": "fileRelationScan struct { relations []RelationRecord failures []PartialFailure resolvedImports map[string][]string routeHandlers []routeHandlerEntry httpCalls []httpCallEntry inheritance []RelationRecord }",
+          "new_signature": "fileRelationScan struct { failures []PartialFailure resolvedImports map[string][]string routeHandlers []routeHandlerEntry httpCalls []httpCallEntry inheritance []RelationRecord }",
+          "before_start_line": 4486,
+          "after_start_line": 4486,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "fileRelationScan.relations",
+          "old_signature": "relations []RelationRecord",
+          "before_start_line": 4487,
+          "dependents_count": 177
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "forEachRelation",
+          "before_start_line": 4510,
+          "after_start_line": 4509,
+          "dependents_count": 3
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider_parallel.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "module",
+          "name": "internal/sem/provider_parallel.go",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider_parallel_stream.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "runIndexedStreamingPipeline",
+          "new_signature": "func runIndexedStreamingPipeline[T, R any]( ctx context.Context, count, workers int, process func(context.Context, int, func(T)) R, emit func(int, T) error, reduce func(int, R) error, ) error",
+          "after_start_line": 14,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "slot",
+          "new_signature": "slot struct { values chan T result R }",
+          "after_start_line": 31,
+          "dependents_count": 25
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "slot.values",
+          "new_signature": "values chan T",
+          "after_start_line": 32,
+          "dependents_count": 95
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "slot.result",
+          "new_signature": "result R",
+          "after_start_line": 33,
+          "dependents_count": 590
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider_parallel_stream_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestIndexedStreamingPipelineBoundsAndOrdersLargeOutput",
+          "new_signature": "func TestIndexedStreamingPipelineBoundsAndOrdersLargeOutput(t *testing.T)",
+          "after_start_line": 11,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestIndexedStreamingPipelineStopsAndJoinsBlockedProducers",
+          "new_signature": "func TestIndexedStreamingPipelineStopsAndJoinsBlockedProducers(t *testing.T)",
+          "after_start_line": 74,
+          "dependents_count": 0
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/haskell/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 19811235 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/objc/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 28242603 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/perl/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 20080466 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/pgsql/src/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 14524353 bytes, above max parser input 4194304 bytes"
+    }
+  ]
+}
