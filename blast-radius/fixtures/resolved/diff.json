@@ -1,0 +1,31 @@
+{
+  "base": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "schema_version": "1.0.0",
+  "files": [
+    {
+      "path": "src/redirect/limiter.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "method",
+          "name": "RateLimiter.take",
+          "dependents_count": 2,
+          "after_start_line": 24
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "partial_failures": [],
+  "stats": {
+    "files": 40,
+    "parsed_files": 40,
+    "symbols": 210,
+    "relations": 900,
+    "partial_failures": 0,
+    "completeness_level": "ok"
+  }
+}

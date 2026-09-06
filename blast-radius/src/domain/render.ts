@@ -6,7 +6,8 @@
  * collapsed detail — evidence, the test rationale, the full node list. Every
  * symbol links to `file:line` when a repo blob-url base is supplied.
  */
-import type { AnalysisReport, RadiusSection, SymbolRef } from "./model.js";
+import type { Completeness } from "./completeness.js";
+import type { AnalysisReport, Confidence, RadiusSection, SymbolRef } from "./model.js";
 import { loc } from "./model.js";
 
 export interface RenderOptions {
@@ -19,6 +20,47 @@ export interface RenderOptions {
 
 const SEV_ICON = { high: "🔴", medium: "🟠", low: "🟡" } as const;
 const SEV_COLOR = { high: "da3633", medium: "d29922", low: "bf8700" } as const;
+
+const CONF_MARK: Record<Confidence, string> = { confirmed: "🔒", heuristic: "~", partial: "?" };
+const CONF_WORD: Record<Confidence, string> = {
+  confirmed: "confirmed — structural graph edge",
+  heuristic: "heuristic — verify against source",
+  partial: "unverified — the graph could not fully analyse this",
+};
+const COMPLETENESS_COLOR: Record<Completeness["level"], string> = {
+  complete: "2da44e",
+  partial: "d29922",
+  degraded: "da3633",
+};
+
+/** The completeness banner + a collapsed list of what the graph could not analyse. */
+function renderCompletenessBanner(c: Completeness): string[] {
+  if (c.level === "complete") return [];
+  const n = c.unresolvedFiles.length;
+  const files = `${n} ${n === 1 ? "file" : "files"}`;
+  const head =
+    n > 0
+      ? `⚠ **Graph completeness: ${c.level}** — ${files} the graph could not fully analyse; findings may be incomplete and some edges are unverified.`
+      : `⚠ **Graph completeness: ${c.level}** — the graph's coverage of this range is limited; findings may be incomplete.`;
+  const out = [head, ""];
+  const detail: string[] = [];
+  if (n > 0) {
+    detail.push("**Unresolved files** (edges into or out of these may be missing):", "");
+    for (const f of c.unresolvedFiles.slice(0, 12)) detail.push(`- \`${f}\``);
+    if (n > 12) detail.push(`- _…and ${n - 12} more_`);
+    detail.push("");
+  }
+  if (c.notes.length > 0) {
+    detail.push("**Graph diagnostics:**", "");
+    for (const note of c.notes.slice(0, 12)) detail.push(`- ${note}`);
+    if (c.notes.length > 12) detail.push(`- _…and ${c.notes.length - 12} more_`);
+    detail.push("");
+  }
+  if (detail.length > 0) {
+    out.push("<details><summary>What the graph could not resolve</summary>", "", ...detail, "</details>", "");
+  }
+  return out;
+}
 
 function short(ref: string): string {
   return /^[0-9a-f]{40}$/i.test(ref) ? ref.slice(0, 7) : ref;
@@ -33,6 +75,21 @@ function badge(label: string, message: string, color: string): string {
 function moduleOf(file: string): string {
   const p = file.replace(/\\/g, "/").split("/");
   return p.slice(0, 2).join("/");
+}
+
+/** The `entire graph impact` call a reviewer can re-run to see the evidence behind a finding. */
+function verifyCommand(sym: SymbolRef): string {
+  const parts = ["entire graph impact --symbol", sym.qualifiedName];
+  if (sym.file) parts.push("--file", sym.file.replace(/\\/g, "/"));
+  return parts.join(" ");
+}
+
+/** " · then run `<cmd>`" pointing at the selected test that covers this symbol, if any. */
+function coveringTestHint(r: AnalysisReport, qn: string): string {
+  const t = r.testPlan.selected.find((c) => c.covers.includes(qn));
+  if (!t) return " · no selected test reaches this — check manually";
+  if (r.testPlan.command) return ` · then run \`${r.testPlan.command}\``;
+  return ` · covered by \`${t.ref.name}\``;
 }
 
 export function renderMarkdown(report: AnalysisReport, opts: RenderOptions = {}): string {
@@ -76,9 +133,15 @@ export function renderMarkdown(report: AnalysisReport, opts: RenderOptions = {})
       ? badge("tests", `${r.testPlan.selected.length} · ${r.testPlan.coverageGaps.length} gaps`, "bf8700")
       : badge("tests", `${r.testPlan.selected.length} selected`, "2da44e"),
     badge("intent", r.intent ? r.intent.source : "none", r.intent ? "8250df" : "8b949e"),
+    ...(r.completeness.level === "complete"
+      ? []
+      : [badge("graph", r.completeness.level, COMPLETENESS_COLOR[r.completeness.level])]),
   ];
   out.push(badges.join(" "));
   out.push("");
+
+  const banner = renderCompletenessBanner(r.completeness);
+  if (banner.length > 0) out.push(...banner);
 
   if (r.intent) {
     const line1 = r.intent.text.split("\n")[0]!.trim().slice(0, 160);
@@ -97,32 +160,52 @@ export function renderMarkdown(report: AnalysisReport, opts: RenderOptions = {})
   if (r.findings.length > 0) {
     out.push(`### ⚠️ Scope check — ${r.findings.length} change(s) look outside the ask`);
     out.push("");
-    out.push("| | Changed symbol | Why | Dependents |");
-    out.push("|--|--|--|--|");
+    out.push(
+      "_Every scope verdict is lexical: `~` heuristic — verify against source. `?` marks a change the graph could not fully analyse, so its dependent count and reach may be wrong._",
+      "",
+    );
+    out.push("| | Changed symbol | Why | Dependents | Confidence |");
+    out.push("|--|--|--|--|--|");
     for (const f of r.findings) {
-      out.push(`| ${SEV_ICON[f.severity]} | ${link(f.symbol, `\`${f.symbol.qualifiedName}\``)} | ${f.reason} | ${f.dependentsCount} |`);
+      out.push(
+        `| ${SEV_ICON[f.severity]} | ${link(f.symbol, `\`${f.symbol.qualifiedName}\``)} | ${f.reason} | ${f.dependentsCount} | ${CONF_MARK[f.confidence]} ${CONF_WORD[f.confidence]} |`,
+      );
     }
     out.push("");
-    out.push("<details><summary>Evidence for these findings</summary>", "");
+    out.push("<details><summary>Evidence &amp; verification for these findings</summary>", "");
     for (const f of r.findings) {
-      out.push(`**\`${f.symbol.qualifiedName}\`** — \`${loc(f.symbol) ?? "?"}\``);
+      out.push(`**\`${f.symbol.qualifiedName}\`** — \`${loc(f.symbol) ?? "?"}\` · ${CONF_MARK[f.confidence]} ${CONF_WORD[f.confidence]}`);
       const seen = new Set<string>();
       for (const e of f.evidence) {
         if (seen.has(e)) continue;
         seen.add(e);
         out.push(`- ${e}`);
       }
+      out.push(`- **Verify:** \`${verifyCommand(f.symbol)}\`${coveringTestHint(r, f.symbol.qualifiedName)}`);
       out.push("");
     }
     out.push("</details>", "");
   } else if (r.intent) {
-    out.push("### ✅ Scope check — every change maps to the stated intent", "");
+    out.push(
+      r.completeness.level === "complete"
+        ? "### ✅ Scope check — every change maps to the stated intent"
+        : `### ✅ Scope check — the changes the graph could resolve map to the stated intent _(coverage was ${r.completeness.level}; unanalysed changes are not reflected)_`,
+      "",
+    );
   }
 
   /* -------- tests -------- */
   const tp = r.testPlan;
   if (tp.selected.length > 0) {
-    const cover = tp.coverageGaps.length === 0 ? "covers every changed symbol" : `covers all but ${tp.coverageGaps.length}`;
+    const resolved = r.completeness.level === "complete";
+    const cover =
+      tp.coverageGaps.length === 0
+        ? resolved
+          ? "covers every changed symbol"
+          : "covers the changed symbols the graph could resolve"
+        : resolved
+          ? `covers all but ${tp.coverageGaps.length}`
+          : `covers all but ${tp.coverageGaps.length} of the changed symbols the graph could resolve`;
     out.push(`### 🧪 Recommended tests — ${tp.selected.length}, ${cover}`, "");
     if (tp.command) out.push("```bash", tp.command, "```", "");
     out.push("<details><summary>Why these tests</summary>", "");
@@ -139,24 +222,45 @@ export function renderMarkdown(report: AnalysisReport, opts: RenderOptions = {})
   }
 
   /* -------- full radius table -------- */
+  // The confidence column only earns its space once the graph reports it is not
+  // exhaustive; a fully-resolved run renders exactly as it did before.
+  const showConf = r.completeness.level !== "complete";
   out.push(
     `<details><summary>Full blast radius — ${nodes.length} nodes across ${files.size} files</summary>`,
     "",
     Object.entries(byRel).sort((a, b) => b[1] - a[1]).map(([k, v]) => `\`${k}\` ${v}`).join(" · "),
     "",
-    "| Node | Relation | Dist | From |",
-    "|--|--|--|--|",
+    showConf ? "| Node | Relation | Dist | Confidence | From |" : "| Node | Relation | Dist | From |",
+    showConf ? "|--|--|--|--|--|" : "|--|--|--|--|",
   );
   for (const n of nodes.slice(0, 60)) {
-    out.push(`| ${link(n.ref, `\`${n.ref.qualifiedName}\``)}${n.isTest ? " 🧪" : ""} | \`${n.relation}\` | ${n.distance} | ${n.originSymbols.map((o) => `\`${o}\``).join(", ")} |`);
+    const name = `${link(n.ref, `\`${n.ref.qualifiedName}\``)}${n.isTest ? " 🧪" : ""}`;
+    const from = n.originSymbols.map((o) => `\`${o}\``).join(", ");
+    out.push(
+      showConf
+        ? `| ${name} | \`${n.relation}\` | ${n.distance} | ${CONF_MARK[n.confidence]} | ${from} |`
+        : `| ${name} | \`${n.relation}\` | ${n.distance} | ${from} |`,
+    );
   }
-  if (nodes.length > 60) out.push(`| _…and ${nodes.length - 60} more (\`--format json\`)_ | | | |`);
+  if (nodes.length > 60) {
+    out.push(showConf ? `| _…and ${nodes.length - 60} more (\`--format json\`)_ | | | | |` : `| _…and ${nodes.length - 60} more (\`--format json\`)_ | | | |`);
+  }
+  if (showConf) {
+    out.push(
+      "",
+      `<sub>🔒 confirmed — structural graph edge · \`~\` heuristic — lexical/historical, verify · \`?\` unverified — graph coverage was partial for this file</sub>`,
+    );
+  }
   out.push("", "</details>", "");
 
   out.push("---");
   const tool = opts.toolUrl ?? "Blast Radius";
+  const provenance =
+    r.completeness.level === "complete"
+      ? "every row is backed by the graph path behind it"
+      : `graph coverage was ${r.completeness.level} — 🔒 confirmed structural edges, \`~\` heuristic (verify against source), \`?\` unverified where the graph could not fully analyse the file`;
   out.push(
-    `<sub>Generated by ${tool} from Entire Graph · \`${short(r.range.base)}\`..\`${short(r.range.head)}\` · every row is backed by the graph path behind it</sub>`,
+    `<sub>Generated by ${tool} from Entire Graph · \`${short(r.range.base)}\`..\`${short(r.range.head)}\` · ${provenance}</sub>`,
   );
   return out.join("\n");
 }

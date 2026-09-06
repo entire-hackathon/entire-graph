@@ -27,6 +27,7 @@ const node = (o: Partial<RadiusNode> & { qn: string }): RadiusNode => ({
   viaChain: [],
   originSymbols: ["X"],
   isTest: false,
+  confidence: "confirmed",
   ...o,
 });
 

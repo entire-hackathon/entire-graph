@@ -6,7 +6,8 @@
  * Deliberately lexical, not embeddings — it has to be explainable to a reviewer
  * in one sentence: "this symbol shares no words with the ticket."
  */
-import type { BlastRadius, ChangeSet, Finding, IntentModel, Severity } from "./model.js";
+import { isUnresolved } from "./completeness.js";
+import type { BlastRadius, ChangeSet, Confidence, Finding, IntentModel, Severity } from "./model.js";
 import { loc } from "./model.js";
 
 const STOP = new Set([
@@ -82,6 +83,7 @@ export function detectScopeCreep(
   const wide = opts.wideThreshold ?? 8;
   const kw = new Set(intent?.keywords ?? []);
   const findings: Finding[] = [];
+  const c = radius.completeness;
 
   for (const s of changeSet.symbols) {
     if (s.changeType === "added") continue;
@@ -114,11 +116,17 @@ export function detectScopeCreep(
       );
     }
 
+    // the verdict is lexical, so `heuristic` at best; if the graph could not
+    // fully analyse this file, its dependent count and reach are suspect → `partial`.
+    const confidence: Confidence =
+      c.level === "degraded" || isUnresolved(c, s.ref.file) ? "partial" : "heuristic";
+
     findings.push({
       symbol: s.ref,
       severity: severity(s.dependentsCount),
       reason: reasons.join("; "),
       dependentsCount: s.dependentsCount,
+      confidence,
       evidence: [
         intent
           ? `intent (${intent.source}): "${intent.text.split("\n")[0]!.trim().slice(0, 100)}"`

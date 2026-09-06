@@ -1,14 +1,25 @@
 /** Pure mappers: validated raw `entire graph` JSON → domain value objects. */
+import { extractCompleteness } from "./completeness.js";
 import type { RawDiffResult, RawImpactResult, ImpactSectionName } from "./graph-schema.js";
 import { IMPACT_SECTIONS } from "./graph-schema.js";
 import type {
   ChangeSet,
   ChangeType,
   ChangedSymbol,
+  Confidence,
   RadiusNode,
   RadiusSection,
   SymbolRef,
 } from "./model.js";
+
+/** Edges the graph resolves from parsed structure — trustworthy when the file parsed. */
+const STRUCTURAL_RELATION = new Set([
+  "CALLS",
+  "CALLED_BY",
+  "USES_TYPE",
+  "PARAM_TYPE",
+  "RETURNS_TYPE",
+]);
 
 const TEST_FILE = [
   /(^|\/)__tests__\//,
@@ -68,7 +79,14 @@ export function toChangeSet(raw: RawDiffResult): ChangeSet {
       });
     }
   }
-  return { base: raw.base, head: raw.head, checkpoint: raw.checkpoint, symbols, changedFiles: [...files] };
+  return {
+    base: raw.base,
+    head: raw.head,
+    checkpoint: raw.checkpoint,
+    symbols,
+    changedFiles: [...files],
+    completeness: extractCompleteness(raw),
+  };
 }
 
 const SECTION_RELATION: Record<ImpactSectionName, string> = {
@@ -103,17 +121,22 @@ export function toRadiusNodes(raw: RawImpactResult, origin: string): RadiusNode[
         external: ep.external ?? false,
       };
       const rel = e.relation?.toUpperCase();
+      const relation =
+        rel === "USES_TYPE" || rel === "PARAM_TYPE" || rel === "RETURNS_TYPE"
+          ? rel
+          : SECTION_RELATION[section];
+      // provisional: structural edge → confirmed, lexical/historical → heuristic.
+      // computeBlastRadius downgrades to `partial` for any file the graph flagged.
+      const confidence: Confidence = STRUCTURAL_RELATION.has(relation) ? "confirmed" : "heuristic";
       out.push({
         ref,
         section: SECTION_DOMAIN[section],
-        relation:
-          rel === "USES_TYPE" || rel === "PARAM_TYPE" || rel === "RETURNS_TYPE"
-            ? rel
-            : SECTION_RELATION[section],
+        relation,
         distance: e.depth && e.depth > 0 ? e.depth : 1,
         viaChain: e.via ? e.via.split(/\s*(?:->|,)\s*/).filter(Boolean) : [],
         originSymbols: [origin],
         isTest: isTest(ref),
+        confidence,
       });
     }
   }

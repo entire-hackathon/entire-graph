@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { COMPLETE } from "../src/domain/completeness.js";
 import { detectScopeCreep, keywords, splitIdent } from "../src/domain/scope-creep.js";
 import type { BlastRadius, ChangeSet, ChangedSymbol, IntentModel } from "../src/domain/model.js";
 
@@ -7,6 +8,7 @@ const emptyRadius: BlastRadius = {
   nodes: [],
   originEdges: [],
   sectionTotals: { callers: 0, callees: 0, type_consumers: 0, data_flows: 0, co_changes: 0, siblings: 0 },
+  completeness: COMPLETE,
 };
 const intent = (t: string): IntentModel => ({ source: "commit-message", text: t, keywords: keywords(t) });
 const changed = (qn: string, deps: number, over: Partial<ChangedSymbol> = {}): ChangedSymbol => ({
@@ -17,7 +19,7 @@ const changed = (qn: string, deps: number, over: Partial<ChangedSymbol> = {}): C
   newSignature: undefined,
   ...over,
 });
-const cs = (symbols: ChangedSymbol[]): ChangeSet => ({ base: "a", head: "b", checkpoint: undefined, symbols, changedFiles: [] });
+const cs = (symbols: ChangedSymbol[]): ChangeSet => ({ base: "a", head: "b", checkpoint: undefined, symbols, changedFiles: [], completeness: COMPLETE });
 
 describe("splitIdent / keywords", () => {
   it("splits camelCase and paths", () => {

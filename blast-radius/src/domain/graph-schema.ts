@@ -5,6 +5,40 @@
  */
 import { z } from "zod";
 
+/**
+ * `entire graph` discloses its own coverage on every result. We used to parse
+ * straight past these; now they feed `domain/completeness.ts`. Lenient — the
+ * graph schema is frozen-but-additive, so tolerate missing/extra fields.
+ */
+export const rawGraphNote = z
+  .object({
+    code: z.string().optional(),
+    severity: z.string().optional(),
+    file_path: z.string().optional(),
+    effect_on_semantic_completeness: z.string().optional(),
+    detail: z.string().optional(),
+  })
+  .passthrough();
+
+export const rawGraphStats = z
+  .object({
+    files: z.number().int().optional(),
+    parsed_files: z.number().int().optional(),
+    symbols: z.number().int().optional(),
+    relations: z.number().int().optional(),
+    partial_failures: z.number().int().optional(),
+    completeness_level: z.string().optional(),
+  })
+  .passthrough();
+
+/** The self-report fields shared by `diff` and `impact` results. */
+const graphCoverage = {
+  stats: rawGraphStats.optional(),
+  completeness: z.object({}).passthrough().optional(),
+  partial_failures: z.array(rawGraphNote).default([]),
+  warnings: z.array(rawGraphNote).default([]),
+};
+
 export const rawEntityChange = z
   .object({
     type: z.string(),
@@ -36,6 +70,7 @@ export const rawDiffResult = z
     head: z.string(),
     checkpoint: z.string().optional(),
     files: z.array(rawFileChange).default([]),
+    ...graphCoverage,
   })
   .passthrough();
 export type RawDiffResult = z.infer<typeof rawDiffResult>;
@@ -76,6 +111,7 @@ export const rawImpactResult = z
     data_flows: rawImpactSection.default({ total: 0, entries: [] }),
     co_changes: rawImpactSection.default({ total: 0, entries: [] }),
     siblings: rawImpactSection.default({ total: 0, entries: [] }),
+    ...graphCoverage,
   })
   .passthrough();
 export type RawImpactResult = z.infer<typeof rawImpactResult>;

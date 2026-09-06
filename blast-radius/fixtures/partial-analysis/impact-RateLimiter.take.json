@@ -1,0 +1,51 @@
+{
+  "query": "RateLimiter.take",
+  "disambiguation_required": false,
+  "callers": {
+    "total": 2,
+    "entries": [
+      {
+        "endpoint": {
+          "id": "ctl",
+          "name": "handle",
+          "qualified_name": "RedirectController.handle",
+          "kind": "method",
+          "file_path": "src/redirect/controller.ts",
+          "start_line": 18
+        },
+        "relation": "CALLS",
+        "direction": "in",
+        "depth": 1
+      },
+      {
+        "endpoint": {
+          "id": "t1",
+          "name": "limiter_test",
+          "qualified_name": "limiter_test",
+          "kind": "function",
+          "file_path": "test/redirect/limiter.test.ts",
+          "start_line": 6
+        },
+        "relation": "CALLS",
+        "direction": "in",
+        "depth": 2,
+        "via": "RedirectController.handle"
+      }
+    ]
+  },
+  "callees": { "total": 0, "entries": [] },
+  "type_consumers": { "total": 0, "entries": [] },
+  "data_flows": { "total": 0, "entries": [] },
+  "co_changes": { "total": 0, "entries": [] },
+  "siblings": { "total": 0, "entries": [] },
+  "warnings": [],
+  "partial_failures": [],
+  "stats": {
+    "files": 40,
+    "parsed_files": 38,
+    "symbols": 210,
+    "relations": 900,
+    "partial_failures": 0,
+    "completeness_level": "ok"
+  }
+}

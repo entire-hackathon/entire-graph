@@ -4,6 +4,7 @@
  * Depends only on a GraphProvider + an intent resolver.
  */
 import { computeBlastRadius } from "./domain/blast-radius.js";
+import { worstCompleteness, type Completeness } from "./domain/completeness.js";
 import type { AnalysisReport } from "./domain/model.js";
 import { renderMarkdown, type RenderOptions } from "./domain/render.js";
 import { detectScopeCreep, type ScopeOptions } from "./domain/scope-creep.js";
@@ -42,16 +43,26 @@ export async function runReview(
   const maxSymbols = req.maxSymbols ?? 25;
   const ordered = [...changeSet.symbols].sort((a, b) => b.dependentsCount - a.dependentsCount);
   const nodeLists = [];
+  const impactCompleteness: Completeness[] = [];
   for (const s of ordered.slice(0, maxSymbols)) {
     try {
       const r = await graph.impact({ name: s.ref.qualifiedName, file: s.ref.file });
       nodeLists.push(r.nodes);
+      impactCompleteness.push(r.completeness);
     } catch (e) {
       log(`impact skipped for ${s.ref.qualifiedName}: ${(e as Error).message}`);
     }
   }
-  const radius = computeBlastRadius(changeSet.symbols, nodeLists);
-  log(`blast radius: ${radius.nodes.length} node(s)`);
+  // graph is evidence, not an oracle: the radius is only as trustworthy as the
+  // least-complete query that built it.
+  const completeness = worstCompleteness(changeSet.completeness, ...impactCompleteness);
+  const radius = computeBlastRadius(changeSet.symbols, nodeLists, completeness);
+  log(
+    `blast radius: ${radius.nodes.length} node(s)` +
+      (completeness.level !== "complete"
+        ? ` — graph completeness: ${completeness.level} (${completeness.unresolvedFiles.length} file(s) unresolved)`
+        : ""),
+  );
 
   const intentCtx: IntentContext = {
     repo: req.repo,
@@ -75,6 +86,7 @@ export async function runReview(
     radius,
     findings,
     testPlan,
+    completeness: radius.completeness,
   };
   return { report, markdown: renderMarkdown(report, req.render ?? {}) };
 }

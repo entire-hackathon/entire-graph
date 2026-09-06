@@ -1,5 +1,15 @@
 /** Domain value objects — the vocabulary every stage speaks. Pure. */
 
+import type { Completeness } from "./completeness.js";
+
+/**
+ * How much to trust one piece of evidence.
+ *   confirmed — a structural graph edge (CALLS / CALLED_BY / USES_TYPE …) from a fully-parsed file
+ *   heuristic — a lexical or historical signal (scope-creep verdict, co-change) — verify against source
+ *   partial   — the graph could not fully analyse the file involved, or the run was degraded
+ */
+export type Confidence = "confirmed" | "heuristic" | "partial";
+
 export interface SymbolRef {
   readonly name: string;
   readonly qualifiedName: string;
@@ -31,6 +41,8 @@ export interface ChangeSet {
   readonly checkpoint: string | undefined;
   readonly symbols: readonly ChangedSymbol[];
   readonly changedFiles: readonly string[];
+  /** what `entire graph diff` said about its own coverage of this range. */
+  readonly completeness: Completeness;
 }
 
 export type RadiusSection =
@@ -49,6 +61,8 @@ export interface RadiusNode {
   readonly viaChain: readonly string[];
   readonly originSymbols: readonly string[];
   readonly isTest: boolean;
+  /** `confirmed` for a structural edge from a parsed file; `partial` when the graph was unsure. */
+  readonly confidence: Confidence;
 }
 
 /** A call edge between two changed symbols (`from` calls `to`) — for the diagram. */
@@ -62,6 +76,8 @@ export interface BlastRadius {
   readonly nodes: readonly RadiusNode[];
   readonly sectionTotals: Readonly<Record<RadiusSection, number>>;
   readonly originEdges: readonly OriginEdge[];
+  /** worst of the diff's coverage and every per-symbol impact query's coverage. */
+  readonly completeness: Completeness;
 }
 
 export interface IntentModel {
@@ -78,6 +94,12 @@ export interface Finding {
   readonly reason: string;
   readonly dependentsCount: number;
   readonly evidence: readonly string[];
+  /**
+   * The scope-creep verdict is lexical, so it is `heuristic` — verify against source.
+   * It drops to `partial` when the graph could not fully analyse the changed file
+   * (the dependent count and reachability behind it may be wrong).
+   */
+  readonly confidence: Confidence;
 }
 
 export interface TestCandidate {
@@ -102,6 +124,8 @@ export interface AnalysisReport {
   readonly radius: BlastRadius;
   readonly findings: readonly Finding[];
   readonly testPlan: TestPlan;
+  /** the graph's own coverage self-report for this analysis (= `radius.completeness`). */
+  readonly completeness: Completeness;
 }
 
 export function symbolKey(ref: Pick<SymbolRef, "qualifiedName" | "file">): string {

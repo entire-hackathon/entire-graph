@@ -25,10 +25,20 @@ On a commit range it:
 6. renders a Markdown report; every claim carries the `file:line` and the
    relation path behind it, so a reviewer verifies against source.
 
+Graph is evidence, not an oracle: `entire graph` reports its own coverage
+(`stats.completeness_level`, `partial_failures[]`, `warnings[]`). `domain/completeness.ts`
+turns that into a `Completeness` value threaded onto `ChangeSet`, `BlastRadius`
+and `AnalysisReport`. Each radius node and finding is graded — `confirmed`
+(structural edge from a parsed file), `heuristic` (lexical/historical — the
+scope verdict is always this), or `partial` (a file the graph could not fully
+analyse, or a degraded run). When coverage is not `complete` the report leads
+with a banner and drops every "every / covers all" claim.
+
 ## Shape
 
 - **`src/domain/`** — pure, no I/O. `model` (value objects), `graph-schema`
-  (zod for raw graph JSON), `graph-mapping` (raw → domain), `blast-radius` (the
+  (zod for raw graph JSON), `completeness` (the graph's coverage self-report →
+  a `Completeness` value), `graph-mapping` (raw → domain), `blast-radius` (the
   fold), `scope-creep`, `test-select`, `render`.
 - **`src/ports.ts`** — the `GraphProvider` interface (`diff`, `impact`).
 - **`src/adapters/`** — `fixture` (recorded JSON, for tests + offline) and

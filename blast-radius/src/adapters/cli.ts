@@ -1,5 +1,6 @@
 /** EntireGraphCliProvider — shells out to the real `entire graph` binary. */
 import { execa } from "execa";
+import { extractCompleteness } from "../domain/completeness.js";
 import { toChangeSet, toRadiusNodes } from "../domain/graph-mapping.js";
 import { rawDiffResult, rawImpactResult } from "../domain/graph-schema.js";
 import type { ChangeSet } from "../domain/model.js";
@@ -47,7 +48,7 @@ export class EntireGraphCliProvider implements GraphProvider {
     return toChangeSet(rawDiffResult.parse(raw));
   }
 
-  async impact(q: ImpactQuery): Promise<{ nodes: ReturnType<typeof toRadiusNodes>; disambiguation: boolean }> {
+  async impact(q: ImpactQuery): ReturnType<GraphProvider["impact"]> {
     const args = [
       "impact", "--repo", this.opts.repo, "--symbol", q.name,
       "--format", "json", "--depth", "2", "--profile", this.opts.profile ?? "full",
@@ -56,6 +57,10 @@ export class EntireGraphCliProvider implements GraphProvider {
     if (this.opts.head) args.push("--head");
     const raw = await this.run(args);
     const parsed = rawImpactResult.parse(raw);
-    return { nodes: toRadiusNodes(parsed, q.name), disambiguation: parsed.disambiguation_required };
+    return {
+      nodes: toRadiusNodes(parsed, q.name),
+      disambiguation: parsed.disambiguation_required,
+      completeness: extractCompleteness(parsed),
+    };
   }
 }
