@@ -3,7 +3,7 @@
   "checkpoint_id": "2a24363c61bd",
   "strategy": "manual-commit",
   "branch": "build/blast-radius",
-  "checkpoints_count": 1,
+  "checkpoints_count": 2,
   "files_touched": [
     "blast-radius/ARCHITECTURE.md",
     "blast-radius/fixtures/numpy-partial/diff.json",
@@ -35,13 +35,20 @@
       "compact_transcript": "/2a/24363c61bd/0/transcript.jsonl",
       "content_hash": "/2a/24363c61bd/0/content_hash.txt",
       "prompt": "/2a/24363c61bd/0/prompt.txt"
+    },
+    {
+      "metadata": "/2a/24363c61bd/1/metadata.json",
+      "transcript": "/2a/24363c61bd/1/full.jsonl",
+      "compact_transcript": "/2a/24363c61bd/1/transcript.jsonl",
+      "content_hash": "/2a/24363c61bd/1/content_hash.txt",
+      "prompt": ""
     }
   ],
   "token_usage": {
-    "input_tokens": 232,
-    "cache_creation_tokens": 209906,
-    "cache_read_tokens": 20299274,
-    "output_tokens": 92371,
-    "api_call_count": 116
+    "input_tokens": 1504,
+    "cache_creation_tokens": 1570908,
+    "cache_read_tokens": 327783461,
+    "output_tokens": 639739,
+    "api_call_count": 752
   }
 }
