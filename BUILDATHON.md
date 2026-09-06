@@ -1,15 +1,11 @@
 # Blast Radius
 
-> DRAFT — prepared as pre-event planning. Copy to the fork's repo root on Sep 6.
-> Fill the `〔…〕` placeholders during the build: checkpoint links, the Noon
-> Curveball section, and the final commit SHA.
-
 ## One-sentence summary
 
 Blast Radius turns Entire Graph output into a single pull-request review comment
 that shows the change's true dependency blast radius, flags code that drifted
 from the stated intent, and recommends the minimal set of tests that actually
-cover it — every claim traceable to a graph path.
+cover it — every claim graded by how much the graph itself can back it up.
 
 ## Problem, intended user and why it matters
 
@@ -40,8 +36,9 @@ things only Entire provides:
   solved, locally and deterministically.
 - **Entire Checkpoints** supply the *intent* — the captured prompt that produced
   the change. The scope-drift check compares "what the graph says changed"
-  against "what the checkpoint says was asked". That comparison is the core of
-  the product, and the intent half of it does not exist without Entire.
+  against "what the checkpoint says was asked". `src/adapters/intent.ts` reads
+  the `Entire-Checkpoint` trailer across `base..head` and falls back to the PR
+  body / commit message.
 
 The brief names both directions — "impact-aware code review", "test selection
 based on affected relationships", "combining graph findings with checkpoint
@@ -49,84 +46,126 @@ intent". Blast Radius is the intersection.
 
 ## Architecture and main workflow
 
-Hexagonal (ports & adapters). The pure `domain/` core has no I/O and depends
-only on four interfaces in `ports/`; every external system — the `entire-graph`
-binary, git, GitHub — is an adapter; one `composition-root.ts` wires them. An
-eslint boundary rule enforces the import direction at CI.
+Ports & adapters. The pure `src/domain/` core has no I/O; the one seam is the
+`GraphProvider` port (`src/ports.ts`), with two adapters — `fixture` (recorded
+JSON, used by every test) and `cli` (the real `entire graph` binary). `review.ts`
+wires a provider to the pipeline; `cli.ts` is arg-parsing only.
 
-The `review` use-case is a seven-stage pipeline:
+The `review` use-case:
 
 ```
-1  entire-graph diff            → the changed symbols (+ dependent counts)
-2  entire-graph impact ×N       → each symbol's neighbourhood, folded and
-                                  deduplicated into one blast radius
-3–5 (pure, in parallel):
+1  entire graph diff            → changed symbols (+ dependent counts) + the
+                                  graph's coverage self-report
+2  entire graph impact ×N       → each symbol's neighbourhood, folded and
+                                  deduplicated into one blast radius, worst-of
+                                  the per-query completeness carried forward
+3–5 (pure):
      scope check vs intent      → findings, by lexical overlap + dependents
      test selection             → proximity-ranked minimal set + run command
-     radius summary             → counts by module / service / relation
-6  build + validate AnalysisReport
-7  render (markdown / JSON / SARIF) → publish (PR comment / file / stdout)
+     confidence grading         → every node/finding: confirmed | heuristic | partial
+6  build AnalysisReport (carries `completeness`)
+7  render markdown / JSON       → PR comment (+ optional Delta export)
 ```
 
 The fold (stage 2) is the core: N overlapping `impact` results merged by
 `(file, symbol)`, keeping the shortest graph distance and the union of origin
-symbols, so one downstream node reads "reached from A and B, nearest distance 1".
+symbols.
 
 ## Entire Graph findings and verification
 
-〔During the build, record 2–3 concrete examples here. Template: 〕
-
-- **Search:** `entire graph search --query "…"` located `〔symbol〕` at
-  `〔file:line〕`, which we then read to confirm `〔…〕`.
-- **Impact before a risky change:** before modifying `〔symbol〕` we ran
-  `entire graph impact --symbol 〔symbol〕`. It reported `〔N〕` callers including
-  `〔…〕`; we verified `〔…〕` against the source and added a test for `〔…〕`.
-- **Final semantic diff:** `entire graph diff --base 〔A〕 --head 〔HEAD〕` — output
-  in `blast-radius/docs/final-semantic-diff.json`. `〔M〕` entities changed;
-  `〔the widest〕` had `〔K〕` dependents, which is why `〔…〕` was tested first.
+- **Impact before the curveball change.** Before threading a new value through
+  the domain we ran `entire graph impact` on each graph-consuming function —
+  `toChangeSet`, `toRadiusNodes`, `computeBlastRadius`, `detectScopeCreep`,
+  `renderMarkdown`. `computeBlastRadius` reported 3 callers (`runReview`, its
+  test, `cli.ts` via `runReview`), 6 type consumers and 5 co-change files;
+  `detectScopeCreep` reported 10 type consumers including `IntentModel` and
+  `Finding`. That told us the blast radius of the change was the whole `domain/`
+  plus both adapters plus `review` + `cli` — so the edit touched 22 files but
+  each one minimally, and every new parameter got a safe default.
+- **The curveball fixture is real graph output.**
+  `entire graph diff --repo <numpy> --base HEAD~8 --head HEAD` on `numpy/numpy`
+  returned 249 `E_PARSE_ERROR` warnings across C/C++ headers and SIMD kernels;
+  `entire graph impact --symbol TestPositive.test_valid` graded *itself*
+  `completeness_level: "degraded"` with 323 `partial_failures`. That output is
+  committed verbatim (trimmed, with `_TRUNCATED_FOR_FIXTURE` markers) as
+  `blast-radius/fixtures/numpy-partial/` and drives the new test.
+- **Final semantic diff:** `entire graph diff --base 03bd0208 --head HEAD` —
+  output in `blast-radius/docs/final-semantic-diff.json`. 28 files, 57 symbol
+  changes; the widest was the `GraphProvider.impact` port signature (41
+  dependents), which is why it is exercised through both the `cli` and `fixture`
+  adapters.
 
 Every finding in the tool's own output links to the `file:line` and the relation
-path behind it — the tool practises the verifiability it asks of its users.
+path behind it, and is marked 🔒 confirmed / `~` heuristic / `?` unverified — the
+tool practises the verifiability it asks of its users.
 
 ## Noon Curveball: what changed and how we adapted
 
-〔Fill after 12:00. Template: 〕
+**Constraint received:** *"Graph is evidence, not an oracle."* Blast Radius
+treated every graph edge as ground truth and presented "N nodes, M findings,
+covers every changed symbol" as authoritative — even though `entire graph` itself
+reports `stats.completeness_level`, `partial_failures[]` and `warnings[]`, which
+we parsed through and ignored. Requirement: distinguish confirmed structural
+evidence · heuristic/incomplete evidence · claims needing verification; flag when
+analysis is partial; never present incomplete context as complete.
 
-**Constraint received:** 〔quote it〕
+**What decision it changed:** the tool's *trust model*, not a feature. The report
+went from asserting completeness to stating what the graph can back up versus
+what it is guessing.
 
-**What decision it changed:** 〔the architectural / reliability decision that
-moved — not a feature that was added〕
+**How the design absorbed it (bounded, not a rewrite):**
 
-**How the design absorbed it:** 〔which adapter / strategy / pipeline stage; why
-this was a bounded change and not a rewrite — reference ARCHITECTURE.md §9〕
+- new `src/domain/completeness.ts` — a `Completeness { level: complete | partial
+  | degraded, unresolvedFiles, notes }` extracted from a raw diff/impact result;
+- threaded as an *additive* field on `ChangeSet`, `BlastRadius` (worst-of the
+  diff and every per-symbol `impact`) and `AnalysisReport`;
+- per-node / per-finding `confidence`: a structural edge (`CALLS` / `USES_TYPE` …)
+  from a parsed file → `confirmed`; the lexical scope-creep verdict → `heuristic
+  — verify against source`; anything touching an unresolved file or a degraded
+  run → `partial`;
+- `render.ts` grew a completeness banner, per-finding markers, a `Verify:` line
+  (`entire graph impact` + the covering test), and drops every "covers every /
+  maps to" claim when coverage is not `complete`;
+- the `GraphProvider.impact` return type gained one field.
 
-**Verification:** 〔the test added; what it asserts; why the revised behaviour can
-be trusted. Command to run it.〕
+No pipeline stage was rewritten. Every new parameter defaults to `COMPLETE`, so
+the 12 pre-existing tests pass unchanged.
 
-**Checkpoint:** 〔link to Checkpoint 3〕
+**Verification:** `blast-radius/test/completeness.test.ts` — the real numpy
+`degraded` fixture and a synthetic rate-limit scenario assert the banner renders,
+no "complete / every" claim survives, and a finding in an unresolved file is
+marked `partial`; a fully-resolved fixture pins the unchanged path.
+`cd blast-radius && npm test` → 30 passing.
+
+**Checkpoint:** `2a24363c61bd` (commit `bd412e91`).
 
 ## Checkpoint links and what each checkpoint proves
 
-| Checkpoint | Proves | Link |
+| Checkpoint | Proves | Ref |
 |---|---|---|
-| 1 · Initial architecture | the intended hexagonal design and pipeline were decided up front, before code | 〔link〕 |
-| 2 · Last stable pre-noon | a working CLI producing a real report from graph data; documented what was done, deferred, and at risk | 〔link〕 |
-| 3 · Curveball response | the constraint fully addressed as a bounded change, with a test | 〔link〕 |
-| 4 · Final | all tests green including the curveball test; final semantic-diff recorded | 〔link〕 |
+| 1 · Working core | diff+impact fold, scope-creep check, test selection, markdown/JSON report | `329f4fe4` |
+| 2 · Last stable pre-noon | rich PR comment + CI posting on real graph data; `--profile full` fix | `58212b78a6b8` · commit `03bd0208` |
+| 3 · Curveball response | "graph is evidence, not an oracle" fully addressed as a bounded change, with a test on real numpy output | `2a24363c61bd` · commit `bd412e91` |
+| 4 · Final | Databricks Delta export added; all tests green; final semantic diff recorded | `3d2232e8a679` · commit `cbf859d2` |
 
-A fresh agent session can resume from any of these — Checkpoint 2 was used
-exactly that way at noon.
+A fresh agent session reconstructed the work from Checkpoint 2 at noon before the
+curveball, exactly as intended.
 
 ## Setup, run and test instructions
 
 ```bash
 cd blast-radius
 npm ci
-npm test            # unit + end-to-end (runs on recorded fixtures, no binary needed)
+npm test            # 30 tests — unit + end-to-end on recorded fixtures, no binary needed
 npm run build
 
 # report from recorded Entire Graph output:
-node dist/cli.js review --fixture fixtures/entire-graph --format markdown
+node dist/cli.js review --fixture fixtures/scenario --repo .. --base HEAD~2 --head HEAD
+
+# the curveball case — a real degraded numpy analysis:
+node dist/cli.js review --fixture fixtures/numpy-partial --repo . \
+  --base HEAD~1 --head HEAD --max-symbols 400 \
+  --pr-body "Make numpy.positive reject boolean arrays instead of returning them."
 
 # report from a live analysis of this repo:
 go build -o /tmp/eg ../cmd/entire-graph
@@ -134,38 +173,71 @@ node dist/cli.js review --entire-graph /tmp/eg --base <BASE_SHA> --head HEAD
 ```
 
 Requires Node ≥ 20. The live path also needs Go (to build `entire-graph`) — the
-GitHub Action does this on the runner.
+GitHub Action (`.github/workflows/blast-radius.yml`) does this on the runner and
+posts one comment per PR.
 
 ## Databricks use, data sources and limitations
 
-Not applicable — this submission does not use Databricks.
+**Award category: Best Use of Databricks.**
+
+Every Blast Radius run emits a full JSON report (`review --json-out`).
+`blast-radius databricks-export` flattens it to **one row** — completeness level,
+unresolved-file count, node/finding confidence split, findings by severity, test
+selection vs coverage gaps, intent source — plus the raw JSON, and appends it to
+a Delta table (`workspace.blast_radius.reports`) via the **SQL Statement
+Execution API**. `CREATE SCHEMA IF NOT EXISTS` → `CREATE TABLE IF NOT EXISTS` →
+`INSERT … VALUES (:col, …)` with **every value bound as a named parameter**,
+including the raw payload — PR titles and symbol names never reach the SQL text;
+only the catalog/schema/table identifiers are interpolated, each validated
+`^[A-Za-z0-9_]+$`.
+
+That turns a stream of one-off PR comments into a **queryable dataset** for a
+Genie space / dashboard:
+
+- scope-creep hotspots — which files recur in findings;
+- graph health — how often Entire Graph grades our repo `degraded`, by week and
+  file type (a metric the curveball work created);
+- test-selection efficiency — `tests_selected` vs `coverage_gaps` over time.
+
+Setup, table schema and example Genie/SQL queries: `blast-radius/docs/databricks.md`.
+The GitHub Action runs the export only when `DATABRICKS_HOST` is set, so the core
+review is unaffected without it. Tested end-to-end against a Free Edition
+workspace (`workspace` catalog, serverless 2X-Small warehouse).
+
+**Data sources:** the tool's own review output — synthetic/prototype PRs (numpy
+fixtures and this fork's own history). No customer or confidential data. No
+tokens in the repo, workflow, screenshots or this file.
+
+**Limitations:** Free Edition serverless warehouse auto-stops; the first
+statement after idle waits for a cold start (the client polls the statement up to
+3 minutes). The table is append-only — dedupe re-runs in the query with
+`QUALIFY row_number() OVER (PARTITION BY repo, head ORDER BY run_at DESC) = 1`.
+One workspace / one metastore.
 
 ## Known limitations and next steps
 
-**Limitations (stated in the tool's output where relevant):**
+**Limitations (surfaced in the tool's own output):**
 
-- Static call resolution — dynamic dispatch, reflection and string-keyed
-  handlers can be missed or over-approximated. `entire-graph` reports
-  `completeness: degraded` when unsure; we surface the graph path so the
-  reviewer verifies rather than trusts.
+- Static call resolution — dynamic dispatch, reflection and string-keyed handlers
+  can be missed or over-approximated. The tool now reads Entire Graph's
+  `completeness_level` / `partial_failures` and marks affected evidence `partial`
+  rather than trusting it.
 - `impact` is queried at depth 2 — direct callers plus one transitive hop.
-- Scope overlap is lexical: "throttle" does not yet match "rate limit".
+- Scope overlap is lexical: "throttle" does not yet match "rate limit"; the
+  verdict is always labelled `heuristic — verify against source`.
 - Test "coverage" means a test *reaches* the changed symbol in the graph — it is
   test *selection*, not coverage measurement.
-- The diagram in the PR comment shows the caller path only; the full node list is
-  in the comment's table and the JSON output.
 
-**Next steps toward production:**
+**Next steps:**
 
 1. Graph-anchored scope scoring — a change one hop from an in-scope symbol is
    probably legitimate collateral; downgrade it.
-2. Call-site fix lists — `impact` already returns every call site; emit them as a
-   checklist for signature changes.
+2. Call-site fix lists for signature changes — `impact` already returns them.
 3. An MCP tool wrapping the pure `review()` use-case, so a coding agent runs the
-   analysis *before* it edits, not just a human after.
-4. Replace the `.entire/intent/<id>.json` read with `entire checkpoint show` for
-   the real captured session (Path B / Go subcommand).
+   analysis *before* it edits.
+4. A Databricks App front-end over `workspace.blast_radius.reports` for the
+   reviewer-facing drill-down.
 
 ---
 
-_Fork: 〔URL〕 · final commit: 〔SHA〕 · Entire mirror: 〔URL〕 · Track 2 · MIT_
+_Fork: https://github.com/entire-hackathon/entire-graph · branch `build/blast-radius` · final commit: see `git rev-parse HEAD` · Track 2 · MIT_
