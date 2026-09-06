@@ -15,8 +15,13 @@ const STOP = new Set([
   "that", "this", "when", "get", "set", "run", "via", "per",
 ]);
 
-export function splitIdent(s: string): string[] {
-  return s
+export interface SplitOptions {
+  /** keep tokens shorter than 3 chars (dropped by default). */
+  readonly keepShort?: boolean;
+}
+
+export function splitIdent(s: string, opts: SplitOptions = {}): string[] {
+  const parts = s
     .replace(/[/\\.]+/g, " ")
     .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
     .replace(/([A-Z]+)([A-Z][a-z])/g, "$1 $2")
@@ -24,6 +29,7 @@ export function splitIdent(s: string): string[] {
     .toLowerCase()
     .split(/\s+/)
     .filter(Boolean);
+  return opts.keepShort ? parts : parts.filter((p) => p.length >= 2);
 }
 
 function stem(w: string): string {

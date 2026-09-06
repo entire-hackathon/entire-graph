@@ -18,7 +18,9 @@ program
   .option("--repo <path>", "repository path", ".")
   .option("--fixture <dir>", "use recorded entire graph JSON instead of the binary")
   .option("--entire-graph <cmd>", "how to invoke the graph, space-separated", "entire graph")
-  .option("--profile <p>", "fast | full", "full")
+  .option("--profile <p>", "fast | full", "fast")
+  .option("--graph-head", "query the committed tree (reuses a warm index --head cache)")
+  .option("--max-symbols <n>", "cap how many changed symbols to run impact for", (v) => parseInt(v, 10))
   .option("--format <fmt>", "markdown | json", "markdown")
   .option("--out <file>", "write here instead of stdout")
   .option("--pr-title <s>", "PR title (intent fallback)")
@@ -36,7 +38,8 @@ program
       : new EntireGraphCliProvider({
           argv0: String(opts.entireGraph).split(/\s+/),
           repo: opts.repo,
-          profile: opts.profile === "fast" ? "fast" : "full",
+          profile: opts.profile === "full" ? "full" : "fast",
+          head: Boolean(opts.graphHead),
         });
 
     try {
@@ -47,6 +50,7 @@ program
         prBody: opts.prBody,
         scope: opts.dependentsThreshold ? { wideThreshold: opts.dependentsThreshold } : {},
         maxTests: opts.maxTests,
+        maxSymbols: opts.maxSymbols,
         render: { repoBlobUrlBase: opts.blobUrlBase, toolUrl: "[Blast Radius](https://github.com/entire-hackathon/entire-graph/tree/main/blast-radius)" },
         log,
       });

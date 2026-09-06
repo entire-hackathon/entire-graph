@@ -66,6 +66,7 @@ jobs:
             --repo . \
             --entire-graph "$GITHUB_WORKSPACE/bin/entire-graph" \
             --base "$BASE" --head "$HEAD" \
+            --graph-head --profile fast --max-symbols 20 \
             --pr-title "${PR_TITLE:-}" --pr-body "${PR_BODY:-}" \
             --blob-url-base "${{ github.server_url }}/${{ github.repository }}/blob/$HEAD" \
             --out "$RUNNER_TEMP/blast-radius.md"

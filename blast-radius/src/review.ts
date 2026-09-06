@@ -18,6 +18,7 @@ export interface ReviewRequest {
   readonly prBody?: string | undefined;
   readonly scope?: ScopeOptions;
   readonly maxTests?: number | undefined;
+  readonly maxSymbols?: number | undefined;
   readonly render?: RenderOptions;
   readonly log?: (msg: string) => void;
 }
@@ -28,18 +29,28 @@ export async function runReview(
 ): Promise<{ report: AnalysisReport; markdown: string }> {
   const log = req.log ?? (() => {});
 
+  if ("warmIndex" in graph && typeof graph.warmIndex === "function") {
+    log("warming the graph index…");
+    await (graph as { warmIndex: () => Promise<void> }).warmIndex();
+  }
+
   const changeSet = await graph.diff(req.range);
   log(`${changeSet.symbols.length} changed symbol(s) across ${changeSet.changedFiles.length} file(s)`);
 
-  const impacts = await Promise.all(
-    changeSet.symbols.map((s) =>
-      graph.impact({ name: s.ref.qualifiedName, file: s.ref.file }).catch((e) => {
-        log(`impact skipped for ${s.ref.qualifiedName}: ${(e as Error).message}`);
-        return { nodes: [], disambiguation: false };
-      }),
-    ),
-  );
-  const radius = computeBlastRadius(changeSet.symbols, impacts.map((i) => i.nodes));
+  // analyse the widest-reaching changes first, cap the rest — one impact call
+  // per symbol, run serially so a cold index isn't rebuilt N times in parallel
+  const maxSymbols = req.maxSymbols ?? 25;
+  const ordered = [...changeSet.symbols].sort((a, b) => b.dependentsCount - a.dependentsCount);
+  const nodeLists = [];
+  for (const s of ordered.slice(0, maxSymbols)) {
+    try {
+      const r = await graph.impact({ name: s.ref.qualifiedName, file: s.ref.file });
+      nodeLists.push(r.nodes);
+    } catch (e) {
+      log(`impact skipped for ${s.ref.qualifiedName}: ${(e as Error).message}`);
+    }
+  }
+  const radius = computeBlastRadius(changeSet.symbols, nodeLists);
   log(`blast radius: ${radius.nodes.length} node(s)`);
 
   const intentCtx: IntentContext = {

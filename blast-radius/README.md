@@ -25,6 +25,21 @@ node dist/cli.js review --fixture fixtures/scenario --repo .. --base HEAD~2 --he
 node dist/cli.js review --repo .. --base HEAD~2 --head HEAD --format json
 ```
 
+## Usage
+
+| Flag | Meaning |
+|--|--|
+| `--base` / `--head` | the commit range to analyse (default `HEAD~1`..`HEAD`) |
+| `--repo` | repository path (default `.`) |
+| `--fixture <dir>` | read recorded graph JSON instead of running the binary |
+| `--entire-graph "<cmd>"` | how to invoke the graph (`"entire graph"` or a binary path) |
+| `--graph-head` | query the committed tree — reuses a warm `index --head` cache |
+| `--format markdown \| json` | output format |
+| `--out <file>` | write to a file instead of stdout |
+| `--blob-url-base <url>` | `https://host/owner/repo/blob/<sha>` — makes symbols clickable |
+| `--max-tests <n>` / `--max-symbols <n>` | caps |
+| `--fail-on-findings` | exit non-zero when scope findings exist |
+
 ## How it works
 
 `src/review.ts` is the pipeline:
