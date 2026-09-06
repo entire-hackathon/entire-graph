@@ -1,0 +1,94 @@
+Noon Curveball — Track 2: "Graph is evidence, not an oracle."
+First, reconstruct context: run `entire checkpoint explain 58212b78a6b8` and read it. This is Blast Radius, a tool in `blast-radius/` that folds `entire graph diff` + `impact` into a PR review comment (scope-creep check + test selection). It works; 12 tests pass; the GitHub Action posts rich comments on `entire-hackathon/entire-graph#1` and `entire-hackathon/blast-radius-demo#1`.
+The assumption the curveball invalidates: Blast Radius currently treats every graph edge as ground truth and presents "N nodes, M findings, covers every changed symbol" as authoritative — even though `entire graph` itself reports `stats.completeness_level`, `partial_failures[]` and `warnings[]` in its JSON, which we parse-through and ignore.
+Requirement: the tool must distinguish confirmed structural evidence · heuristic/incomplete evidence · claims needing source/test verification; flag when analysis is partial; never present incomplete context as complete; ship a test with incomplete analysis.
+Before editing anything, run graph impact analysis on the code that consumes graph evidence and capture the output:
+
+```
+entire graph impact --repo . --symbol toChangeSet --file blast-radius/src/domain/graph-mapping.ts
+entire graph impact --repo . --symbol toRadiusNodes --file blast-radius/src/domain/graph-mapping.ts
+entire graph impact --repo . --symbol computeBlastRadius --file blast-radius/src/domain/blast-radius.ts
+entire graph impact --repo . --symbol detectScopeCreep --file blast-radius/src/domain/scope-creep.ts
+entire graph impact --repo . --symbol renderMarkdown --file blast-radius/src/domain/render.ts
+```
+
+Then implement the smallest complete revision:
+
+* `graph-schema.ts`: stop dropping `stats`, `completeness`, `partial_failures`, `warnings` — add lenient fields.
+* New domain/completeness.ts: a `Completeness` value `{ level: "complete"|"partial"|"degraded", unresolvedFiles: string[], notes: string[] }`; extract it from a raw diff/impact result.
+* Thread it: `ChangeSet.completeness`, `BlastRadius.completeness` (worst of the two), `AnalysisReport.completeness`.
+* Confidence per node/finding: structural edges (`CALLS`/`CALLED_BY`/`USES_TYPE`) from parsed files → `confirmed`; anything touching an unresolved file or when level ≠ complete → `partial`. The scope-creep verdict is lexical → always `heuristic — verify against source`.
+* `render.ts`: a completeness banner when level ≠ complete ("⚠ Graph completeness: degraded — N files unresolved; findings may be incomplete"); mark each finding 🔒 confirmed / ~ heuristic / ? unverified; change "covers every changed symbol" → "covers every changed symbol we could resolve"; add a per-finding Verify line (`entire graph impact --symbol X` + the covering test).
+* JSON output carries `completeness` + per-finding `confidence`.
+
+Test (required): a fixture `impact` JSON with `completeness_level: "degraded"` + a `partial_failures` entry → assert the banner renders, no "complete"/"every" claim, findings from unresolved files are marked `partial`. Also verify a fully-resolved fixture still renders exactly as before (preserve existing behaviour).
+Use the attached partial-analysis fixture at `〔path〕` if it fits; otherwise synthesise one.
+`npm test` green including the new test. Commit with a message stating what assumption changed, how the design changed, and why the new result is safe. That commit is the final Checkpoint.
+
+---
+
+For the point in curveball - "A partial analysis repository fixture is attached." I have been asked to use any opensource repo which is complex like numpy
+
+---
+
+How can I use databricks in my solution? Competing for Best Use of Databricks
+Databricks is an additional award category within the same project.
+
+Free Edition setup
+Each teammate may explore in an individual Databricks Free Edition workspace.
+Choose one final workspace for the shared dataset, deployed app or endpoint and final demonstration.
+Keep notebooks, app code, configuration and documentation in the shared Git repository. Never commit access tokens or credentials.
+Name one deployment owner and test that the owner can sign in and open every required resource before judging.
+Good scope for a one-day build
+An AI app or agent using Databricks Apps, hosted foundation models, model serving or AI Search where available.
+An analytics experience using notebooks, SQL, dashboards or Genie to answer a concrete question.
+A data pipeline that ingests, cleans and transforms representative data into a useful result.
+A data-backed application using Lakehouse data and Databricks Apps for the user experience.
+An ML experiment that uses a reproducible dataset, experiment tracking and an evaluation result.
+Free Edition constraints to design around
+Area
+
+Planning constraint
+
+Service model
+
+No-cost, serverless, quota-limited environment for non-commercial learning and prototyping; no production SLA.
+
+SQL and jobs
+
+One serverless 2X-Small SQL warehouse; up to five concurrent job tasks per account.
+
+Pipelines
+
+One active pipeline per supported pipeline type.
+
+Models and AI Search
+
+Endpoint, throughput and model availability limits apply; no GPU or provisioned throughput; AI Search is limited.
+
+Apps and database
+
+Up to three Apps, with idle auto-stop behavior; one Lakebase project where available.
+
+Workspace
+
+One workspace and one metastore per account; several account-level and enterprise controls are unavailable.
+
+Quota
+
+When quota is exhausted, affected compute may be unavailable for the rest of the day or month. Build and test your narrow path early.
+
+
+Work locally when practical, deploy one narrow slice early and preserve a screenshot or recording of any fragile live step. If live infrastructure fails during judging, explain the expected behavior, show the prepared evidence and continue with the product story.
+
+Databricks Free Edition overview
+
+Current Databricks Free Edition limitations
+
+Responsible use of AI and data
+Do not upload confidential company information, customer data, passwords, private keys or personal data that you do not have permission to use.
+Do not put secrets in prompts, source repositories, screenshots, checkpoint context or BUILDATHON.md.
+Verify generated code, SQL, citations and outputs. Test the cases that matter to your user and disclose what remains unverified.
+Explain your data sources, permitted use, sampling or transformation, and important limitations.
+Clearly label synthetic, cached, mocked or prototype data and responses.
+You remain accountable for the implementation, even when a coding agent created it. Every teammate presenting should understand the relevant code and product decisions.

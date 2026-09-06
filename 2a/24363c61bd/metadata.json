@@ -1,0 +1,47 @@
+{
+  "cli_version": "0.10.5",
+  "checkpoint_id": "2a24363c61bd",
+  "strategy": "manual-commit",
+  "branch": "build/blast-radius",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "blast-radius/ARCHITECTURE.md",
+    "blast-radius/fixtures/numpy-partial/diff.json",
+    "blast-radius/fixtures/numpy-partial/impact-TestPositive.test_valid.json",
+    "blast-radius/fixtures/partial-analysis/diff.json",
+    "blast-radius/fixtures/partial-analysis/impact-DbClient.query.json",
+    "blast-radius/fixtures/partial-analysis/impact-RateLimiter.take.json",
+    "blast-radius/fixtures/resolved/diff.json",
+    "blast-radius/fixtures/resolved/impact-RateLimiter.take.json",
+    "blast-radius/src/adapters/cli.ts",
+    "blast-radius/src/adapters/fixture.ts",
+    "blast-radius/src/domain/blast-radius.ts",
+    "blast-radius/src/domain/completeness.ts",
+    "blast-radius/src/domain/graph-mapping.ts",
+    "blast-radius/src/domain/graph-schema.ts",
+    "blast-radius/src/domain/model.ts",
+    "blast-radius/src/domain/render.ts",
+    "blast-radius/src/domain/scope-creep.ts",
+    "blast-radius/src/ports.ts",
+    "blast-radius/src/review.ts",
+    "blast-radius/test/blast-radius.test.ts",
+    "blast-radius/test/completeness.test.ts",
+    "blast-radius/test/scope-creep.test.ts"
+  ],
+  "sessions": [
+    {
+      "metadata": "/2a/24363c61bd/0/metadata.json",
+      "transcript": "/2a/24363c61bd/0/full.jsonl",
+      "compact_transcript": "/2a/24363c61bd/0/transcript.jsonl",
+      "content_hash": "/2a/24363c61bd/0/content_hash.txt",
+      "prompt": "/2a/24363c61bd/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 232,
+    "cache_creation_tokens": 209906,
+    "cache_read_tokens": 20299274,
+    "output_tokens": 92371,
+    "api_call_count": 116
+  }
+}
