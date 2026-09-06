@@ -1,0 +1,91 @@
+name: Blast Radius
+
+# Impact-aware review of the most recent commit on a PR, powered by this repo's
+# own Entire Graph. Posts one comment + a job summary.
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      base:
+        description: base revision
+        default: HEAD~1
+      head:
+        description: head revision
+        default: HEAD
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  blast-radius:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.26"
+          cache: false
+
+      - name: Restore entire-graph binary
+        id: eg-cache
+        uses: actions/cache@v4
+        with:
+          path: bin/entire-graph
+          key: entire-graph-${{ runner.os }}-${{ hashFiles('go.sum', 'cmd/**', 'internal/**') }}
+
+      - name: Build entire-graph
+        if: steps.eg-cache.outputs.cache-hit != 'true'
+        run: |
+          CGO_ENABLED=1 go build -trimpath -o bin/entire-graph ./cmd/entire-graph
+          bin/entire-graph version
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build the CLI
+        working-directory: blast-radius
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+
+      - name: Run Blast Radius
+        id: run
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set -euo pipefail
+          BASE="${{ github.event.inputs.base || format('{0}~1', github.event.pull_request.head.sha) }}"
+          HEAD="${{ github.event.inputs.head || github.event.pull_request.head.sha }}"
+          node blast-radius/dist/cli.js review \
+            --repo . \
+            --entire-graph "$GITHUB_WORKSPACE/bin/entire-graph" \
+            --base "$BASE" --head "$HEAD" \
+            --pr-title "${PR_TITLE:-}" --pr-body "${PR_BODY:-}" \
+            --out "$RUNNER_TEMP/blast-radius.md"
+          {
+            echo "## 🧨 Blast Radius"
+            echo
+            cat "$RUNNER_TEMP/blast-radius.md"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment on the PR
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          body="$RUNNER_TEMP/blast-radius.md"
+          # upsert: edit our own previous comment if it exists
+          id=$(gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments?per_page=100" \
+                --jq '[.[] | select(.body | startswith("<!-- blast-radius -->"))][0].id // empty')
+          if [ -n "$id" ]; then
+            gh api --method PATCH "repos/${{ github.repository }}/issues/comments/$id" -F "body=@$body"
+          else
+            gh api --method POST "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" -F "body=@$body"
+          fi
