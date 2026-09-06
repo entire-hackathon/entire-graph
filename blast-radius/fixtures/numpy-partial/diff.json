@@ -1,0 +1,4187 @@
+{
+ "base": "HEAD~8",
+ "head": "HEAD",
+ "files": [
+  {
+   "path": "doc/release/upcoming_changes/32100.improvement.rst",
+   "status": "A",
+   "language": "reStructuredText",
+   "changes": [
+    {
+     "type": "added",
+     "kind": "document",
+     "name": "32100.improvement",
+     "new_signature": "restructuredtext document 32100.improvement",
+     "after_start_line": 1,
+     "dependents_count": 23
+    }
+   ]
+  },
+  {
+   "path": "doc/source/conf.py",
+   "status": "M",
+   "language": "Python",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "doc/source/conf.py",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/code_generators/generate_umath.py",
+   "status": "M",
+   "language": "Python",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "numpy/_core/code_generators/generate_umath.py",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/include/numpy/libdivide/libdivide.h",
+   "status": "D",
+   "language": "C++",
+   "changes": [
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "NUMPY_CORE_INCLUDE_NUMPY_LIBDIVIDE_LIBDIVIDE_H_",
+     "old_signature": "#define NUMPY_CORE_INCLUDE_NUMPY_LIBDIVIDE_LIBDIVIDE_H_",
+     "before_start_line": 12,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_VERSION",
+     "old_signature": "#define LIBDIVIDE_VERSION \"3.0\"",
+     "before_start_line": 14,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_VERSION_MAJOR",
+     "old_signature": "#define LIBDIVIDE_VERSION_MAJOR 3",
+     "before_start_line": 15,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_VERSION_MINOR",
+     "old_signature": "#define LIBDIVIDE_VERSION_MINOR 0",
+     "before_start_line": 16,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_VC",
+     "old_signature": "#define LIBDIVIDE_VC",
+     "before_start_line": 42,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "__has_builtin",
+     "old_signature": "#define __has_builtin(x) 0",
+     "before_start_line": 46,
+     "dependents_count": 1
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "HAS_INT128_T",
+     "old_signature": "#define HAS_INT128_T",
+     "before_start_line": 50,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "HAS_INT128_DIV",
+     "old_signature": "#define HAS_INT128_DIV",
+     "before_start_line": 53,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_X86_64",
+     "old_signature": "#define LIBDIVIDE_X86_64",
+     "before_start_line": 58,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_i386",
+     "old_signature": "#define LIBDIVIDE_i386",
+     "before_start_line": 62,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_GCC_STYLE_ASM",
+     "old_signature": "#define LIBDIVIDE_GCC_STYLE_ASM",
+     "before_start_line": 66,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_FUNCTION",
+     "old_signature": "#define LIBDIVIDE_FUNCTION __FUNCTION__",
+     "before_start_line": 70,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_ERROR",
+     "old_signature": "#define LIBDIVIDE_ERROR(msg) \\",
+     "before_start_line": 75,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_ASSERT",
+     "old_signature": "#define LIBDIVIDE_ASSERT(x) \\",
+     "before_start_line": 83,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 105,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 110,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 115,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 120,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 125,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 130,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 135,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 140,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "enum",
+     "name": "LIBDIVIDE_32_SHIFT_MASK",
+     "old_signature": "enum",
+     "before_start_line": 179,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 186,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 187,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 188,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 189,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 191,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 192,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 193,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 194,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 196,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 197,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 198,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 199,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 201,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 202,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 203,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 204,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 206,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 207,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 208,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 209,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 211,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 212,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 213,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 214,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_mullhi_u32",
+     "old_signature": "static inline uint32_t libdivide_mullhi_u32(uint32_t x, uint32_t y)",
+     "before_start_line": 218,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_mullhi_s32",
+     "old_signature": "static inline int32_t libdivide_mullhi_s32(int32_t x, int32_t y)",
+     "before_start_line": 224,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_mullhi_u64",
+     "old_signature": "static inline uint64_t libdivide_mullhi_u64(uint64_t x, uint64_t y)",
+     "before_start_line": 231,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_mullhi_s64",
+     "old_signature": "static inline int64_t libdivide_mullhi_s64(int64_t x, int64_t y)",
+     "before_start_line": 258,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_count_leading_zeros32",
+     "old_signature": "static inline int32_t libdivide_count_leading_zeros32(uint32_t val)",
+     "before_start_line": 281,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_count_leading_zeros64",
+     "old_signature": "static inline int32_t libdivide_count_leading_zeros64(uint64_t val)",
+     "before_start_line": 309,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_64_div_32_to_32",
+     "old_signature": "static inline uint32_t libdivide_64_div_32_to_32(uint32_t u1, uint32_t u0, uint32_t v, uint32_t *r)",
+     "before_start_line": 331,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_128_div_64_to_64",
+     "old_signature": "static uint64_t libdivide_128_div_64_to_64(uint64_t u1, uint64_t u0, uint64_t v, uint64_t *r)",
+     "before_start_line": 351,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u128_shift",
+     "old_signature": "static inline void libdivide_u128_shift(uint64_t *u1, uint64_t *u0, int32_t signed_shift)",
+     "before_start_line": 442,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_128_div_128_to_64",
+     "old_signature": "static uint64_t libdivide_128_div_128_to_64(uint64_t u_hi, uint64_t u_lo, uint64_t v_hi, uint64_t v_lo, uint64_t *r_hi, uint64_t *r_lo)",
+     "before_start_line": 458,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u32_t",
+     "old_signature": "static inline struct libdivide_u32_t libdivide_internal_u32_gen(uint32_t d, int branchfree)",
+     "before_start_line": 555,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 555,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 560,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t libdivide_u32_gen(uint32_t d)",
+     "before_start_line": 605,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 605,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t libdivide_u32_branchfree_gen(uint32_t d)",
+     "before_start_line": 609,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 609,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 613,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 614,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u32_do",
+     "old_signature": "uint32_t libdivide_u32_do(uint32_t numer, const struct libdivide_u32_t *denom)",
+     "before_start_line": 618,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 618,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u32_branchfree_do",
+     "old_signature": "uint32_t libdivide_u32_branchfree_do(uint32_t numer, const struct libdivide_u32_branchfree_t *denom)",
+     "before_start_line": 637,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 637,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u32_recover",
+     "old_signature": "uint32_t libdivide_u32_recover(const struct libdivide_u32_t *denom)",
+     "before_start_line": 643,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 643,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u32_branchfree_recover",
+     "old_signature": "uint32_t libdivide_u32_branchfree_recover(const struct libdivide_u32_branchfree_t *denom)",
+     "before_start_line": 681,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 681,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u64_t",
+     "old_signature": "static inline struct libdivide_u64_t libdivide_internal_u64_gen(uint64_t d, int branchfree)",
+     "before_start_line": 712,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 712,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 717,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t libdivide_u64_gen(uint64_t d)",
+     "before_start_line": 764,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 764,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t libdivide_u64_branchfree_gen(uint64_t d)",
+     "before_start_line": 768,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 768,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 772,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 773,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u64_do",
+     "old_signature": "uint64_t libdivide_u64_do(uint64_t numer, const struct libdivide_u64_t *denom)",
+     "before_start_line": 777,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 777,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u64_branchfree_do",
+     "old_signature": "uint64_t libdivide_u64_branchfree_do(uint64_t numer, const struct libdivide_u64_branchfree_t *denom)",
+     "before_start_line": 796,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 796,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u64_recover",
+     "old_signature": "uint64_t libdivide_u64_recover(const struct libdivide_u64_t *denom)",
+     "before_start_line": 802,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 802,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_u64_branchfree_recover",
+     "old_signature": "uint64_t libdivide_u64_branchfree_recover(const struct libdivide_u64_branchfree_t *denom)",
+     "before_start_line": 845,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 845,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s32_t",
+     "old_signature": "static inline struct libdivide_s32_t libdivide_internal_s32_gen(int32_t d, int branchfree)",
+     "before_start_line": 881,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 881,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 886,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t libdivide_s32_gen(int32_t d)",
+     "before_start_line": 946,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 946,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t libdivide_s32_branchfree_gen(int32_t d)",
+     "before_start_line": 950,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 950,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 951,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 952,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s32_do",
+     "old_signature": "int32_t libdivide_s32_do(int32_t numer, const struct libdivide_s32_t *denom)",
+     "before_start_line": 956,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 956,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s32_branchfree_do",
+     "old_signature": "int32_t libdivide_s32_branchfree_do(int32_t numer, const struct libdivide_s32_branchfree_t *denom)",
+     "before_start_line": 984,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 984,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s32_recover",
+     "old_signature": "int32_t libdivide_s32_recover(const struct libdivide_s32_t *denom)",
+     "before_start_line": 1008,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 1008,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s32_branchfree_recover",
+     "old_signature": "int32_t libdivide_s32_branchfree_recover(const struct libdivide_s32_branchfree_t *denom)",
+     "before_start_line": 1044,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 1044,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 1045,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s64_t",
+     "old_signature": "static inline struct libdivide_s64_t libdivide_internal_s64_gen(int64_t d, int branchfree)",
+     "before_start_line": 1050,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1050,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1055,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t libdivide_s64_gen(int64_t d)",
+     "before_start_line": 1115,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1115,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t libdivide_s64_branchfree_gen(int64_t d)",
+     "before_start_line": 1119,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 1119,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1120,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 1121,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s64_do",
+     "old_signature": "int64_t libdivide_s64_do(int64_t numer, const struct libdivide_s64_t *denom)",
+     "before_start_line": 1125,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1125,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s64_branchfree_do",
+     "old_signature": "int64_t libdivide_s64_branchfree_do(int64_t numer, const struct libdivide_s64_branchfree_t *denom)",
+     "before_start_line": 1154,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 1154,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s64_recover",
+     "old_signature": "int64_t libdivide_s64_recover(const struct libdivide_s64_t *denom)",
+     "before_start_line": 1178,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1178,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "libdivide_s64_branchfree_recover",
+     "old_signature": "int64_t libdivide_s64_branchfree_recover(const struct libdivide_s64_branchfree_t *denom)",
+     "before_start_line": 1205,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 1205,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1206,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 1211,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 1212,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 1213,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1214,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 1216,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 1217,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 1218,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 1219,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "static inline __m512i libdivide_s64_signbits(__m512i v)",
+     "before_start_line": 1223,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "static inline __m512i libdivide_s64_shift_right_vector(__m512i v, int amt)",
+     "before_start_line": 1227,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "static inline __m512i libdivide_mullhi_u32_vector(__m512i a, __m512i b)",
+     "before_start_line": 1232,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "static inline __m512i libdivide_mullhi_s32_vector(__m512i a, __m512i b)",
+     "before_start_line": 1241,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "static inline __m512i libdivide_mullhi_u64_vector(__m512i x, __m512i y)",
+     "before_start_line": 1251,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "static inline __m512i libdivide_mullhi_s64_vector(__m512i x, __m512i y)",
+     "before_start_line": 1272,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "__m512i libdivide_u32_do_vector(__m512i numers, const struct libdivide_u32_t *denom)",
+     "before_start_line": 1283,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 1283,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "__m512i libdivide_u32_branchfree_do_vector(__m512i numers, const struct libdivide_u32_branchfree_t *denom)",
+     "before_start_line": 1303,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 1303,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "__m512i libdivide_u64_do_vector(__m512i numers, const struct libdivide_u64_t *denom)",
+     "before_start_line": 1311,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 1311,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "__m512i libdivide_u64_branchfree_do_vector(__m512i numers, const struct libdivide_u64_branchfree_t *denom)",
+     "before_start_line": 1331,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 1331,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "__m512i libdivide_s32_do_vector(__m512i numers, const struct libdivide_s32_t *denom)",
+     "before_start_line": 1339,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 1339,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "__m512i libdivide_s32_branchfree_do_vector(__m512i numers, const struct libdivide_s32_branchfree_t *denom)",
+     "before_start_line": 1368,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 1368,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "__m512i libdivide_s64_do_vector(__m512i numers, const struct libdivide_s64_t *denom)",
+     "before_start_line": 1391,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1391,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m512i",
+     "old_signature": "__m512i libdivide_s64_branchfree_do_vector(__m512i numers, const struct libdivide_s64_branchfree_t *denom)",
+     "before_start_line": 1421,
+     "dependents_count": 77
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 1421,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 1689,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 1690,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 1691,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1692,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 1694,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 1695,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 1696,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 1697,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "static inline __m128i libdivide_s64_signbits(__m128i v)",
+     "before_start_line": 1702,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "static inline __m128i libdivide_s64_shift_right_vector(__m128i v, int amt)",
+     "before_start_line": 1709,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "static inline __m128i libdivide_mullhi_u32_vector(__m128i a, __m128i b)",
+     "before_start_line": 1718,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "static inline __m128i libdivide_mullhi_s32_vector(__m128i a, __m128i b)",
+     "before_start_line": 1729,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "static inline __m128i libdivide_mullhi_u64_vector(__m128i x, __m128i y)",
+     "before_start_line": 1741,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "static inline __m128i libdivide_mullhi_s64_vector(__m128i x, __m128i y)",
+     "before_start_line": 1762,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "__m128i libdivide_u32_do_vector(__m128i numers, const struct libdivide_u32_t *denom)",
+     "before_start_line": 1773,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_t",
+     "old_signature": "struct libdivide_u32_t",
+     "before_start_line": 1773,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "__m128i libdivide_u32_branchfree_do_vector(__m128i numers, const struct libdivide_u32_branchfree_t *denom)",
+     "before_start_line": 1793,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u32_branchfree_t",
+     "old_signature": "struct libdivide_u32_branchfree_t",
+     "before_start_line": 1793,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "__m128i libdivide_u64_do_vector(__m128i numers, const struct libdivide_u64_t *denom)",
+     "before_start_line": 1801,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_t",
+     "old_signature": "struct libdivide_u64_t",
+     "before_start_line": 1801,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "__m128i libdivide_u64_branchfree_do_vector(__m128i numers, const struct libdivide_u64_branchfree_t *denom)",
+     "before_start_line": 1821,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_u64_branchfree_t",
+     "old_signature": "struct libdivide_u64_branchfree_t",
+     "before_start_line": 1821,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "__m128i libdivide_s32_do_vector(__m128i numers, const struct libdivide_s32_t *denom)",
+     "before_start_line": 1829,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_t",
+     "old_signature": "struct libdivide_s32_t",
+     "before_start_line": 1829,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "__m128i libdivide_s32_branchfree_do_vector(__m128i numers, const struct libdivide_s32_branchfree_t *denom)",
+     "before_start_line": 1858,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s32_branchfree_t",
+     "old_signature": "struct libdivide_s32_branchfree_t",
+     "before_start_line": 1858,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "__m128i libdivide_s64_do_vector(__m128i numers, const struct libdivide_s64_t *denom)",
+     "before_start_line": 1881,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_t",
+     "old_signature": "struct libdivide_s64_t",
+     "before_start_line": 1881,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "function",
+     "name": "__m128i",
+     "old_signature": "__m128i libdivide_s64_branchfree_do_vector(__m128i numers, const struct libdivide_s64_branchfree_t *denom)",
+     "before_start_line": 1911,
+     "dependents_count": 196
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "libdivide_s64_branchfree_t",
+     "old_signature": "struct libdivide_s64_branchfree_t",
+     "before_start_line": 1911,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "enum",
+     "name": "BRANCHFULL",
+     "old_signature": "enum",
+     "before_start_line": 1944,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_VECTOR_TYPE",
+     "old_signature": "#define LIBDIVIDE_VECTOR_TYPE __m512i",
+     "before_start_line": 1950,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "LIBDIVIDE_DIVIDE_VECTOR",
+     "old_signature": "#define LIBDIVIDE_DIVIDE_VECTOR(ALGO)",
+     "before_start_line": 1958,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "macro",
+     "name": "DISPATCHER_GEN",
+     "old_signature": "#define DISPATCHER_GEN(T, ALGO) \\",
+     "before_start_line": 1968,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "dispatcher",
+     "old_signature": "struct dispatcher",
+     "before_start_line": 1984,
+     "dependents_count": 35
+    },
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "dispatcher",
+     "old_signature": "struct dispatcher<true, false, sizeof(uint64_t), BRANCHFREE>",
+     "before_start_line": 1993,
+     "dependents_count": 35
+    },
+    {
+     "type": "removed",
+     "kind": "class",
+     "name": "divider",
+     "old_signature": "class divider",
+     "before_start_line": 1999,
+     "dependents_count": 1
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "divider.divider",
+     "old_signature": "divider()",
+     "before_start_line": 2004,
+     "dependents_count": 1
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "divider.divider",
+     "old_signature": "divider(T d) : div(d)",
+     "before_start_line": 2007,
+     "dependents_count": 1
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "divider.T",
+     "old_signature": "T divide(T n) const",
+     "before_start_line": 2010,
+     "dependents_count": 736
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "divider.T",
+     "old_signature": "T recover() const",
+     "before_start_line": 2016,
+     "dependents_count": 736
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "divider.op",
+     "old_signature": "bool operator==(const divider<T, ALGO>& other) const",
+     "before_start_line": 2020,
+     "dependents_count": 353
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "divider.op",
+     "old_signature": "bool operator!=(const divider<T, ALGO>& other) const",
+     "before_start_line": 2025,
+     "dependents_count": 353
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "divider.LIBDIVIDE_VECTOR_TYPE",
+     "old_signature": "LIBDIVIDE_VECTOR_TYPE divide(LIBDIVIDE_VECTOR_TYPE n) const",
+     "before_start_line": 2033,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "dispatcher.T",
+     "old_signature": "T operator/(T n, const divider<T, ALGO>& div)",
+     "before_start_line": 2046,
+     "dependents_count": 736
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "dispatcher.T",
+     "old_signature": "T& operator/=(T& n, const divider<T, ALGO>& div)",
+     "before_start_line": 2052,
+     "dependents_count": 736
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "dispatcher.LIBDIVIDE_VECTOR_TYPE",
+     "old_signature": "LIBDIVIDE_VECTOR_TYPE operator/(LIBDIVIDE_VECTOR_TYPE n, const divider<T, ALGO>& div)",
+     "before_start_line": 2060,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "method",
+     "name": "dispatcher.LIBDIVIDE_VECTOR_TYPE",
+     "old_signature": "LIBDIVIDE_VECTOR_TYPE& operator/=(LIBDIVIDE_VECTOR_TYPE& n, const divider<T, ALGO>& div)",
+     "before_start_line": 2065,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "type",
+     "name": "branchfree_divider",
+     "old_signature": "using branchfree_divider = divider<T, BRANCHFREE>;",
+     "before_start_line": 2073,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/_simd/_simd.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "numpy/_core/src/_simd/_simd.h",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/common/binop_override.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "binop_should_defer",
+     "before_start_line": 97,
+     "after_start_line": 98,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/common/npy_cpu_dispatch.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_cpu_dispatch_tracer_init",
+     "before_start_line": 8,
+     "after_start_line": 9,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_cpu_dispatch_trace",
+     "before_start_line": 32,
+     "after_start_line": 34,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/common/npy_ctypes.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_ctypes_check",
+     "before_start_line": 18,
+     "after_start_line": 19,
+     "dependents_count": 2
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/common/npy_dlpack.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "numpy/_core/src/common/npy_dlpack.h",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/common/npy_import.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "init_import_mutex",
+     "before_start_line": 11,
+     "after_start_line": 16,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_cache_import_runtime",
+     "before_start_line": 65,
+     "after_start_line": 70,
+     "dependents_count": 18
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/common/npy_import.h",
+   "status": "M",
+   "language": "C++",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "numpy/_core/src/common/npy_import.h",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/common/ufunc_override.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyUFuncOverride_GetNonDefaultArrayUfunc",
+     "before_start_line": 21,
+     "after_start_line": 22,
+     "dependents_count": 2
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/abstractdtypes.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_update_operand_for_scalar",
+     "before_start_line": 361,
+     "after_start_line": 361,
+     "dependents_count": 4
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/alloc.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_get_madvise_hugepage",
+     "before_start_line": 69,
+     "after_start_line": 70,
+     "dependents_count": 1
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "_set_madvise_hugepage",
+     "old_signature": "NPY_NO_EXPORT PyObject * _set_madvise_hugepage(PyObject *NPY_UNUSED(self), PyObject *enabled_obj)",
+     "new_signature": "NPY_NO_EXPORT PyObject * _set_madvise_hugepage(PyObject *self, PyObject *enabled_obj)",
+     "before_start_line": 88,
+     "after_start_line": 89,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "indicate_hugepages",
+     "before_start_line": 104,
+     "after_start_line": 106,
+     "dependents_count": 3
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyDataMem_SetHandler",
+     "before_start_line": 538,
+     "after_start_line": 540,
+     "dependents_count": 6
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyDataMem_GetHandler",
+     "before_start_line": 566,
+     "after_start_line": 570,
+     "dependents_count": 8
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/alloc.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "numpy/_core/src/multiarray/alloc.h",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/array_coercion.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "_prime_global_pytype_to_type_dict",
+     "old_signature": "static int _prime_global_pytype_to_type_dict(void)",
+     "new_signature": "static int _prime_global_pytype_to_type_dict(PyObject *dict)",
+     "before_start_line": 114,
+     "after_start_line": 115,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_PyArray_MapPyTypeToDType",
+     "before_start_line": 154,
+     "after_start_line": 152,
+     "dependents_count": 5
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_discover_dtype_from_pytype",
+     "before_start_line": 223,
+     "after_start_line": 223,
+     "dependents_count": 2
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/array_converter.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "pyscalar_mode_conv",
+     "before_start_line": 185,
+     "after_start_line": 186,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/arrayfunction_override.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "get_array_function",
+     "before_start_line": 21,
+     "after_start_line": 22,
+     "dependents_count": 4
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "is_default_array_function",
+     "before_start_line": 129,
+     "after_start_line": 131,
+     "dependents_count": 3
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_function_method_impl",
+     "before_start_line": 141,
+     "after_start_line": 143,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "set_no_matching_types_error",
+     "before_start_line": 245,
+     "after_start_line": 247,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_implement_c_array_function_creation",
+     "before_start_line": 270,
+     "after_start_line": 273,
+     "dependents_count": 12
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "try_reduction",
+     "before_start_line": 435,
+     "after_start_line": 439,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/arrayobject.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "write_and_clear_error_if_unraisable",
+     "before_start_line": 366,
+     "after_start_line": 367,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_clear_array_attributes",
+     "before_start_line": 384,
+     "after_start_line": 385,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_void_compare",
+     "before_start_line": 616,
+     "after_start_line": 617,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_richcompare",
+     "before_start_line": 837,
+     "after_start_line": 840,
+     "dependents_count": 3
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/arraywrap.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_find_array_wrap",
+     "before_start_line": 28,
+     "after_start_line": 29,
+     "dependents_count": 4
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_apply_wrap",
+     "before_start_line": 141,
+     "after_start_line": 142,
+     "dependents_count": 4
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/calculation.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Max",
+     "before_start_line": 233,
+     "after_start_line": 235,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Min",
+     "before_start_line": 252,
+     "after_start_line": 254,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Ptp",
+     "before_start_line": 271,
+     "after_start_line": 273,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "__New_PyArray_Std",
+     "before_start_line": 322,
+     "after_start_line": 325,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Sum",
+     "before_start_line": 482,
+     "after_start_line": 486,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Prod",
+     "before_start_line": 500,
+     "after_start_line": 504,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_CumSum",
+     "before_start_line": 519,
+     "after_start_line": 523,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_CumProd",
+     "before_start_line": 538,
+     "after_start_line": 542,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Round",
+     "before_start_line": 558,
+     "after_start_line": 562,
+     "dependents_count": 5
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Mean",
+     "before_start_line": 729,
+     "after_start_line": 734,
+     "dependents_count": 3
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Any",
+     "before_start_line": 763,
+     "after_start_line": 769,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_All",
+     "before_start_line": 782,
+     "after_start_line": 788,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Clip",
+     "before_start_line": 802,
+     "after_start_line": 808,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Conjugate",
+     "before_start_line": 834,
+     "after_start_line": 842,
+     "dependents_count": 5
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Trace",
+     "before_start_line": 884,
+     "after_start_line": 893,
+     "dependents_count": 2
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/common.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_check_compatibility_with_new_dtype",
+     "before_start_line": 456,
+     "after_start_line": 456,
+     "dependents_count": 2
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/common.h",
+   "status": "M",
+   "language": "C++",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "numpy/_core/src/multiarray/common.h",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/common_dtype.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_CommonDType",
+     "before_start_line": 48,
+     "after_start_line": 49,
+     "dependents_count": 5
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_PromoteDTypeSequence",
+     "before_start_line": 204,
+     "after_start_line": 205,
+     "dependents_count": 5
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/compiled_base.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "arr_add_docstring",
+     "old_signature": "NPY_NO_EXPORT PyObject * arr_add_docstring(PyObject *NPY_UNUSED(dummy), PyObject *const *args, Py_ssize_t len_args)",
+     "new_signature": "NPY_NO_EXPORT PyObject * arr_add_docstring(PyObject *module, PyObject *const *args, Py_ssize_t len_args)",
+     "before_start_line": 1504,
+     "after_start_line": 1505,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "unpack_bits",
+     "before_start_line": 1864,
+     "after_start_line": 1870,
+     "dependents_count": 2
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/conversion_utils.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_CopyConverter",
+     "before_start_line": 221,
+     "after_start_line": 222,
+     "dependents_count": 7
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_AsTypeCopyConverter",
+     "before_start_line": 260,
+     "after_start_line": 264,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_not_NoValue",
+     "before_start_line": 1392,
+     "after_start_line": 1396,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_DeviceConverterOptional",
+     "before_start_line": 1407,
+     "after_start_line": 1411,
+     "dependents_count": 7
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/convert.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "get_optional_set_dtype_and_dtype",
+     "before_start_line": 543,
+     "after_start_line": 544,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "decide_view_dtype_path",
+     "before_start_line": 580,
+     "after_start_line": 582,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_View",
+     "before_start_line": 667,
+     "after_start_line": 670,
+     "dependents_count": 13
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/convert_datatype.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_GetCastFunc",
+     "before_start_line": 340,
+     "after_start_line": 341,
+     "dependents_count": 5
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Zero",
+     "before_start_line": 1829,
+     "after_start_line": 1830,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_One",
+     "before_start_line": 1868,
+     "after_start_line": 1870,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "complex_to_noncomplex_get_loop",
+     "before_start_line": 2290,
+     "after_start_line": 2293,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_GetGenericToVoidCastingImpl",
+     "before_start_line": 2931,
+     "after_start_line": 2934,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_GetVoidToGenericCastingImpl",
+     "before_start_line": 3069,
+     "after_start_line": 3073,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_GetObjectToGenericCastingImpl",
+     "before_start_line": 3449,
+     "after_start_line": 3454,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_GetGenericToObjectCastingImpl",
+     "before_start_line": 3486,
+     "after_start_line": 3492,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "initialize_void_and_object_globals",
+     "before_start_line": 3542,
+     "after_start_line": 3549,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/ctors.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "raise_memory_error",
+     "before_start_line": 569,
+     "after_start_line": 570,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_NewFromDescr_int",
+     "before_start_line": 600,
+     "after_start_line": 601,
+     "dependents_count": 18
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_FromStructInterface",
+     "before_start_line": 2004,
+     "after_start_line": 2007,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_FromInterface",
+     "before_start_line": 2121,
+     "after_start_line": 2124,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "check_or_clear_and_warn_error_if_due_to_copy_kwarg",
+     "before_start_line": 2434,
+     "after_start_line": 2437,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_FromArrayAttr_int",
+     "before_start_line": 2507,
+     "after_start_line": 2510,
+     "dependents_count": 3
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/datetime.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "NpyDatetime_ConvertPyDateTimeToDatetimeStruct",
+     "before_start_line": 2108,
+     "after_start_line": 2109,
+     "dependents_count": 4
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "get_tzoffset_from_pytzinfo",
+     "before_start_line": 2330,
+     "after_start_line": 2332,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/descriptor.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_try_convert_from_dtype_attr",
+     "before_start_line": 93,
+     "after_start_line": 92,
+     "dependents_count": 2
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "array_set_typeDict",
+     "old_signature": "NPY_NO_EXPORT PyObject * array_set_typeDict(PyObject *NPY_UNUSED(ignored), PyObject *args)",
+     "new_signature": "NPY_NO_EXPORT PyObject * array_set_typeDict(PyObject *module, PyObject *args)",
+     "before_start_line": 142,
+     "after_start_line": 142,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_convert_from_commastring",
+     "before_start_line": 748,
+     "after_start_line": 745,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_convert_from_field_dict",
+     "before_start_line": 1056,
+     "after_start_line": 1054,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_convert_from_str",
+     "before_start_line": 1793,
+     "after_start_line": 1794,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "arraydescr_new",
+     "before_start_line": 2575,
+     "after_start_line": 2577,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "arraydescr_reduce",
+     "before_start_line": 2790,
+     "after_start_line": 2792,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/dlpack.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "dlpack_export_registry_lookup",
+     "before_start_line": 22,
+     "after_start_line": 23,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "dlpack_dtype_registry_lookup",
+     "before_start_line": 60,
+     "after_start_line": 61,
+     "dependents_count": 1
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "from_dlpack",
+     "old_signature": "NPY_NO_EXPORT PyObject * from_dlpack(PyObject *NPY_UNUSED(self), PyObject *const *args, Py_ssize_t len_args, PyObject *kwnames)",
+     "new_signature": "NPY_NO_EXPORT PyObject * from_dlpack(PyObject *self, PyObject *const *args, Py_ssize_t len_args, PyObject *kwnames)",
+     "before_start_line": 700,
+     "after_start_line": 701,
+     "dependents_count": 41
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "_register_dlpack_dtype",
+     "old_signature": "NPY_NO_EXPORT PyObject * _register_dlpack_dtype(PyObject *NPY_UNUSED(self), PyObject *args)",
+     "new_signature": "NPY_NO_EXPORT PyObject * _register_dlpack_dtype(PyObject *self, PyObject *args)",
+     "before_start_line": 939,
+     "after_start_line": 942,
+     "dependents_count": 1
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "_dlpack_registry_replace",
+     "old_signature": "NPY_NO_EXPORT PyObject * _dlpack_registry_replace(PyObject *NPY_UNUSED(self), PyObject *args)",
+     "new_signature": "NPY_NO_EXPORT PyObject * _dlpack_registry_replace(PyObject *self, PyObject *args)",
+     "before_start_line": 1019,
+     "after_start_line": 1023,
+     "dependents_count": 3
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/dtypemeta.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "void_common_instance",
+     "before_start_line": 861,
+     "after_start_line": 862,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "dtypemeta_wrap_legacy_descriptor",
+     "before_start_line": 1163,
+     "after_start_line": 1165,
+     "dependents_count": 2
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/getset.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_real_get",
+     "before_start_line": 529,
+     "after_start_line": 530,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_real_set",
+     "before_start_line": 543,
+     "after_start_line": 544,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_imag_get",
+     "before_start_line": 578,
+     "after_start_line": 579,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_imag_set",
+     "before_start_line": 604,
+     "after_start_line": 605,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/item_selection.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Diagonal",
+     "before_start_line": 2395,
+     "after_start_line": 2396,
+     "dependents_count": 3
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/methods.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_GetField",
+     "before_start_line": 375,
+     "after_start_line": 376,
+     "dependents_count": 6
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "any_array_ufunc_overrides",
+     "before_start_line": 1026,
+     "after_start_line": 1028,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Dump",
+     "before_start_line": 2322,
+     "after_start_line": 2324,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_Dumps",
+     "before_start_line": 2348,
+     "after_start_line": 2351,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/methods.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "NpyPath_PathlikeToFspath",
+     "before_start_line": 14,
+     "after_start_line": 15,
+     "dependents_count": 2
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/module_state.h",
+   "status": "A",
+   "language": "C",
+   "changes": [
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NUMPY_CORE_SRC_MULTIARRAY_MODULE_STATE_H_",
+     "new_signature": "#define NUMPY_CORE_SRC_MULTIARRAY_MODULE_STATE_H_",
+     "after_start_line": 2,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/module_state_fields.h",
+   "status": "A",
+   "language": "C",
+   "changes": [
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NUMPY_CORE_SRC_MULTIARRAY_MODULE_STATE_FIELDS_H_",
+     "new_signature": "#define NUMPY_CORE_SRC_MULTIARRAY_MODULE_STATE_FIELDS_H_",
+     "after_start_line": 2,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_INTERNED_STR_FIELDS",
+     "new_signature": "#define NPY_INTERNED_STR_FIELDS(F) \\",
+     "after_start_line": 16,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_STATIC_PYDATA_FIELDS",
+     "new_signature": "#define NPY_STATIC_PYDATA_FIELDS(F) \\",
+     "after_start_line": 75,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_RUNTIME_IMPORTS_FIELDS",
+     "new_signature": "#define NPY_RUNTIME_IMPORTS_FIELDS(F) \\",
+     "after_start_line": 123,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_N_OPS_FIELDS",
+     "new_signature": "#define NPY_N_OPS_FIELDS(F) \\",
+     "after_start_line": 155,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_MODULE_STATE_OBJECT_FIELDS",
+     "new_signature": "#define NPY_MODULE_STATE_OBJECT_FIELDS(F) \\",
+     "after_start_line": 198,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_FIELD_COUNT_ONE",
+     "new_signature": "#define NPY_FIELD_COUNT_ONE(name) + 1",
+     "after_start_line": 203,
+     "dependents_count": 1
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_FIELD_COUNT",
+     "new_signature": "#define NPY_FIELD_COUNT(list) (0 list(NPY_FIELD_COUNT_ONE))",
+     "after_start_line": 204,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_ERRMODE_STRING_COUNT",
+     "new_signature": "#define NPY_ERRMODE_STRING_COUNT 6",
+     "after_start_line": 206,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/multiarraymodule.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "get_legacy_print_mode",
+     "before_start_line": 105,
+     "after_start_line": 106,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_GetPriority",
+     "before_start_line": 151,
+     "after_start_line": 153,
+     "dependents_count": 6
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_MatrixProduct2",
+     "before_start_line": 988,
+     "after_start_line": 990,
+     "dependents_count": 6
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "array_can_cast_safely",
+     "old_signature": "static PyObject * array_can_cast_safely(PyObject *NPY_UNUSED(self), PyObject *const *args, Py_ssize_t len_args, PyObject *kwnames)",
+     "new_signature": "static PyObject * array_can_cast_safely(PyObject *self, PyObject *const *args, Py_ssize_t len_args, PyObject *kwnames)",
+     "before_start_line": 3518,
+     "after_start_line": 3520,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_shares_memory_impl",
+     "before_start_line": 4222,
+     "after_start_line": 4224,
+     "dependents_count": 2
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "_set_numpy_warn_if_no_mem_policy",
+     "old_signature": "static PyObject * _set_numpy_warn_if_no_mem_policy(PyObject *NPY_UNUSED(self), PyObject *arg)",
+     "new_signature": "static PyObject * _set_numpy_warn_if_no_mem_policy(PyObject *self, PyObject *arg)",
+     "before_start_line": 4568,
+     "after_start_line": 4570,
+     "dependents_count": 1
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "_reload_guard",
+     "old_signature": "static PyObject * _reload_guard(PyObject *NPY_UNUSED(self), PyObject *NPY_UNUSED(args))",
+     "new_signature": "static PyObject * _reload_guard(PyObject *self, PyObject *NPY_UNUSED(args))",
+     "before_start_line": 4605,
+     "after_start_line": 4608,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array__wrapit",
+     "before_start_line": 4644,
+     "after_start_line": 4648,
+     "dependents_count": 1
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "initialize_global_state",
+     "old_signature": "static int initialize_global_state(void)",
+     "new_signature": "static int initialize_global_state(multiarray_umath_state *state)",
+     "before_start_line": 5153,
+     "after_start_line": 5157,
+     "dependents_count": 1
+    },
+    {
+     "type": "added",
+     "kind": "function",
+     "name": "multiarray_umath_traverse",
+     "new_signature": "static int multiarray_umath_traverse(PyObject *NPY_UNUSED(m), visitproc NPY_UNUSED(visit), void *NPY_UNUSED(arg))",
+     "after_start_line": 5179,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "function",
+     "name": "multiarray_umath_clear",
+     "new_signature": "static int multiarray_umath_clear(PyObject *NPY_UNUSED(m))",
+     "after_start_line": 5186,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "function",
+     "name": "multiarray_umath_free",
+     "new_signature": "static void multiarray_umath_free(void *NPY_UNUSED(m))",
+     "after_start_line": 5192,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_VISIT_FIELD",
+     "new_signature": "#define NPY_VISIT_FIELD(name) Py_VISIT(state->interned_str.name);",
+     "after_start_line": 5202,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "macro",
+     "name": "NPY_CLEAR_FIELD",
+     "new_signature": "#define NPY_CLEAR_FIELD(name) Py_CLEAR(state->interned_str.name);",
+     "after_start_line": 5233,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "function",
+     "name": "_multiarray_umath_exec_impl",
+     "new_signature": "static int _multiarray_umath_exec_impl(PyObject *m, multiarray_umath_state *state)",
+     "after_start_line": 5267,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_multiarray_umath_exec",
+     "before_start_line": 5168,
+     "after_start_line": 5660,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/multiarraymodule.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "npy_global_state_struct",
+     "old_signature": "struct npy_global_state_struct",
+     "before_start_line": 12,
+     "dependents_count": 0
+    },
+    {
+     "type": "removed",
+     "kind": "type",
+     "name": "npy_global_state_struct",
+     "old_signature": "typedef struct npy_global_state_struct { /* * Used to test the internal-only scaled float test dtype */ npy_bool get_sfloat_dtype_initialized; /* * controls the global madvise hugepage setting */ int madvise_hugepage; /* * used to detect module reloading in the reload guard */ int reload_guard_initialized; /* * Holds the user-defined setting for whether or not to warn * if there is no memory policy set */ int warn_if_no_mem_policy; } npy_global_state_struct",
+     "before_start_line": 12,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/npy_static_data.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "signature_changed",
+     "kind": "macro",
+     "name": "INTERN_STRING",
+     "old_signature": "#define INTERN_STRING(struct_member, string)                             \\",
+     "new_signature": "#define INTERN_STRING(struct_member, string)                              \\",
+     "before_start_line": 22,
+     "after_start_line": 18,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "intern_strings",
+     "before_start_line": 29,
+     "after_start_line": 25,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "initialize_static_globals",
+     "before_start_line": 125,
+     "after_start_line": 123,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "verify_static_structs_initialized",
+     "before_start_line": 316,
+     "after_start_line": 317,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/npy_static_data.h",
+   "status": "M",
+   "language": "C++",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "numpy/_core/src/multiarray/npy_static_data.h",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/number.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_PyArray_SetNumericOps",
+     "before_start_line": 81,
+     "after_start_line": 76,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_add",
+     "before_start_line": 243,
+     "after_start_line": 242,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_subtract",
+     "before_start_line": 255,
+     "after_start_line": 254,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_multiply",
+     "before_start_line": 267,
+     "after_start_line": 266,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_remainder",
+     "before_start_line": 279,
+     "after_start_line": 278,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_divmod",
+     "before_start_line": 286,
+     "after_start_line": 285,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_matrix_multiply",
+     "before_start_line": 293,
+     "after_start_line": 292,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_matrix_multiply",
+     "before_start_line": 300,
+     "after_start_line": 299,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "fast_scalar_power",
+     "before_start_line": 345,
+     "after_start_line": 345,
+     "dependents_count": 6
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_power",
+     "before_start_line": 400,
+     "after_start_line": 402,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_positive",
+     "before_start_line": 418,
+     "after_start_line": 420,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_negative",
+     "before_start_line": 427,
+     "after_start_line": 430,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_absolute",
+     "before_start_line": 436,
+     "after_start_line": 440,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_invert",
+     "before_start_line": 445,
+     "after_start_line": 450,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_left_shift",
+     "before_start_line": 454,
+     "after_start_line": 460,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_right_shift",
+     "before_start_line": 466,
+     "after_start_line": 472,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_bitwise_and",
+     "before_start_line": 478,
+     "after_start_line": 484,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_bitwise_or",
+     "before_start_line": 490,
+     "after_start_line": 496,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_bitwise_xor",
+     "before_start_line": 502,
+     "after_start_line": 508,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_add",
+     "before_start_line": 514,
+     "after_start_line": 520,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_subtract",
+     "before_start_line": 522,
+     "after_start_line": 528,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_multiply",
+     "before_start_line": 530,
+     "after_start_line": 536,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_remainder",
+     "before_start_line": 538,
+     "after_start_line": 544,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_power",
+     "before_start_line": 546,
+     "after_start_line": 552,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_left_shift",
+     "before_start_line": 561,
+     "after_start_line": 567,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_right_shift",
+     "before_start_line": 569,
+     "after_start_line": 575,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_bitwise_and",
+     "before_start_line": 577,
+     "after_start_line": 583,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_bitwise_or",
+     "before_start_line": 585,
+     "after_start_line": 591,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_bitwise_xor",
+     "before_start_line": 593,
+     "after_start_line": 599,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_floor_divide",
+     "before_start_line": 601,
+     "after_start_line": 607,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_true_divide",
+     "before_start_line": 613,
+     "after_start_line": 619,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_floor_divide",
+     "before_start_line": 628,
+     "after_start_line": 634,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_inplace_true_divide",
+     "before_start_line": 637,
+     "after_start_line": 643,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/number.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "removed",
+     "kind": "struct",
+     "name": "PyObject",
+     "old_signature": "struct",
+     "before_start_line": 4,
+     "dependents_count": 1252
+    },
+    {
+     "type": "removed",
+     "kind": "type",
+     "name": "NumericOps",
+     "old_signature": "typedef struct { PyObject *add; PyObject *subtract; PyObject *multiply; PyObject *divide; PyObject *remainder; PyObject *divmod; PyObject *power; PyObject *square; PyObject *reciprocal; PyObject *_ones_like; PyObject *sqrt; PyObject *cbrt; PyObject *negative; PyObject *positive; PyObject *absolute; PyObject *invert; PyObject *left_shift; PyObject *right_shift; PyObject *bitwise_and; PyObject *bitwise_xor; PyObject *bitwise_or; PyObject *less; PyObject *less_equal; PyObject *equal; PyObject *not_equal; PyObject *greater; PyObject *greater_equal; PyObject *floor_divide; PyObject *true_divide; PyObject *logical_or; PyObject *logical_and; PyObject *floor; PyObject *ceil; PyObject *maximum; PyObject *minimum; PyObject *rint; PyObject *conjugate; PyObject *matmul; PyObject *clip; PyObject *real; PyObject *imag; } NumericOps",
+     "before_start_line": 4,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/scalarapi.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_DescrFromTypeObject",
+     "before_start_line": 287,
+     "after_start_line": 288,
+     "dependents_count": 3
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/shape.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_SwapAxes",
+     "before_start_line": 645,
+     "after_start_line": 646,
+     "dependents_count": 4
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/strfuncs.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_repr",
+     "before_start_line": 34,
+     "after_start_line": 35,
+     "dependents_count": 12
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "array_str",
+     "before_start_line": 52,
+     "after_start_line": 55,
+     "dependents_count": 6
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/stringdtype/dtype.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "stringdtype__reduce__",
+     "before_start_line": 941,
+     "after_start_line": 942,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/multiarray/vdot.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "OBJECT_vdot",
+     "before_start_line": 141,
+     "after_start_line": 142,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/_scaled_float_dtype.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "get_sfloat_dtype",
+     "old_signature": "NPY_NO_EXPORT PyObject * get_sfloat_dtype(PyObject *NPY_UNUSED(mod), PyObject *NPY_UNUSED(args))",
+     "new_signature": "NPY_NO_EXPORT PyObject * get_sfloat_dtype(PyObject *mod, PyObject *NPY_UNUSED(args))",
+     "before_start_line": 1196,
+     "after_start_line": 1197,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/dispatching.cpp",
+   "status": "M",
+   "language": "C++",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "NPY_NO_EXPORT",
+     "before_start_line": 207,
+     "after_start_line": 208,
+     "dependents_count": 731
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "NPY_NO_EXPORT",
+     "before_start_line": 1135,
+     "after_start_line": 1137,
+     "dependents_count": 731
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/extobj.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "fetch_curr_extobj_state",
+     "before_start_line": 116,
+     "after_start_line": 117,
+     "dependents_count": 3
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "init_extobj",
+     "before_start_line": 141,
+     "after_start_line": 143,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "errmodeconverter",
+     "before_start_line": 170,
+     "after_start_line": 173,
+     "dependents_count": 1
+    },
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "extobj_get_extobj_dict",
+     "old_signature": "NPY_NO_EXPORT PyObject * extobj_get_extobj_dict(PyObject *NPY_UNUSED(mod), PyObject *NPY_UNUSED(noarg))",
+     "new_signature": "NPY_NO_EXPORT PyObject * extobj_get_extobj_dict(PyObject *mod, PyObject *NPY_UNUSED(noarg))",
+     "before_start_line": 309,
+     "after_start_line": 313,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/extobj.h",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "module",
+     "name": "numpy/_core/src/umath/extobj.h",
+     "before_start_line": 1,
+     "after_start_line": 1,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/legacy_array_method.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyArray_NewLegacyWrappingArrayMethod",
+     "before_start_line": 269,
+     "after_start_line": 270,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/override.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "initialize_normal_kwds",
+     "before_start_line": 102,
+     "after_start_line": 103,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "copy_positional_args_to_kwargs",
+     "before_start_line": 171,
+     "after_start_line": 173,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyUFunc_CheckOverride",
+     "before_start_line": 211,
+     "after_start_line": 213,
+     "dependents_count": 3
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/real_imag_ufuncs.cpp",
+   "status": "M",
+   "language": "C++",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "object_get_comp_strided_loop",
+     "before_start_line": 87,
+     "after_start_line": 89,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "NPY_NO_EXPORT",
+     "before_start_line": 254,
+     "after_start_line": 257,
+     "dependents_count": 731
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/ufunc_object.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "signature_changed",
+     "kind": "function",
+     "name": "mark_pyscalar_operand",
+     "old_signature": "static int mark_pyscalar_operand(PyObject *obj, PyArrayObject **operand, PyArray_DTypeMeta **DType)",
+     "new_signature": "static int mark_pyscalar_operand(multiarray_umath_state *state, PyObject *obj, PyArrayObject **operand, PyArray_DTypeMeta **DType)",
+     "before_start_line": 631,
+     "after_start_line": 632,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "convert_ufunc_arguments",
+     "before_start_line": 666,
+     "after_start_line": 667,
+     "dependents_count": 3
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "_parse_axes_arg",
+     "before_start_line": 1381,
+     "after_start_line": 1383,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "ufunc_generic_fastcall",
+     "before_start_line": 4877,
+     "after_start_line": 4880,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "prepare_input_arguments_for_outer",
+     "before_start_line": 5999,
+     "after_start_line": 6004,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "ufunc_at",
+     "before_start_line": 6467,
+     "after_start_line": 6473,
+     "dependents_count": 3
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "ufunc_get_doc",
+     "before_start_line": 7211,
+     "after_start_line": 7218,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "ufunc_set_doc",
+     "before_start_line": 7248,
+     "after_start_line": 7256,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/ufunc_type_resolution.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_begin_legacy_resolver_promotion",
+     "before_start_line": 85,
+     "after_start_line": 86,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "npy_end_legacy_resolver_promotion",
+     "before_start_line": 92,
+     "after_start_line": 93,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "deprecate_integer_datetime_operation",
+     "before_start_line": 101,
+     "after_start_line": 102,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "raise_binary_type_reso_error",
+     "before_start_line": 124,
+     "after_start_line": 125,
+     "dependents_count": 7
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "raise_no_loop_found_error",
+     "before_start_line": 147,
+     "after_start_line": 148,
+     "dependents_count": 3
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "raise_input_casting_error",
+     "before_start_line": 205,
+     "after_start_line": 206,
+     "dependents_count": 1
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "raise_output_casting_error",
+     "before_start_line": 221,
+     "after_start_line": 222,
+     "dependents_count": 2
+    },
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "PyUFunc_TrueDivisionTypeResolver",
+     "before_start_line": 1510,
+     "after_start_line": 1511,
+     "dependents_count": 0
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/src/umath/umathmodule.c",
+   "status": "M",
+   "language": "C",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "function",
+     "name": "initumath",
+     "before_start_line": 177,
+     "after_start_line": 178,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/tests/test_multiarray.py",
+   "status": "M",
+   "language": "Python",
+   "changes": [
+    {
+     "type": "added",
+     "kind": "class",
+     "name": "TestSubinterpreterTeardown",
+     "new_signature": "class TestSubinterpreterTeardown",
+     "after_start_line": 11973,
+     "dependents_count": 0
+    },
+    {
+     "type": "added",
+     "kind": "method",
+     "name": "TestSubinterpreterTeardown.test_subinterpreter_import_fails_cleanly",
+     "new_signature": "def test_subinterpreter_import_fails_cleanly(self): # concurrent.interpreters is Python 3.14+",
+     "after_start_line": 11982,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/tests/test_ufunc.py",
+   "status": "M",
+   "language": "Python",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "class",
+     "name": "TestLowlevelAPIAccess",
+     "before_start_line": 3273,
+     "after_start_line": 3273,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "method",
+     "name": "TestLowlevelAPIAccess.test_resolve_dtypes_basic",
+     "before_start_line": 3274,
+     "after_start_line": 3274,
+     "dependents_count": 1
+    }
+   ]
+  },
+  {
+   "path": "numpy/_core/tests/test_umath.py",
+   "status": "M",
+   "language": "Python",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "class",
+     "name": "TestBool",
+     "before_start_line": 2847,
+     "after_start_line": 2847,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "method",
+     "name": "TestBool.test_exceptions",
+     "before_start_line": 2848,
+     "after_start_line": 2848,
+     "dependents_count": 11
+    },
+    {
+     "type": "body_changed",
+     "kind": "class",
+     "name": "TestPositive",
+     "before_start_line": 3241,
+     "after_start_line": 3240,
+     "dependents_count": 0
+    },
+    {
+     "type": "body_changed",
+     "kind": "method",
+     "name": "TestPositive.test_valid",
+     "before_start_line": 3242,
+     "after_start_line": 3241,
+     "dependents_count": 8
+    },
+    {
+     "type": "body_changed",
+     "kind": "method",
+     "name": "TestPositive.test_invalid",
+     "before_start_line": 3249,
+     "after_start_line": 3248,
+     "dependents_count": 8
+    },
+    {
+     "type": "added",
+     "kind": "method",
+     "name": "TestPositive.test_bool",
+     "new_signature": "def test_bool(self)",
+     "after_start_line": 3256,
+     "dependents_count": 5
+    }
+   ]
+  },
+  {
+   "path": "pyproject.toml",
+   "status": "M",
+   "language": "TOML",
+   "changes": [
+    {
+     "type": "body_changed",
+     "kind": "setting",
+     "name": "license",
+     "before_start_line": 51,
+     "after_start_line": 51,
+     "dependents_count": 31
+    }
+   ]
+  }
+ ],
+ "warnings": [
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": ".gitattributes",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base and head versions have no supported parser"
+  },
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": "numpy/_core/include/meson.build",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base and head versions have no supported parser"
+  },
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": "numpy/_core/include/numpy/libdivide/LICENSE.txt",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base version has no supported parser"
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/include/numpy/libdivide/libdivide.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 1 column 1 near \"// libdivide.h - Optimized integer division\\n// https://libdivide.com\\n//\\n// Copyr...\"; error ERROR at line 336 column 34 near \"*\"; error ERROR at line 356 column 34 near \"*\"; error ERROR at line 1986 column 102 near \"}\"; error ERROR at line 1987 column 113 near \"}\""
+  },
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": "numpy/_core/meson.build",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base and head versions have no supported parser"
+  },
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": "numpy/_core/src/_simd/_simd.dispatch.c.src",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base and head versions have no supported parser"
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/_simd.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 31 column 23 near \"PyObject\"; error ERROR at line 41 column 1 near \"NPY_CPU_DISPATCH_DECLARE(NPY_VISIBILITY_HIDDEN PyObject *simd_create_module, (vo...\"; error ERROR at line 41 column 48 near \"PyObject\"; missing ) at line 41 column 58 near \"NPY_CPU_DISPATCH_DECLARE(NPY_VISIBILITY_HIDDEN PyObject *simd_create_module, (vo...\""
+  },
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": "numpy/_core/src/_simd/_simd_convert.inc",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base and head versions have no supported parser"
+  },
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": "numpy/_core/src/_simd/_simd_inc.h.src",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base and head versions have no supported parser"
+  },
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": "numpy/_core/src/_simd/_simd_vector.inc",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base and head versions have no supported parser"
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_cpu_dispatch.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 9 column 23 near \"int\"; error ERROR at line 34 column 23 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_dlpack.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 19 column 15 near \"PyObject\"; error ERROR at line 24 column 15 near \"PyObject\"; error ERROR at line 28 column 15 near \"PyObject\"; error ERROR at line 33 column 15 near \"PyObject\"; error ERROR at line 37 column 15 near \"PyObject\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_import.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 16 column 15 near \"int\"; error ERROR at line 35 column 15 near \"PyObject\"; error ERROR at line 70 column 15 near \"int\"; missing identifier at line 72 column 39 near \"if (!atomic_load_explicit((_Atomic(PyObject *) *)obj, memory_order_acquire)) {\"; missing identifier at line 82 column 43 near \"if (!atomic_load_explicit((_Atomic(PyObject *) *)obj, memory_order_acquire)) {\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/ufunc_override.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 22 column 15 near \"PyObject\"; error ERROR at line 62 column 15 near \"int\"; error ERROR at line 83 column 15 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/abstractdtypes.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: missing ; at line 86 column 32 near \"NPY_NO_EXPORT PyArray_DTypeMeta *PyArray_IntAbstractDTypePtr = NULL;\"; missing ; at line 87 column 32 near \"NPY_NO_EXPORT PyArray_DTypeMeta *PyArray_FloatAbstractDTypePtr = NULL;\"; missing ; at line 88 column 32 near \"NPY_NO_EXPORT PyArray_DTypeMeta *PyArray_ComplexAbstractDTypePtr = NULL;\"; missing ; at line 89 column 32 near \"NPY_NO_EXPORT PyArray_DTypeMeta *PyArray_PyLongDTypePtr = NULL;\"; missing ; at line 90 column 32 near \"NPY_NO_EXPORT PyArray_DTypeMeta *PyArray_PyFloatDTypePtr = NULL;\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/alloc.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 70 column 15 near \"PyObject\"; error ERROR at line 89 column 15 near \"PyObject\"; error ERROR at line 106 column 13 near \"void\"; error ERROR at line 178 column 15 near \"void\"; error ERROR at line 185 column 15 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/alloc.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 11 column 15 near \"PyObject\"; error ERROR at line 14 column 15 near \"PyObject\"; error ERROR at line 17 column 15 near \"void\"; error ERROR at line 20 column 15 near \"void\"; error ERROR at line 23 column 15 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/array_coercion.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 152 column 15 near \"int\"; error ERROR at line 254 column 15 near \"PyObject\"; error ERROR at line 402 column 15 near \"int\"; error ERROR at line 480 column 15 near \"int\"; error ERROR at line 662 column 15 near \"coercion_cache_obj\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/array_converter.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: missing ; at line 235 column 54 near \"{\\\"$subok\\\", &PyArray_BoolConverter, &subok},\"; missing ; at line 236 column 56 near \"{\\\"$pyscalars\\\", &pyscalar_mode_conv, &policy}) < 0) {\"; missing ; at line 299 column 28 near \"{\\\"\\\", NULL, &obj},\"; missing ; at line 300 column 44 near \"{\\\"$to_scalar\\\", NULL, &to_scalar}) < 0) {\"; missing ; at line 337 column 78 near \"{\\\"|extra_dtype\\\", &PyArray_DTypeOrDescrConverterOptional, &dt_info},\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/arrayfunction_override.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 143 column 15 near \"PyObject\"; error ERROR at line 273 column 15 near \"PyObject\"; error ERROR at line 365 column 15 near \"PyObject\"; error ERROR at line 423 column 20 near \"vectorcall\"; missing ; at line 453 column 31 near \"{\\\"a\\\", NULL, &a},\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/arrayobject.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 71 column 15 near \"npy_intp\"; error ERROR at line 83 column 15 near \"int\"; error ERROR at line 108 column 15 near \"int\"; error ERROR at line 154 column 15 near \"int\"; error ERROR at line 237 column 15 near \"int\""
+  },
+  {
+   "code": "W_UNSUPPORTED_FILE",
+   "severity": "info",
+   "file_path": "numpy/_core/src/multiarray/arraytypes.c.src",
+   "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+   "detail": "base and head versions have no supported parser"
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/arraywrap.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 29 column 15 near \"int\"; error ERROR at line 142 column 15 near \"PyObject\"; error ERROR at line 317 column 15 near \"PyObject\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/calculation.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 41 column 15 near \"PyObject\"; error ERROR at line 200 column 15 near \"PyObject\"; error ERROR at line 210 column 15 near \"PyObject\"; error ERROR at line 216 column 15 near \"PyObject\"; error ERROR at line 226 column 15 near \"PyObject\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/common.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: missing ; at line 29 column 26 near \"NPY_NO_EXPORT NPY_CASTING NPY_DEFAULT_ASSIGN_CASTING = NPY_SAME_KIND_CASTING;\"; error ERROR at line 32 column 15 near \"PyArray_Descr\"; error ERROR at line 53 column 15 near \"PyArray_Descr\"; error ERROR at line 117 column 15 near \"int\"; error ERROR at line 134 column 15 near \"npy_bool\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/common_dtype.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 49 column 15 near \"PyArray_DTypeMeta\"; error ERROR at line 205 column 15 near \"PyArray_DTypeMeta\"; error ERROR at line 216 column 51 near \"*\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/compiled_base.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 115 column 15 near \"PyObject\"; missing ; at line 128 column 37 near \"{\\\"list\\\", NULL, &list},\"; missing ; at line 129 column 43 near \"{\\\"|weights\\\", NULL, &weight},\"; missing ; at line 130 column 46 near \"{\\\"|minlength\\\", NULL, &mlength}) < 0) {\"; error ERROR at line 276 column 15 near \"PyObject\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/conversion_utils.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 25 column 1 near \"static int\\nPyArray_PyIntAsInt_ErrMsg(PyObject *o, const char * msg) NPY_GCC_NONN...\"; error ERROR at line 28 column 1 near \"PyArray_PyIntAsIntp_ErrMsg(PyObject *o, const char * msg) NPY_GCC_NONNULL(2);\"; missing ; at line 45 column 14 near \"NPY_NO_EXPORT int\"; error ERROR at line 66 column 15 near \"int\"; error ERROR at line 115 column 15 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/convert.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 127 column 15 near \"PyObject\"; error ERROR at line 141 column 15 near \"int\"; error ERROR at line 351 column 15 near \"PyObject\"; error ERROR at line 433 column 15 near \"int\"; error ERROR at line 449 column 32 near \"long\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/convert_datatype.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 52 column 15 near \"npy_intp\"; error ERROR at line 188 column 15 near \"PyObject\"; error ERROR at line 248 column 15 near \"PyObject\"; error ERROR at line 275 column 1 near \"PyArray_MinCastSafety(NPY_CASTING casting1, NPY_CASTING casting2)\"; missing ) at line 275 column 34 near \"PyArray_MinCastSafety(NPY_CASTING casting1, NPY_CASTING casting2)\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/ctors.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 45 column 21 near \"char\"; error ERROR at line 280 column 15 near \"void\"; error ERROR at line 314 column 15 near \"void\"; error ERROR at line 374 column 15 near \"void\"; error ERROR at line 382 column 15 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/datetime.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 78 column 15 near \"void\"; error ERROR at line 85 column 15 near \"char const\"; error ERROR at line 104 column 15 near \"int\"; error ERROR at line 112 column 15 near \"int\"; error ERROR at line 133 column 15 near \"npy_int64\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/descriptor.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 142 column 15 near \"PyObject\"; error ERROR at line 1411 column 15 near \"PyArray_Descr\"; error ERROR at line 1429 column 15 near \"int\"; error ERROR at line 1492 column 15 near \"void\"; error ERROR at line 1520 column 15 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/dlpack.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 542 column 15 near \"PyObject\"; missing ; at line 558 column 38 near \"{\\\"$stream\\\", NULL, &stream},\"; missing ; at line 559 column 48 near \"{\\\"$max_version\\\", NULL, &max_version},\"; missing ; at line 560 column 61 near \"{\\\"$dl_device\\\", &device_converter, &result_device},\"; missing ; at line 561 column 57 near \"{\\\"$copy\\\", &PyArray_CopyConverter, &copy_mode}) < 0) {\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/dtypemeta.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 64 column 15 near \"PyArray_Descr\"; error ERROR at line 183 column 15 near \"int\"; error ERROR at line 944 column 15 near \"int\"; error ERROR at line 1165 column 15 near \"PyArray_DTypeMeta\"; error ERROR at line 1389 column 15 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/getset.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 57 column 15 near \"int\"; error ERROR at line 348 column 15 near \"int\"; error ERROR at line 749 column 15 near \"PyGetSetDef\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/item_selection.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 41 column 29 near \"int\"; error ERROR at line 177 column 22 near \"int\"; error ERROR at line 234 column 15 near \"PyObject\"; error ERROR at line 384 column 15 near \"PyObject\"; error ERROR at line 609 column 29 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/methods.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 86 column 44 near \"*\"; missing ; at line 130 column 39 near \"{\\\"indices\\\", NULL, &indices},\"; missing ; at line 131 column 57 near \"{\\\"|axis\\\", &PyArray_AxisConverter, &dimension},\"; missing ; at line 132 column 52 near \"{\\\"|out\\\", &PyArray_OutputConverter, &out},\"; missing ; at line 133 column 56 near \"{\\\"|mode\\\", &PyArray_ClipmodeConverter, &mode}) < 0) {\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/methods.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 8 column 22 near \"PyMethodDef\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/multiarray/multiarraymodule.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors on one side; diff kept but may be incomplete or contain phantom changes",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 101 column 15 near \"PyObject\"; error ERROR at line 106 column 15 near \"int\"; error ERROR at line 153 column 15 near \"double\"; error ERROR at line 189 column 15 near \"int\"; error ERROR at line 203 column 15 near \"npy_intp\""
+  },
+  {
+   "code": "_TRUNCATED_FOR_FIXTURE",
+   "severity": "info",
+   "effect_on_semantic_completeness": "fixture trimmed: original run reported 271 warning entries"
+  }
+ ]
+}

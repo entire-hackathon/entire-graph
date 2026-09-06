@@ -1,0 +1,65 @@
+{
+  "query": "DbClient.query",
+  "disambiguation_required": false,
+  "callers": {
+    "total": 2,
+    "entries": [
+      {
+        "endpoint": {
+          "id": "repo",
+          "name": "find",
+          "qualified_name": "UserRepo.find",
+          "kind": "method",
+          "file_path": "src/db/user-repo.ts",
+          "start_line": 10
+        },
+        "relation": "CALLS",
+        "direction": "in",
+        "depth": 1
+      },
+      {
+        "endpoint": {
+          "id": "t2",
+          "name": "user_repo_test",
+          "qualified_name": "user_repo_test",
+          "kind": "function",
+          "file_path": "test/db/user-repo.test.ts",
+          "start_line": 5
+        },
+        "relation": "CALLS",
+        "direction": "in",
+        "depth": 2,
+        "via": "UserRepo.find"
+      }
+    ]
+  },
+  "callees": { "total": 0, "entries": [] },
+  "type_consumers": { "total": 0, "entries": [] },
+  "data_flows": { "total": 0, "entries": [] },
+  "co_changes": { "total": 0, "entries": [] },
+  "siblings": { "total": 0, "entries": [] },
+  "warnings": [
+    {
+      "code": "W_WORKTREE_SNAPSHOT",
+      "severity": "warning",
+      "effect_on_semantic_completeness": "snapshot records are read from the working tree because --worktree was requested"
+    }
+  ],
+  "partial_failures": [
+    {
+      "code": "E_PARSE_ERROR",
+      "severity": "warning",
+      "file_path": "src/db/client.ts",
+      "effect_on_semantic_completeness": "dependent references in this file may be undercounted because it failed to parse cleanly",
+      "detail": "tree-sitter syntax error nodes present near ';'"
+    }
+  ],
+  "stats": {
+    "files": 40,
+    "parsed_files": 38,
+    "symbols": 210,
+    "relations": 880,
+    "partial_failures": 1,
+    "completeness_level": "degraded"
+  }
+}

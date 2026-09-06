@@ -1,0 +1,39 @@
+{
+  "base": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "head": "cccccccccccccccccccccccccccccccccccccccc",
+  "schema_version": "1.0.0",
+  "files": [
+    {
+      "path": "src/redirect/limiter.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "method",
+          "name": "RateLimiter.take",
+          "dependents_count": 2,
+          "after_start_line": 24
+        }
+      ]
+    },
+    {
+      "path": "src/db/client.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "signature_changed",
+          "kind": "method",
+          "name": "DbClient.query",
+          "old_signature": "query(sql: string): Promise<Row[]>",
+          "new_signature": "query(sql: string, opts?: QueryOptions): Promise<Row[]>",
+          "dependents_count": 12,
+          "after_start_line": 41
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "partial_failures": []
+}

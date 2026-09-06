@@ -1,0 +1,3622 @@
+{
+  "base": "HEAD~2",
+  "head": "HEAD",
+  "files": [
+    {
+      "path": "docs/operations.md",
+      "status": "M",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "module",
+          "name": "docs/operations.md",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/cli/help.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "module",
+          "name": "internal/cli/help.go",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/cli/stats.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "statsFlags",
+          "old_signature": "statsFlags struct { Repo string Since string Format string SessionsDir string Transcript string }",
+          "new_signature": "statsFlags struct { Repo string Since string Format string SessionsDir string Transcript string CacheDir string NoCache bool Verbose bool }",
+          "before_start_line": 99,
+          "after_start_line": 103,
+          "dependents_count": 2
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "statsFlags.CacheDir",
+          "old_name": "statsCollector.repo",
+          "new_name": "statsFlags.CacheDir",
+          "old_signature": "repo string",
+          "new_signature": "CacheDir string",
+          "before_start_line": 445,
+          "after_start_line": 109,
+          "dependents_count": 58,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "statsFlags.NoCache",
+          "old_name": "statsCollector.worktreeSafe",
+          "new_name": "statsFlags.NoCache",
+          "old_signature": "worktreeSafe bool",
+          "new_signature": "NoCache bool",
+          "before_start_line": 451,
+          "after_start_line": 110,
+          "dependents_count": 3,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "statsFlags.Verbose",
+          "old_name": "statsCollector.worktreeSafeDone",
+          "new_name": "statsFlags.Verbose",
+          "old_signature": "worktreeSafeDone bool",
+          "new_signature": "Verbose bool",
+          "before_start_line": 452,
+          "after_start_line": 111,
+          "dependents_count": 3,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "statsResponse",
+          "old_signature": "statsResponse struct { FormatVersion int `json:\"format_version\"` Provider string `json:\"provider\"` RepoRoot string `json:\"repo_root\"` SessionsDir string `json:\"sessions_dir\"` SessionsDirFound bool `json:\"sessions_dir_found\"` Since string `json:\"since\"` WindowStart string `json:\"window_start\"` WindowEnd string `json:\"window_end\"` Sessions int `json:\"sessions\"` Transcripts int `json:\"transcripts\"` MalformedLinesSkipped int `json:\"malformed_lines_skipped\"` GraphCalls int `json:\"graph_calls\"` ExplorationCalls int `json:\"exploration_calls\"` SessionsWithLocate int `json:\"sessions_with_locate\"` GraphFirstSessions int `json:\"graph_first_sessions\"` GraphFirstRate float64 `json:\"graph_first_rate\"` GraphByVerb []statsCount `json:\"graph_calls_by_verb\"` ExplorationByKind []statsCount `json:\"exploration_by_kind\"` GraphReturnedBytes int64 `json:\"graph_returned_bytes\"` GraphReturnedTokens int64 `json:\"graph_returned_est_tokens\"` ExplorationReturnedBytes int64 `json:\"exploration_returned_bytes\"` ExplorationReturnedTokens int64 `json:\"exploration_returned_est_tokens\"` SessionTokens statsTokens `json:\"session_tokens\"` EstimatedSavingsBytes int64 `json:\"estimated_savings_bytes\"` EstimatedSavingsTokens int64 `json:\"estimated_savings_est_tokens\"` EstimatedSavingsPct float64 `json:\"estimated_savings_pct_of_session_tokens\"` CreditedGraphCalls int `json:\"credited_graph_calls\"` MedianTrackedFileBytes int64 `json:\"median_tracked_file_bytes\"` SavingsModel string `json:\"savings_model\"` }",
+          "new_signature": "statsResponse struct { FormatVersion int `json:\"format_version\"` Provider string `json:\"provider\"` RepoRoot string `json:\"repo_root\"` SessionsDir string `json:\"sessions_dir\"` SessionsDirFound bool `json:\"sessions_dir_found\"` Since string `json:\"since\"` WindowStart string `json:\"window_start\"` WindowEnd string `json:\"window_end\"` Sessions int `json:\"sessions\"` Transcripts int `json:\"transcripts\"` MalformedLinesSkipped int `json:\"malformed_lines_skipped\"` GraphCalls int `json:\"graph_calls\"` ExplorationCalls int `json:\"exploration_calls\"` SessionsWithLocate int `json:\"sessions_with_locate\"` GraphFirstSessions int `json:\"graph_first_sessions\"` GraphFirstRate float64 `json:\"graph_first_rate\"` GraphByVerb []statsCount `json:\"graph_calls_by_verb\"` ExplorationByKind []statsCount `json:\"exploration_by_kind\"` GraphReturnedBytes int64 `json:\"graph_returned_bytes\"` GraphReturnedTokens int64 `json:\"graph_returned_est_tokens\"` ExplorationReturnedBytes int64 `json:\"exploration_returned_bytes\"` ExplorationReturnedTokens int64 `json:\"exploration_returned_est_tokens\"` SessionTokens statsTokens `json:\"session_tokens\"` EstimatedSavingsBytes int64 `json:\"estimated_savings_bytes\"` EstimatedSavingsTokens int64 `json:\"estimated_savings_est_tokens\"` EstimatedSavingsPct float64 `json:\"estimated_savings_pct_of_session_tokens\"` CreditedGraphCalls int `json:\"credited_graph_calls\"` // MedianTrackedFileBytes is RETIRED and always 0. The savings model no longer prices a // counterfactual from the repository's median tracked-file size, so nothing computes it — // but the key stays in the contract, because removing a key is the one change a consumer // cannot absorb. MedianTrackedFileBytes int64 `json:\"median_tracked_file_bytes\"` SavingsModel string `json:\"savings_model\"` // --- added fields; older consumers ignore them -------------------------------------- // TranscriptsConsidered is every `*.jsonl` found in scope; Transcripts is how many were // actually opened after the --since window pruned the rest by file mtime. TranscriptsConsidered int `json:\"transcripts_considered\"` // TranscriptsFromCache is how many of Transcripts were served from the per-file memo // instead of being re-parsed. TranscriptsFromCache int `json:\"transcripts_from_cache\"` // GraphLocateCalls / GraphLocateReturnedBytes are the search+neighbors+impact subset — // the only calls the savings model prices. CreditedGraphCalls is the subset of those whose // tool_result was actually observed, which is what the per-call price divides by. GraphLocateCalls int `json:\"graph_locate_calls\"` GraphLocateReturnedBytes int64 `json:\"graph_locate_returned_bytes\"` GraphBytesPerLocateCall float64 `json:\"graph_bytes_per_locate_call\"` ExplorationBytesPerCall float64 `json:\"exploration_bytes_per_call\"` // SessionsWithPositiveSavings is how many in-window sessions produced a saving above 0. A // session whose graph calls returned more per call than the exploration they displaced // contributes 0 — a correct answer, not one to be floored away at the total. SessionsWithPositiveSavings int `json:\"sessions_with_positive_savings\"` SubstitutionRatio float64 `json:\"substitution_ratio\"` }",
+          "before_start_line": 122,
+          "after_start_line": 132,
+          "dependents_count": 6
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "statsResponse.TranscriptsConsidered",
+          "old_name": "sessionAcc.creditedCalls",
+          "new_name": "statsResponse.TranscriptsConsidered",
+          "old_signature": "creditedCalls int",
+          "new_signature": "TranscriptsConsidered int",
+          "before_start_line": 389,
+          "after_start_line": 171,
+          "dependents_count": 4,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "statsResponse.TranscriptsFromCache",
+          "old_name": "sessionAcc.graphCalls",
+          "new_name": "statsResponse.TranscriptsFromCache",
+          "old_signature": "graphCalls int",
+          "new_signature": "TranscriptsFromCache int",
+          "before_start_line": 379,
+          "after_start_line": 174,
+          "dependents_count": 10,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsResponse.GraphLocateCalls",
+          "new_signature": "GraphLocateCalls int",
+          "after_start_line": 178,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsResponse.GraphLocateReturnedBytes",
+          "new_signature": "GraphLocateReturnedBytes int64",
+          "after_start_line": 179,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsResponse.GraphBytesPerLocateCall",
+          "new_signature": "GraphBytesPerLocateCall float64",
+          "after_start_line": 180,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsResponse.ExplorationBytesPerCall",
+          "new_signature": "ExplorationBytesPerCall float64",
+          "after_start_line": 181,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsResponse.SessionsWithPositiveSavings",
+          "new_signature": "SessionsWithPositiveSavings int",
+          "after_start_line": 185,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsResponse.SubstitutionRatio",
+          "new_signature": "SubstitutionRatio float64",
+          "after_start_line": 186,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "runStats",
+          "before_start_line": 154,
+          "after_start_line": 189,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "parseStatsFlags",
+          "before_start_line": 238,
+          "after_start_line": 283,
+          "dependents_count": 2
+        },
+        {
+          "type": "removed",
+          "kind": "type",
+          "name": "pendingCall",
+          "old_signature": "pendingCall struct { session string graph bool verb string kind string }",
+          "before_start_line": 369,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "pendingCall.graph",
+          "old_signature": "graph bool",
+          "before_start_line": 371,
+          "dependents_count": 395
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "sessionAcc.first",
+          "old_signature": "first time.Time",
+          "before_start_line": 378,
+          "dependents_count": 408
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "transcriptRecord",
+          "old_signature": "transcriptRecord struct { Type string `json:\"type\"` Timestamp string `json:\"timestamp\"` SessionID string `json:\"sessionId\"` Message struct { ID string `json:\"id\"` Content json.RawMessage `json:\"content\"` Usage *struct { InputTokens int64 `json:\"input_tokens\"` CacheCreationIn int64 `json:\"cache_creation_input_tokens\"` CacheReadIn int64 `json:\"cache_read_input_tokens\"` OutputTokens int64 `json:\"output_tokens\"` } `json:\"usage\"` } `json:\"message\"` }",
+          "new_signature": "transcriptRecord struct { Type string `json:\"type\"` Timestamp string `json:\"timestamp\"` Message struct { ID string `json:\"id\"` Content json.RawMessage `json:\"content\"` Usage *struct { InputTokens int64 `json:\"input_tokens\"` CacheCreationIn int64 `json:\"cache_creation_input_tokens\"` CacheReadIn int64 `json:\"cache_read_input_tokens\"` OutputTokens int64 `json:\"output_tokens\"` } `json:\"usage\"` } `json:\"message\"` }",
+          "before_start_line": 341,
+          "after_start_line": 396,
+          "dependents_count": 2
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "sessionAcc.addUsage",
+          "old_signature": "func (a *sessionAcc) addUsage(id string, usage statsTokens)",
+          "before_start_line": 419,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "summaryCall",
+          "new_signature": "summaryCall struct { ID string `json:\"i,omitempty\"` Verb string `json:\"v,omitempty\"` Kind string `json:\"k,omitempty\"` Bytes int64 `json:\"b,omitempty\"` HasResult bool `json:\"r,omitempty\"` }",
+          "after_start_line": 426,
+          "dependents_count": 6
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "summaryCall.ID",
+          "old_name": "sessionAcc.key",
+          "new_name": "summaryCall.ID",
+          "old_signature": "key string",
+          "new_signature": "ID string",
+          "before_start_line": 377,
+          "after_start_line": 427,
+          "dependents_count": 451,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "summaryCall.Verb",
+          "new_signature": "Verb string",
+          "after_start_line": 428,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "summaryCall.Kind",
+          "new_signature": "Kind string",
+          "after_start_line": 429,
+          "dependents_count": 629
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "summaryCall.Bytes",
+          "new_signature": "Bytes int64",
+          "after_start_line": 430,
+          "dependents_count": 121
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "summaryCall.HasResult",
+          "old_name": "statsCollector.medianDone",
+          "new_name": "summaryCall.HasResult",
+          "old_signature": "medianDone bool",
+          "new_signature": "HasResult bool",
+          "before_start_line": 450,
+          "after_start_line": 431,
+          "dependents_count": 3,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "summaryUsage",
+          "new_signature": "summaryUsage struct { ID string `json:\"i\"` Tokens statsTokens `json:\"t\"` }",
+          "after_start_line": 436,
+          "dependents_count": 3
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "summaryUsage.ID",
+          "old_name": "pendingCall.kind",
+          "new_name": "summaryUsage.ID",
+          "old_signature": "kind string",
+          "new_signature": "ID string",
+          "before_start_line": 373,
+          "after_start_line": 437,
+          "dependents_count": 451,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "summaryUsage.Tokens",
+          "new_signature": "Tokens statsTokens",
+          "after_start_line": 438,
+          "dependents_count": 3
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "statsCollector.ctx",
+          "old_signature": "ctx context.Context",
+          "before_start_line": 444,
+          "dependents_count": 219
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "statsCollector.pending",
+          "old_signature": "pending map[string]pendingCall",
+          "before_start_line": 447,
+          "dependents_count": 21
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "statsCollector.sizeCache",
+          "old_signature": "sizeCache map[string]int64",
+          "before_start_line": 448,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "fileSummary",
+          "new_signature": "fileSummary struct { Malformed int `json:\"malformed,omitempty\"` FirstUnixNano int64 `json:\"first,omitempty\"` LastUnixNano int64 `json:\"last,omitempty\"` Calls []summaryCall `json:\"calls,omitempty\"` Usage []summaryUsage `json:\"usage,omitempty\"` // Unkeyed is usage from records carrying no message id. Those cannot be deduplicated, so // they accumulate per record: that can only over-count, and silently dropping billed // tokens would be the worse failure. Unkeyed statsTokens `json:\"unkeyed,omitempty\"` }",
+          "after_start_line": 450,
+          "dependents_count": 12
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "fileSummary.Malformed",
+          "old_name": "sessionAcc.exploreCalls",
+          "new_name": "fileSummary.Malformed",
+          "old_signature": "exploreCalls int",
+          "new_signature": "Malformed int",
+          "before_start_line": 380,
+          "after_start_line": 451,
+          "dependents_count": 3,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "fileSummary.FirstUnixNano",
+          "old_name": "sessionAcc.savingsBytes",
+          "new_name": "fileSummary.FirstUnixNano",
+          "old_signature": "savingsBytes int64",
+          "new_signature": "FirstUnixNano int64",
+          "before_start_line": 388,
+          "after_start_line": 452,
+          "dependents_count": 3,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileSummary.LastUnixNano",
+          "new_signature": "LastUnixNano int64",
+          "after_start_line": 453,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileSummary.Calls",
+          "new_signature": "Calls []summaryCall",
+          "after_start_line": 454,
+          "dependents_count": 17
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileSummary.Usage",
+          "new_signature": "Usage []summaryUsage",
+          "after_start_line": 455,
+          "dependents_count": 15
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileSummary.Unkeyed",
+          "new_signature": "Unkeyed statsTokens",
+          "after_start_line": 459,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "fileScanner",
+          "new_signature": "fileScanner struct { summary fileSummary pending map[string]int // tool_use id -\u003e index into summary.Calls seenUse map[string]bool usageIdx map[string]int // message id -\u003e index into summary.Usage }",
+          "after_start_line": 463,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileScanner.summary",
+          "new_signature": "summary fileSummary",
+          "after_start_line": 464,
+          "dependents_count": 101
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileScanner.pending",
+          "new_signature": "pending map[string]int",
+          "after_start_line": 465,
+          "dependents_count": 21
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileScanner.seenUse",
+          "new_signature": "seenUse map[string]bool",
+          "after_start_line": 466,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileScanner.usageIdx",
+          "new_signature": "usageIdx map[string]int",
+          "after_start_line": 467,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "newFileScanner",
+          "new_signature": "func newFileScanner() *fileScanner",
+          "after_start_line": 470,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.scan",
+          "old_signature": "func (c *statsCollector) scan(dir string) error",
+          "before_start_line": 470,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "fileScanner.consume",
+          "new_signature": "func (s *fileScanner) consume(record transcriptRecord)",
+          "after_start_line": 478,
+          "dependents_count": 23
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.scanTranscript",
+          "old_signature": "func (c *statsCollector) scanTranscript(path string) error",
+          "before_start_line": 502,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "fileScanner.consumeUsage",
+          "new_signature": "func (s *fileScanner) consumeUsage(id string, tokens statsTokens)",
+          "after_start_line": 519,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "fileScanner.consumeToolUse",
+          "new_signature": "func (s *fileScanner) consumeToolUse(block contentBlock)",
+          "after_start_line": 535,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.scanFile",
+          "old_signature": "func (c *statsCollector) scanFile(root, path string) error",
+          "before_start_line": 537,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "classifyToolUse",
+          "new_signature": "func classifyToolUse(block contentBlock) (summaryCall, bool)",
+          "after_start_line": 556,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "fileScanner.consumeToolResult",
+          "new_signature": "func (s *fileScanner) consumeToolResult(block contentBlock)",
+          "after_start_line": 566,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "summariseTranscript",
+          "new_signature": "func summariseTranscript(path string) (fileSummary, bool)",
+          "after_start_line": 578,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.consume",
+          "old_signature": "func (c *statsCollector) consume(sessionKey string, record transcriptRecord)",
+          "before_start_line": 590,
+          "dependents_count": 23
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "sessionAcc",
+          "old_signature": "sessionAcc struct { key string first, last time.Time graphCalls int exploreCalls int firstLocate string // \"graph\" | \"explore\" verbCalls map[string]int verbBytes map[string]int64 exploreCalls2 map[string]int exploreBytes map[string]int64 usageByID map[string]statsTokens // one entry per assistant message; see addUsage unkeyedTokens statsTokens // usage from records carrying no message id savingsBytes int64 creditedCalls int }",
+          "new_signature": "sessionAcc struct { firstNano, lastNano int64 firstLocate string // \"graph\" | \"explore\" verbCalls map[string]int verbResults map[string]int verbBytes map[string]int64 kindCalls map[string]int kindResults map[string]int kindBytes map[string]int64 seenCalls map[string]summaryCall usageByID map[string]statsTokens unkeyed statsTokens }",
+          "before_start_line": 376,
+          "after_start_line": 610,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "sessionAcc.firstNano",
+          "new_signature": "firstNano int64",
+          "after_start_line": 611,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "sessionAcc.lastNano",
+          "new_signature": "lastNano int64",
+          "after_start_line": 611,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "sessionAcc.verbResults",
+          "new_signature": "verbResults map[string]int",
+          "after_start_line": 614,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "sessionAcc.kindCalls",
+          "new_signature": "kindCalls map[string]int",
+          "after_start_line": 616,
+          "dependents_count": 4
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "sessionAcc.kindResults",
+          "old_name": "sessionAcc.exploreCalls2",
+          "new_name": "sessionAcc.kindResults",
+          "old_signature": "exploreCalls2 map[string]int",
+          "new_signature": "kindResults map[string]int",
+          "before_start_line": 384,
+          "after_start_line": 617,
+          "dependents_count": 5,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "sessionAcc.kindBytes",
+          "old_name": "sessionAcc.exploreBytes",
+          "new_name": "sessionAcc.kindBytes",
+          "old_signature": "exploreBytes map[string]int64",
+          "new_signature": "kindBytes map[string]int64",
+          "before_start_line": 385,
+          "after_start_line": 618,
+          "dependents_count": 5,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "sessionAcc.seenCalls",
+          "new_signature": "seenCalls map[string]summaryCall",
+          "after_start_line": 619,
+          "dependents_count": 3
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "sessionAcc.unkeyed",
+          "old_name": "sessionAcc.unkeyedTokens",
+          "new_name": "sessionAcc.unkeyed",
+          "old_signature": "unkeyedTokens statsTokens",
+          "new_signature": "unkeyed statsTokens",
+          "before_start_line": 387,
+          "after_start_line": 621,
+          "dependents_count": 5,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "newSessionAcc",
+          "old_signature": "func newSessionAcc(key string) *sessionAcc",
+          "new_signature": "func newSessionAcc() *sessionAcc",
+          "before_start_line": 392,
+          "after_start_line": 624,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.consumeToolUse",
+          "old_signature": "func (c *statsCollector) consumeToolUse(acc *sessionAcc, block contentBlock)",
+          "before_start_line": 629,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "sessionAcc.merge",
+          "new_signature": "func (a *sessionAcc) merge(summary fileSummary)",
+          "after_start_line": 640,
+          "dependents_count": 54
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.consumeToolResult",
+          "old_signature": "func (c *statsCollector) consumeToolResult(block contentBlock)",
+          "before_start_line": 655,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.creditFor",
+          "old_signature": "func (c *statsCollector) creditFor(text string, returned int64) int64",
+          "before_start_line": 677,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.topHitFileSize",
+          "old_signature": "func (c *statsCollector) topHitFileSize(text string) int64",
+          "before_start_line": 689,
+          "dependents_count": 0
+        },
+        {
+          "type": "body_changed",
+          "kind": "method",
+          "name": "sessionAcc.tokens",
+          "before_start_line": 431,
+          "after_start_line": 706,
+          "dependents_count": 77
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.fileSize",
+          "old_signature": "func (c *statsCollector) fileSize(path string) int64",
+          "before_start_line": 707,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "addCounts",
+          "new_signature": "func addCounts(into, from map[string]int)",
+          "after_start_line": 718,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "addBytes",
+          "new_signature": "func addBytes(into, from map[string]int64)",
+          "after_start_line": 724,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "function",
+          "name": "statsRepoRelativePath",
+          "old_signature": "func statsRepoRelativePath(repo, candidate string) (string, bool)",
+          "before_start_line": 729,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "sumCounts",
+          "new_signature": "func sumCounts(values map[string]int) int",
+          "after_start_line": 730,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "sumBytes",
+          "new_signature": "func sumBytes(values map[string]int64) int64",
+          "after_start_line": 738,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "sessionAcc.locateTotals",
+          "new_signature": "func (a *sessionAcc) locateTotals() (calls, results int, bytes int64)",
+          "after_start_line": 748,
+          "dependents_count": 2
+        },
+        {
+          "type": "removed",
+          "kind": "function",
+          "name": "statsRootedRegularFileSize",
+          "old_signature": "func statsRootedRegularFileSize(root *os.Root, rel string) (int64, bool)",
+          "before_start_line": 749,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "sessionAcc.savingsBytes",
+          "new_signature": "func (a *sessionAcc) savingsBytes() int64",
+          "after_start_line": 769,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.worktreeTraversalSafe",
+          "old_signature": "func (c *statsCollector) worktreeTraversalSafe() bool",
+          "before_start_line": 778,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "mulDiv",
+          "new_signature": "func mulDiv(a, b, c int64) int64",
+          "after_start_line": 784,
+          "dependents_count": 2
+        },
+        {
+          "type": "removed",
+          "kind": "method",
+          "name": "statsCollector.medianTrackedFileSize",
+          "old_signature": "func (c *statsCollector) medianTrackedFileSize() int64",
+          "before_start_line": 790,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "transcriptFile",
+          "new_signature": "transcriptFile struct { path string identity string // absolute resolved path, including a symlink target session string size int64 modTime time.Time }",
+          "after_start_line": 801,
+          "dependents_count": 11
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "transcriptFile.path",
+          "old_name": "pendingCall.verb",
+          "new_name": "transcriptFile.path",
+          "old_signature": "verb string",
+          "new_signature": "path string",
+          "before_start_line": 372,
+          "after_start_line": 802,
+          "dependents_count": 1152,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "transcriptFile.identity",
+          "old_name": "transcriptRecord.SessionID",
+          "new_name": "transcriptFile.identity",
+          "old_signature": "SessionID string",
+          "new_signature": "identity string",
+          "before_start_line": 344,
+          "after_start_line": 803,
+          "dependents_count": 87,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "transcriptFile.session",
+          "old_name": "pendingCall.session",
+          "new_name": "transcriptFile.session",
+          "old_signature": "session string",
+          "new_signature": "session string",
+          "before_start_line": 370,
+          "after_start_line": 804,
+          "dependents_count": 120,
+          "similarity": 1,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "transcriptFile.size",
+          "old_name": "statsCollector.medianBytes",
+          "new_name": "transcriptFile.size",
+          "old_signature": "medianBytes int64",
+          "new_signature": "size int64",
+          "before_start_line": 449,
+          "after_start_line": 805,
+          "dependents_count": 152,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "transcriptFile.modTime",
+          "old_name": "sessionAcc.last",
+          "new_name": "transcriptFile.modTime",
+          "old_signature": "last time.Time",
+          "new_signature": "modTime time.Time",
+          "before_start_line": 378,
+          "after_start_line": 806,
+          "dependents_count": 5,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "statsCollector",
+          "old_signature": "statsCollector struct { ctx context.Context repo string sessions map[string]*sessionAcc pending map[string]pendingCall sizeCache map[string]int64 medianBytes int64 medianDone bool worktreeSafe bool worktreeSafeDone bool transcripts int malformed int }",
+          "new_signature": "statsCollector struct { sessions map[string]*sessionAcc cache *statsCache considered int transcripts int fromCache int malformed int }",
+          "before_start_line": 443,
+          "after_start_line": 809,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCollector.cache",
+          "new_signature": "cache *statsCache",
+          "after_start_line": 811,
+          "dependents_count": 282
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCollector.considered",
+          "new_signature": "considered int",
+          "after_start_line": 812,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCollector.fromCache",
+          "new_signature": "fromCache int",
+          "after_start_line": 814,
+          "dependents_count": 3
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "newStatsCollector",
+          "old_signature": "func newStatsCollector(ctx context.Context, repo string) *statsCollector",
+          "new_signature": "func newStatsCollector() *statsCollector",
+          "before_start_line": 457,
+          "after_start_line": 818,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "method",
+          "name": "statsCollector.session",
+          "before_start_line": 581,
+          "after_start_line": 822,
+          "dependents_count": 120
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCollector.run",
+          "new_signature": "func (c *statsCollector) run(files []transcriptFile, cutoff time.Time)",
+          "after_start_line": 844,
+          "dependents_count": 497
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCollector.summarise",
+          "new_signature": "func (c *statsCollector) summarise(file transcriptFile) (fileSummary, bool)",
+          "after_start_line": 868,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "listTranscriptFiles",
+          "new_signature": "func listTranscriptFiles(root string, single bool) ([]transcriptFile, error)",
+          "after_start_line": 897,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "walkTranscripts",
+          "new_signature": "func walkTranscripts(dir, keyRoot string, reportRootError bool) ([]transcriptFile, error)",
+          "after_start_line": 922,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "transcriptFileAt",
+          "new_signature": "func transcriptFileAt(path, session string) (transcriptFile, bool)",
+          "after_start_line": 948,
+          "dependents_count": 2
+        },
+        {
+          "type": "signature_changed",
+          "kind": "method",
+          "name": "statsCollector.finish",
+          "old_signature": "func (c *statsCollector) finish(report *statsResponse, window time.Duration)",
+          "new_signature": "func (c *statsCollector) finish(report *statsResponse, cutoff time.Time)",
+          "before_start_line": 992,
+          "after_start_line": 1129,
+          "dependents_count": 28
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "roundTo",
+          "before_start_line": 1125,
+          "after_start_line": 1277,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "writeStatsSummary",
+          "new_signature": "func writeStatsSummary(out io.Writer, report statsResponse)",
+          "after_start_line": 1290,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "statsGreen",
+          "new_signature": "func statsGreen(out io.Writer, value string) string",
+          "after_start_line": 1308,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "writeStatsText",
+          "before_start_line": 1134,
+          "after_start_line": 1316,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/cli/stats_cache.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "statsCache",
+          "new_signature": "statsCache struct { path string salt string entries map[string]fileSummary // what the next save writes changed bool }",
+          "after_start_line": 41,
+          "dependents_count": 11
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCache.path",
+          "new_signature": "path string",
+          "after_start_line": 42,
+          "dependents_count": 1152
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCache.salt",
+          "new_signature": "salt string",
+          "after_start_line": 43,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCache.entries",
+          "new_signature": "entries map[string]fileSummary",
+          "after_start_line": 44,
+          "dependents_count": 119
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCache.changed",
+          "new_signature": "changed bool",
+          "after_start_line": 45,
+          "dependents_count": 171
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "statsCacheDir",
+          "new_signature": "func statsCacheDir(flags statsFlags, env EntireEnv) string",
+          "after_start_line": 51,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "openStatsCache",
+          "new_signature": "func openStatsCache(dir, scope, version string, files []transcriptFile) *statsCache",
+          "after_start_line": 60,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "statsCacheWorthwhile",
+          "new_signature": "func statsCacheWorthwhile(files []transcriptFile) bool",
+          "after_start_line": 74,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "statsCacheSalt",
+          "new_signature": "func statsCacheSalt(version string) string",
+          "after_start_line": 94,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "statsCacheKey",
+          "new_signature": "func statsCacheKey(values ...string) string",
+          "after_start_line": 106,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCache.entryKey",
+          "new_signature": "func (c *statsCache) entryKey(file transcriptFile) string",
+          "after_start_line": 116,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "statsCacheDocument",
+          "new_signature": "statsCacheDocument struct { Schema string `json:\"schema\"` Entries map[string]fileSummary `json:\"entries\"` }",
+          "after_start_line": 126,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCacheDocument.Schema",
+          "new_signature": "Schema string",
+          "after_start_line": 127,
+          "dependents_count": 13
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "statsCacheDocument.Entries",
+          "new_signature": "Entries map[string]fileSummary",
+          "after_start_line": 128,
+          "dependents_count": 22
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCache.load",
+          "new_signature": "func (c *statsCache) load()",
+          "after_start_line": 133,
+          "dependents_count": 48
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCache.loadFrom",
+          "new_signature": "func (c *statsCache) loadFrom(handle io.Reader, maxBytes int64)",
+          "after_start_line": 143,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCache.lookup",
+          "new_signature": "func (c *statsCache) lookup(file transcriptFile) (fileSummary, bool)",
+          "after_start_line": 167,
+          "dependents_count": 50
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCache.store",
+          "new_signature": "func (c *statsCache) store(file transcriptFile, summary fileSummary)",
+          "after_start_line": 175,
+          "dependents_count": 63
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCache.retain",
+          "new_signature": "func (c *statsCache) retain(files []transcriptFile)",
+          "after_start_line": 187,
+          "dependents_count": 21
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "statsCache.save",
+          "new_signature": "func (c *statsCache) save()",
+          "after_start_line": 205,
+          "dependents_count": 17
+        }
+      ]
+    },
+    {
+      "path": "internal/cli/stats_cache_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "writeStatsCacheFixture",
+          "new_signature": "func writeStatsCacheFixture(t *testing.T, sessions string, count int)",
+          "after_start_line": 17,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "statsCacheArtifact",
+          "new_signature": "func statsCacheArtifact(t *testing.T, cacheDir string) string",
+          "after_start_line": 31,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheServesRepeatRunsAndInvalidatesOnChange",
+          "new_signature": "func TestStatsCacheServesRepeatRunsAndInvalidatesOnChange(t *testing.T)",
+          "after_start_line": 51,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheFailsOpenOnCorruption",
+          "new_signature": "func TestStatsCacheFailsOpenOnCorruption(t *testing.T)",
+          "after_start_line": 118,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheKeyBindsToTheBinary",
+          "new_signature": "func TestStatsCacheKeyBindsToTheBinary(t *testing.T)",
+          "after_start_line": 153,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheIsWindowIndependent",
+          "new_signature": "func TestStatsCacheIsWindowIndependent(t *testing.T)",
+          "after_start_line": 173,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheDropsEntriesForDeletedTranscripts",
+          "new_signature": "func TestStatsCacheDropsEntriesForDeletedTranscripts(t *testing.T)",
+          "after_start_line": 199,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "statsCacheEntryCount",
+          "new_signature": "func statsCacheEntryCount(t *testing.T, cacheDir string) int",
+          "after_start_line": 224,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheEngagesAtTheDocumentedThreshold",
+          "new_signature": "func TestStatsCacheEngagesAtTheDocumentedThreshold(t *testing.T)",
+          "after_start_line": 244,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheRejectsAForeignSchema",
+          "new_signature": "func TestStatsCacheRejectsAForeignSchema(t *testing.T)",
+          "after_start_line": 277,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/cli/stats_mount_windows_test.go",
+      "status": "D",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "removed",
+          "kind": "function",
+          "name": "TestStatsMedianFallbackRefusesWorktreeJunction",
+          "old_signature": "func TestStatsMedianFallbackRefusesWorktreeJunction(t *testing.T)",
+          "before_start_line": 12,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "function",
+          "name": "TestStatsMedianCompatibilityModeDoesNotEnterWorktreeJunction",
+          "old_signature": "func TestStatsMedianCompatibilityModeDoesNotEnterWorktreeJunction(t *testing.T)",
+          "before_start_line": 38,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/cli/stats_replay_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsDuplicateWithLaterResult",
+          "new_signature": "func TestStatsDuplicateWithLaterResult(t *testing.T)",
+          "after_start_line": 12,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsUsagePartialReplay",
+          "new_signature": "func TestStatsUsagePartialReplay(t *testing.T)",
+          "after_start_line": 46,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsTruncatedGzipCache",
+          "new_signature": "func TestStatsTruncatedGzipCache(t *testing.T)",
+          "after_start_line": 56,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheBoundsDecompressedData",
+          "new_signature": "func TestStatsCacheBoundsDecompressedData(t *testing.T)",
+          "after_start_line": 87,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/cli/stats_scope_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCacheIncludesLargeSingleTranscript",
+          "new_signature": "func TestStatsCacheIncludesLargeSingleTranscript(t *testing.T)",
+          "after_start_line": 12,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsSymlinkTargetIdentityAndMetadata",
+          "new_signature": "func TestStatsSymlinkTargetIdentityAndMetadata(t *testing.T)",
+          "after_start_line": 38,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/cli/stats_test.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "TestStatsSavingsModelMath",
+          "before_start_line": 333,
+          "after_start_line": 337,
+          "dependents_count": 0
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "TestStatsSavingsFlooredAtZeroWhenGraphCostsMore",
+          "before_start_line": 375,
+          "after_start_line": 393,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsSavingsNeedsBothSides",
+          "new_signature": "func TestStatsSavingsNeedsBothSides(t *testing.T)",
+          "after_start_line": 422,
+          "dependents_count": 0
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "TestStatsHandlesMissingSessionsDirGracefully",
+          "before_start_line": 400,
+          "after_start_line": 438,
+          "dependents_count": 0
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "TestStatsHandlesEmptySessionsDir",
+          "before_start_line": 421,
+          "after_start_line": 459,
+          "dependents_count": 0
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "TestStatsTextOutputCarriesRatioAndCaveat",
+          "before_start_line": 540,
+          "after_start_line": 580,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "function",
+          "name": "TestStatsMedianFallbackWhenTopHitUnresolvable",
+          "old_signature": "func TestStatsMedianFallbackWhenTopHitUnresolvable(t *testing.T)",
+          "before_start_line": 757,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "function",
+          "name": "TestStatsFileSizeStaysInsideTheSelectedRepository",
+          "old_signature": "func TestStatsFileSizeStaysInsideTheSelectedRepository(t *testing.T)",
+          "before_start_line": 785,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsDefaultOutputIsOneHeadlineLine",
+          "new_signature": "func TestStatsDefaultOutputIsOneHeadlineLine(t *testing.T)",
+          "after_start_line": 909,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsHeadlineIsPlainTextWhenOutputIsNotATerminal",
+          "new_signature": "func TestStatsHeadlineIsPlainTextWhenOutputIsNotATerminal(t *testing.T)",
+          "after_start_line": 952,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsPrunesTranscriptsOutsideTheWindowByMtime",
+          "new_signature": "func TestStatsPrunesTranscriptsOutsideTheWindowByMtime(t *testing.T)",
+          "after_start_line": 976,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsKeepsAWholeSessionWhenAnyOfItsTranscriptsIsRecent",
+          "new_signature": "func TestStatsKeepsAWholeSessionWhenAnyOfItsTranscriptsIsRecent(t *testing.T)",
+          "after_start_line": 1017,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsCountsARepeatedToolUseOnceWithinASession",
+          "new_signature": "func TestStatsCountsARepeatedToolUseOnceWithinASession(t *testing.T)",
+          "after_start_line": 1052,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsBillsARepeatedMessageOnceWithinASession",
+          "new_signature": "func TestStatsBillsARepeatedMessageOnceWithinASession(t *testing.T)",
+          "after_start_line": 1081,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsOutputIsByteIdenticalAcrossRuns",
+          "new_signature": "func TestStatsOutputIsByteIdenticalAcrossRuns(t *testing.T)",
+          "after_start_line": 1106,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestMulDivIsExactAndDoesNotOverflow",
+          "new_signature": "func TestMulDivIsExactAndDoesNotOverflow(t *testing.T)",
+          "after_start_line": 1146,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestRoundToRoundsHalfAwayFromZero",
+          "new_signature": "func TestRoundToRoundsHalfAwayFromZero(t *testing.T)",
+          "after_start_line": 1175,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsJSONContractKeepsEveryPublishedKey",
+          "new_signature": "func TestStatsJSONContractKeepsEveryPublishedKey(t *testing.T)",
+          "after_start_line": 1199,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsJSONIgnoresVerbose",
+          "new_signature": "func TestStatsJSONIgnoresVerbose(t *testing.T)",
+          "after_start_line": 1237,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsUnmatchedCallsDoNotDeflateThePrice",
+          "new_signature": "func TestStatsUnmatchedCallsDoNotDeflateThePrice(t *testing.T)",
+          "after_start_line": 1264,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsIdlessToolUsesAreAllCounted",
+          "new_signature": "func TestStatsIdlessToolUsesAreAllCounted(t *testing.T)",
+          "after_start_line": 1299,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStatsPruneKeepsAFileWhoseMtimeIsExactlyTheCutoff",
+          "new_signature": "func TestStatsPruneKeepsAFileWhoseMtimeIsExactlyTheCutoff(t *testing.T)",
+          "after_start_line": 1320,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/analyze.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "changedFileScan",
+          "new_signature": "changedFileScan struct { delta *fileDelta warnings []ProviderWarning stopped bool err error }",
+          "after_start_line": 59,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "changedFileScan.delta",
+          "new_signature": "delta *fileDelta",
+          "after_start_line": 60,
+          "dependents_count": 27
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "changedFileScan.warnings",
+          "new_signature": "warnings []ProviderWarning",
+          "after_start_line": 61,
+          "dependents_count": 107
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "changedFileScan.stopped",
+          "new_signature": "stopped bool",
+          "after_start_line": 62,
+          "dependents_count": 30
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "changedFileScan.err",
+          "new_signature": "err error",
+          "after_start_line": 63,
+          "dependents_count": 2112
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "AnalyzeGitRangeWithOptions",
+          "before_start_line": 52,
+          "after_start_line": 72,
+          "dependents_count": 13
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/analyze_test.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestAnalyzeGitRangeBudgetStopsInsideOnePrimeWindow",
+          "new_signature": "func TestAnalyzeGitRangeBudgetStopsInsideOnePrimeWindow(t *testing.T)",
+          "after_start_line": 1940,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/dependents.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "candidateScan",
+          "new_signature": "candidateScan struct { hits []referenceHit warnings []ProviderWarning stopped bool err error }",
+          "after_start_line": 89,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "candidateScan.hits",
+          "new_signature": "hits []referenceHit",
+          "after_start_line": 90,
+          "dependents_count": 52
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "candidateScan.warnings",
+          "new_signature": "warnings []ProviderWarning",
+          "after_start_line": 91,
+          "dependents_count": 107
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "candidateScan.stopped",
+          "new_signature": "stopped bool",
+          "after_start_line": 92,
+          "dependents_count": 30
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "candidateScan.err",
+          "new_signature": "err error",
+          "after_start_line": 93,
+          "dependents_count": 2112
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "referenceHit",
+          "new_signature": "referenceHit struct { token string entityKey string }",
+          "after_start_line": 99,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "referenceHit.token",
+          "new_signature": "token string",
+          "after_start_line": 100,
+          "dependents_count": 220
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "referenceHit.entityKey",
+          "new_signature": "entityKey string",
+          "after_start_line": 101,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "dependentsScanWorkers",
+          "new_signature": "func dependentsScanWorkers() int",
+          "after_start_line": 111,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "buildReferenceIndexWithProgress",
+          "before_start_line": 83,
+          "after_start_line": 115,
+          "dependents_count": 7
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "identifiersIn",
+          "before_start_line": 559,
+          "after_start_line": 641,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/dependents_test.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestBuildReferenceIndexBudgetRejectsBufferedResults",
+          "new_signature": "func TestBuildReferenceIndexBudgetRejectsBufferedResults(t *testing.T)",
+          "after_start_line": 959,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/file_string_constants.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "fileStringConstants",
+          "new_signature": "fileStringConstants struct { mu sync.Mutex by map[string]map[string]string }",
+          "after_start_line": 17,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileStringConstants.mu",
+          "new_signature": "mu sync.Mutex",
+          "after_start_line": 18,
+          "dependents_count": 27
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileStringConstants.by",
+          "new_signature": "by map[string]map[string]string",
+          "after_start_line": 19,
+          "dependents_count": 458
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "newFileStringConstants",
+          "new_signature": "func newFileStringConstants() *fileStringConstants",
+          "after_start_line": 22,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "fileStringConstants.forFile",
+          "new_signature": "func (c *fileStringConstants) forFile(path, content string) map[string]string",
+          "after_start_line": 30,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/golden_test.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "TestReturnFlowCallsOrderIsTotal",
+          "before_start_line": 98,
+          "after_start_line": 98,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/identifier_tokens.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "forEachIdentifierToken",
+          "new_signature": "func forEachIdentifierToken(s string, visit func(token string))",
+          "after_start_line": 16,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "isIdentifierTokenByte",
+          "new_signature": "func isIdentifierTokenByte(c byte) bool",
+          "after_start_line": 39,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/identifier_tokens_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "collectIdentifierTokens",
+          "new_signature": "func collectIdentifierTokens(s string) []string",
+          "after_start_line": 13,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestForEachIdentifierTokenMatchesTheRegex",
+          "new_signature": "func TestForEachIdentifierTokenMatchesTheRegex(t *testing.T)",
+          "after_start_line": 19,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestForEachIdentifierTokenMatchesTheRegexOnSource",
+          "new_signature": "func TestForEachIdentifierTokenMatchesTheRegexOnSource(t *testing.T)",
+          "after_start_line": 63,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestForEachIdentifierTokenAllocatesNothing",
+          "new_signature": "func TestForEachIdentifierTokenAllocatesNothing(t *testing.T)",
+          "after_start_line": 90,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/kotlin.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kotlinSupertypeNames",
+          "before_start_line": 402,
+          "after_start_line": 404,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/parser.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "looksLikeFluxKustomizationManifest",
+          "before_start_line": 3410,
+          "after_start_line": 3415,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "looksLikeObjectiveC",
+          "before_start_line": 3452,
+          "after_start_line": 3462,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "looksLikeCPlusPlusHeader",
+          "before_start_line": 3457,
+          "after_start_line": 3469,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "yamlKeyEntities",
+          "before_start_line": 3605,
+          "after_start_line": 3619,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "jsonLikeEntities",
+          "before_start_line": 3624,
+          "after_start_line": 3639,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "tomlEntities",
+          "before_start_line": 3640,
+          "after_start_line": 3659,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "xmlEntities",
+          "before_start_line": 3664,
+          "after_start_line": 3683,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "makeEntities",
+          "before_start_line": 3680,
+          "after_start_line": 3700,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "markdownEntities",
+          "before_start_line": 3697,
+          "after_start_line": 3721,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "htmlEntities",
+          "before_start_line": 3722,
+          "after_start_line": 3746,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "cssEntities",
+          "before_start_line": 3742,
+          "after_start_line": 3767,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "slugName",
+          "before_start_line": 4096,
+          "after_start_line": 4122,
+          "dependents_count": 3
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "javascriptAssignmentMethodEntities",
+          "before_start_line": 7760,
+          "after_start_line": 7788,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/path_mount_guard.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "readPathMountGuard",
+          "new_signature": "func readPathMountGuard(root, trustedBase string, read func() (map[string]struct{}, error)) (pathMountGuard, error)",
+          "after_start_line": 29,
+          "dependents_count": 7
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/path_mount_guard_aix.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "newPathMountGuard",
+          "before_start_line": 94,
+          "after_start_line": 94,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/path_mount_guard_bsd.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "newPathMountGuard",
+          "before_start_line": 16,
+          "after_start_line": 16,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/path_mount_guard_linux.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "newPathMountGuard",
+          "before_start_line": 9,
+          "after_start_line": 12,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/path_mount_guard_mnttab.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "newPathMountGuard",
+          "before_start_line": 95,
+          "after_start_line": 95,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/path_mount_guard_netbsd.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "newPathMountGuard",
+          "before_start_line": 15,
+          "after_start_line": 15,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/path_mount_table_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestPathMountGuardRefreshesBetweenResolvers",
+          "new_signature": "func TestPathMountGuardRefreshesBetweenResolvers(t *testing.T)",
+          "after_start_line": 9,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestPathMountGuardDoesNotReuseTableAfterReadFailure",
+          "new_signature": "func TestPathMountGuardDoesNotReuseTableAfterReadFailure(t *testing.T)",
+          "after_start_line": 37,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "streamSnapshotWithWorkerCount",
+          "before_start_line": 1105,
+          "after_start_line": 1105,
+          "dependents_count": 6
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "jsCrossFileNamespaceLookup",
+          "before_start_line": 4065,
+          "after_start_line": 4075,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "buildRelations",
+          "before_start_line": 4313,
+          "after_start_line": 4330,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "fileRelationScan",
+          "new_signature": "fileRelationScan struct { failures []PartialFailure resolvedImports map[string][]string routeHandlers []routeHandlerEntry httpCalls []httpCallEntry inheritance []RelationRecord }",
+          "after_start_line": 4486,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileRelationScan.failures",
+          "new_signature": "failures []PartialFailure",
+          "after_start_line": 4487,
+          "dependents_count": 74
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileRelationScan.resolvedImports",
+          "new_signature": "resolvedImports map[string][]string",
+          "after_start_line": 4488,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileRelationScan.routeHandlers",
+          "new_signature": "routeHandlers []routeHandlerEntry",
+          "after_start_line": 4489,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileRelationScan.httpCalls",
+          "new_signature": "httpCalls []httpCallEntry",
+          "after_start_line": 4490,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "fileRelationScan.inheritance",
+          "new_signature": "inheritance []RelationRecord",
+          "after_start_line": 4491,
+          "dependents_count": 23
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "routeHandlerEntry",
+          "new_signature": "routeHandlerEntry struct { route string handler SymbolRecord }",
+          "after_start_line": 4494,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "routeHandlerEntry.route",
+          "new_signature": "route string",
+          "after_start_line": 4495,
+          "dependents_count": 157
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "routeHandlerEntry.handler",
+          "new_signature": "handler SymbolRecord",
+          "after_start_line": 4496,
+          "dependents_count": 113
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "httpCallEntry",
+          "new_signature": "httpCallEntry struct { route string relation RelationRecord }",
+          "after_start_line": 4499,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "httpCallEntry.route",
+          "new_signature": "route string",
+          "after_start_line": 4500,
+          "dependents_count": 157
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "httpCallEntry.relation",
+          "new_signature": "relation RelationRecord",
+          "after_start_line": 4501,
+          "dependents_count": 355
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "forEachRelation",
+          "old_signature": "func forEachRelation(repoKey string, files []FileRecord, recordsByFile map[string][]SymbolRecord, readContent contentReader, precomputedImports map[string][]string, spec profileSpec, shouldStop func() bool, emit func(RelationRecord), recordFailure func(PartialFailure))",
+          "new_signature": "func forEachRelation(ctx context.Context, repoKey string, files []FileRecord, recordsByFile map[string][]SymbolRecord, readContent contentReader, precomputedImports map[string][]string, spec profileSpec, workers int, shouldStop func() bool, emit func(RelationRecord), recordFailure func(PartialFailure))",
+          "before_start_line": 4462,
+          "after_start_line": 4509,
+          "dependents_count": 3
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "receiverCallRelations",
+          "old_signature": "func receiverCallRelations(from SymbolRecord, block string, methodsByContainer map[string]map[string]SymbolRecord, superContainerByID map[string]string, implementersByContainer map[string][]string, symbolsByShortName map[string][]SymbolRecord, returnTypesBySymbolNameAndFile, returnTypesBySymbolNameAndDir map[string]map[string][]string, importsByName map[string][]string, goModule string, pkgVarTypes map[string]pkgQualType, phpPropTypes, kotlinPropTypes, typeScriptPropTypes map[string]string, fieldsByContainer map[string]map[string]SymbolRecord, swiftTypes swiftFileTypes) []RelationRecord",
+          "new_signature": "func receiverCallRelations(from SymbolRecord, body symbolBody, methodsByContainer map[string]map[string]SymbolRecord, superContainerByID map[string]string, implementersByContainer map[string][]string, symbolsByShortName map[string][]SymbolRecord, returnTypesBySymbolNameAndFile, returnTypesBySymbolNameAndDir map[string]map[string][]string, importsByName map[string][]string, goModule string, pkgVarTypes map[string]pkgQualType, phpPropTypes, kotlinPropTypes, typeScriptPropTypes map[string]string, fieldsByContainer map[string]map[string]SymbolRecord, swiftTypes swiftFileTypes) []RelationRecord",
+          "before_start_line": 6820,
+          "after_start_line": 6936,
+          "dependents_count": 3
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "receiverCallArgumentReturnTypes",
+          "before_start_line": 8924,
+          "after_start_line": 9045,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "importedReceiverCallRelations",
+          "old_signature": "func importedReceiverCallRelations(from SymbolRecord, block string, importsByName map[string][]string, symbolsByShortName map[string][]SymbolRecord) []RelationRecord",
+          "new_signature": "func importedReceiverCallRelations(from SymbolRecord, body symbolBody, importsByName map[string][]string, symbolsByShortName map[string][]SymbolRecord) []RelationRecord",
+          "before_start_line": 9087,
+          "after_start_line": 9208,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "dockerCopyFromStages",
+          "before_start_line": 9306,
+          "after_start_line": 9429,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesResourceReferences",
+          "before_start_line": 9373,
+          "after_start_line": 9517,
+          "dependents_count": 3
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesKnativeTriggerBrokerReferences",
+          "before_start_line": 9802,
+          "after_start_line": 9948,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesKnativeServingTrafficReferences",
+          "before_start_line": 9818,
+          "after_start_line": 9968,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesArgoEventsReferences",
+          "before_start_line": 10001,
+          "after_start_line": 10156,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesArgoCDApplicationProjectReferences",
+          "before_start_line": 10031,
+          "after_start_line": 10188,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesScaledObjectScaleTargetReferences",
+          "before_start_line": 10060,
+          "after_start_line": 10219,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesGatewayPolicyTargetReferences",
+          "before_start_line": 10219,
+          "after_start_line": 10380,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesIstioServiceMeshReferences",
+          "before_start_line": 10235,
+          "after_start_line": 10401,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kustomizeFileReferences",
+          "before_start_line": 10843,
+          "after_start_line": 11014,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "composeServiceImages",
+          "before_start_line": 11094,
+          "after_start_line": 11267,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "fieldAccessRelations",
+          "old_signature": "func fieldAccessRelations(from SymbolRecord, block string, fieldsByContainer map[string]map[string]SymbolRecord, symbolsByShortName map[string][]SymbolRecord) []RelationRecord",
+          "new_signature": "func fieldAccessRelations(from SymbolRecord, body symbolBody, fieldsByContainer map[string]map[string]SymbolRecord, symbolsByShortName map[string][]SymbolRecord) []RelationRecord",
+          "before_start_line": 11739,
+          "after_start_line": 11912,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "parsePyProjectPackageDirMappings",
+          "before_start_line": 19832,
+          "after_start_line": 20007,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "regexpPackageDirRootValues",
+          "before_start_line": 19851,
+          "after_start_line": 20027,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "parsePythonSourceRootValues",
+          "before_start_line": 20511,
+          "after_start_line": 20688,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "normalizeJVMPackagePrefix",
+          "before_start_line": 20748,
+          "after_start_line": 20930,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "jvmQualifiedTypeName",
+          "before_start_line": 20757,
+          "after_start_line": 20941,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "csharpNamespaceName",
+          "before_start_line": 20773,
+          "after_start_line": 20958,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "normalizeCSharpNamespace",
+          "before_start_line": 20796,
+          "after_start_line": 20982,
+          "dependents_count": 4
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "phpQualifiedTypeNames",
+          "before_start_line": 20921,
+          "after_start_line": 21109,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "phpNamespaceName",
+          "before_start_line": 20941,
+          "after_start_line": 21130,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "normalizePHPClassName",
+          "before_start_line": 20974,
+          "after_start_line": 21168,
+          "dependents_count": 6
+        },
+        {
+          "type": "body_changed",
+          "kind": "method",
+          "name": "manifestImportResolver.rustPathModuleAliases",
+          "before_start_line": 21193,
+          "after_start_line": 21389,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "rustPubUseAliases",
+          "before_start_line": 21208,
+          "after_start_line": 21405,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "scanPythonImports",
+          "before_start_line": 21374,
+          "after_start_line": 21575,
+          "dependents_count": 3
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "scanJSImports",
+          "before_start_line": 21474,
+          "after_start_line": 21677,
+          "dependents_count": 0
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "scanJSDynamicImportExpressions",
+          "before_start_line": 21494,
+          "after_start_line": 21699,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "scanGoImports",
+          "before_start_line": 21551,
+          "after_start_line": 21760,
+          "dependents_count": 0
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "importedGoNames",
+          "before_start_line": 21618,
+          "after_start_line": 21830,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "importedJavaScriptNames",
+          "before_start_line": 21668,
+          "after_start_line": 21888,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "importedKotlinNames",
+          "before_start_line": 21727,
+          "after_start_line": 21942,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "importedJavaScriptBindings",
+          "before_start_line": 21946,
+          "after_start_line": 22160,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "importedPythonNamesAndForms",
+          "before_start_line": 22262,
+          "after_start_line": 22471,
+          "dependents_count": 7
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "callLikeIdentifiers",
+          "before_start_line": 22536,
+          "after_start_line": 22746,
+          "dependents_count": 3
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "goHTTPRouteRelations",
+          "old_signature": "func goHTTPRouteRelations(files []FileRecord, recordsByFile map[string][]SymbolRecord, readContent contentReader) []expressRouteRelation",
+          "new_signature": "func goHTTPRouteRelations(files []FileRecord, recordsByFile map[string][]SymbolRecord, readContent contentReader, constantsByFile *fileStringConstants) []expressRouteRelation",
+          "before_start_line": 23108,
+          "after_start_line": 23317,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "goHTTPRouteRegistrations",
+          "old_signature": "func goHTTPRouteRegistrations(content string) []goHTTPRouteRegistration",
+          "new_signature": "func goHTTPRouteRegistrations(content string, constants map[string]string) []goHTTPRouteRegistration",
+          "before_start_line": 23177,
+          "after_start_line": 23388,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "djangoIncludeMounts",
+          "before_start_line": 23510,
+          "after_start_line": 23724,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "pythonTornadoRouteRegistrations",
+          "before_start_line": 23678,
+          "after_start_line": 23892,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "pythonTornadoRoutePatternValue",
+          "before_start_line": 23710,
+          "after_start_line": 23928,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "laravelRouteRegistrations",
+          "before_start_line": 23809,
+          "after_start_line": 24030,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "laravelPrefixGroups",
+          "before_start_line": 23865,
+          "after_start_line": 24086,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "laravelControllerGroups",
+          "before_start_line": 23878,
+          "after_start_line": 24104,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "laravelControllerGroupMethodRouteRe",
+          "before_start_line": 23905,
+          "after_start_line": 24130,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "railsRouteRegistrations",
+          "before_start_line": 23994,
+          "after_start_line": 24224,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "railsNestedResourceBlocks",
+          "before_start_line": 24068,
+          "after_start_line": 24298,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "railsScopedRouteBlocks",
+          "before_start_line": 24086,
+          "after_start_line": 24317,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "railsResourceDeclarations",
+          "before_start_line": 24175,
+          "after_start_line": 24407,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "railsResourceActions",
+          "before_start_line": 24201,
+          "after_start_line": 24434,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "jsRouterMounts",
+          "before_start_line": 24470,
+          "after_start_line": 24709,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "jsFastifyPluginMounts",
+          "before_start_line": 24501,
+          "after_start_line": 24742,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "jsRouterConstructorPrefixes",
+          "before_start_line": 24558,
+          "after_start_line": 24803,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "javascriptDefaultExportName",
+          "before_start_line": 25357,
+          "after_start_line": 25608,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "pythonAsViewClassName",
+          "before_start_line": 25589,
+          "after_start_line": 25842,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "importedPythonBindings",
+          "before_start_line": 25615,
+          "after_start_line": 25868,
+          "dependents_count": 11
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "pythonRouterMounts",
+          "before_start_line": 25670,
+          "after_start_line": 25929,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "pythonRouteDecoratorsNearSymbol",
+          "before_start_line": 25724,
+          "after_start_line": 25981,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "csharpMinimalAPIRouteRegistrations",
+          "before_start_line": 25905,
+          "after_start_line": 26166,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "csharpMinimalAPIGroupPrefixes",
+          "before_start_line": 25961,
+          "after_start_line": 26222,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "nestJSRouteDecoratorLiterals",
+          "before_start_line": 26087,
+          "after_start_line": 26349,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "csharpRouteAnnotationLiterals",
+          "before_start_line": 26381,
+          "after_start_line": 26644,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "phpRouteAttributeLiterals",
+          "before_start_line": 26468,
+          "after_start_line": 26732,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "githubRepoKey",
+          "before_start_line": 27012,
+          "after_start_line": 27282,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider_parallel.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "removed",
+          "kind": "type",
+          "name": "providerFileJob",
+          "old_signature": "providerFileJob struct { index int path string }",
+          "before_start_line": 25,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "providerFileJob.path",
+          "old_signature": "path string",
+          "before_start_line": 27,
+          "dependents_count": 1152
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "runProviderFilePipeline",
+          "before_start_line": 267,
+          "after_start_line": 262,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "runIndexedPipeline",
+          "new_signature": "func runIndexedPipeline[T any]( ctx context.Context, count, workers int, process func(ctx context.Context, index int) T, reduce func(index int, result T) error, ) error",
+          "after_start_line": 288,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "indexed",
+          "new_signature": "indexed struct { index int result T }",
+          "after_start_line": 304,
+          "dependents_count": 49
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "indexed.index",
+          "old_name": "providerFileJob.index",
+          "new_name": "indexed.index",
+          "old_signature": "index int",
+          "new_signature": "index int",
+          "before_start_line": 26,
+          "after_start_line": 305,
+          "dependents_count": 709,
+          "similarity": 1,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "indexed.result",
+          "new_signature": "result T",
+          "after_start_line": 306,
+          "dependents_count": 590
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider_parallel_matrix_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStreamSnapshotParallelMultilanguageMatrix",
+          "new_signature": "func TestStreamSnapshotParallelMultilanguageMatrix(t *testing.T)",
+          "after_start_line": 15,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "parallelMatrixSnapshot",
+          "new_signature": "parallelMatrixSnapshot struct { native, compact []byte files map[string]bool summary SnapshotSummary externals int graph ProviderSnapshot }",
+          "after_start_line": 97,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "parallelMatrixSnapshot.compact",
+          "new_signature": "compact []byte",
+          "after_start_line": 98,
+          "dependents_count": 65
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "parallelMatrixSnapshot.native",
+          "new_signature": "native []byte",
+          "after_start_line": 98,
+          "dependents_count": 33
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "parallelMatrixSnapshot.files",
+          "new_signature": "files map[string]bool",
+          "after_start_line": 99,
+          "dependents_count": 398
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "parallelMatrixSnapshot.summary",
+          "new_signature": "summary SnapshotSummary",
+          "after_start_line": 100,
+          "dependents_count": 101
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "parallelMatrixSnapshot.externals",
+          "new_signature": "externals int",
+          "after_start_line": 101,
+          "dependents_count": 11
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "parallelMatrixSnapshot.graph",
+          "new_signature": "graph ProviderSnapshot",
+          "after_start_line": 102,
+          "dependents_count": 395
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "captureParallelMatrixSnapshot",
+          "new_signature": "func captureParallelMatrixSnapshot(t *testing.T, repo string, options ProviderSnapshotOptions, workers int) parallelMatrixSnapshot",
+          "after_start_line": 105,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "firstParallelMatrixDifference",
+          "new_signature": "func firstParallelMatrixDifference(want, got []byte) string",
+          "after_start_line": 137,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "writeParallelSharedStateFixture",
+          "new_signature": "func writeParallelSharedStateFixture(t *testing.T, repo string)",
+          "after_start_line": 147,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider_parallel_stream.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "runIndexedStreamingPipeline",
+          "new_signature": "func runIndexedStreamingPipeline[T, R any]( ctx context.Context, count, workers int, process func(context.Context, int, func(T)) R, emit func(int, T) error, reduce func(int, R) error, ) error",
+          "after_start_line": 14,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "slot",
+          "new_signature": "slot struct { values chan T result R }",
+          "after_start_line": 31,
+          "dependents_count": 25
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "slot.values",
+          "new_signature": "values chan T",
+          "after_start_line": 32,
+          "dependents_count": 95
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "slot.result",
+          "new_signature": "result R",
+          "after_start_line": 33,
+          "dependents_count": 590
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider_parallel_stream_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestIndexedStreamingPipelineBoundsAndOrdersLargeOutput",
+          "new_signature": "func TestIndexedStreamingPipelineBoundsAndOrdersLargeOutput(t *testing.T)",
+          "after_start_line": 11,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestIndexedStreamingPipelineStopsAndJoinsBlockedProducers",
+          "new_signature": "func TestIndexedStreamingPipelineStopsAndJoinsBlockedProducers(t *testing.T)",
+          "after_start_line": 74,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/provider_parallel_test.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestStreamSnapshotCancellationNeverEmitsSummary",
+          "new_signature": "func TestStreamSnapshotCancellationNeverEmitsSummary(t *testing.T)",
+          "after_start_line": 137,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/regexp_hoisting_test.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "TestRegexpLiteralsAreCompiledOnce",
+          "new_signature": "func TestRegexpLiteralsAreCompiledOnce(t *testing.T)",
+          "after_start_line": 24,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "isRegexpLiteralCompile",
+          "new_signature": "func isRegexpLiteralCompile(call *ast.CallExpr) bool",
+          "after_start_line": 67,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/ruby.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "rubyLocalNames",
+          "before_start_line": 316,
+          "after_start_line": 321,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/rust.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "rustModulePathCalls",
+          "before_start_line": 84,
+          "after_start_line": 86,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/search_cache.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "selectiveSearchSnapshotFromFull",
+          "before_start_line": 522,
+          "after_start_line": 522,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/swift.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "swiftCallArgumentLabels",
+          "before_start_line": 433,
+          "after_start_line": 435,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "swiftSignatureArgumentLabels",
+          "before_start_line": 445,
+          "after_start_line": 452,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/symbol_body.go",
+      "status": "A",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "symbolBody",
+          "new_signature": "symbolBody struct { text string stripped string }",
+          "after_start_line": 15,
+          "dependents_count": 22
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "symbolBody.text",
+          "new_signature": "text string",
+          "after_start_line": 16,
+          "dependents_count": 415
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "symbolBody.stripped",
+          "new_signature": "stripped string",
+          "after_start_line": 17,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "newSymbolBody",
+          "new_signature": "func newSymbolBody(text string) symbolBody",
+          "after_start_line": 20,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "method",
+          "name": "symbolBody.masked",
+          "new_signature": "func (b symbolBody) masked(text string) symbolBody",
+          "after_start_line": 27,
+          "dependents_count": 80
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/text.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "ShouldUseColor",
+          "new_signature": "func ShouldUseColor(out io.Writer) bool",
+          "after_start_line": 114,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "internal/sem/types.go",
+      "status": "M",
+      "language": "Go",
+      "changes": [
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "asyncCallNames",
+          "old_signature": "func asyncCallNames(block string) []string",
+          "new_signature": "func asyncCallNames(body symbolBody) []string",
+          "before_start_line": 947,
+          "after_start_line": 947,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "returnFlowCallNames",
+          "old_signature": "func returnFlowCallNames(block string) []string",
+          "new_signature": "func returnFlowCallNames(body symbolBody) []string",
+          "before_start_line": 963,
+          "after_start_line": 963,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "returnFlowCalls",
+          "old_signature": "func returnFlowCalls(block string, params map[string]bool) []returnFlowCall",
+          "new_signature": "func returnFlowCalls(body symbolBody, params map[string]bool) []returnFlowCall",
+          "before_start_line": 1022,
+          "after_start_line": 1022,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "destructuredAssignmentVariables",
+          "before_start_line": 1357,
+          "after_start_line": 1370,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "branchAssignedReturnFlows",
+          "before_start_line": 1379,
+          "after_start_line": 1394,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "argumentForwardingFlows",
+          "before_start_line": 1432,
+          "after_start_line": 1451,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "parameterPropertyForwardingFlows",
+          "before_start_line": 1475,
+          "after_start_line": 1493,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "forwardedParameterProperty",
+          "before_start_line": 1518,
+          "after_start_line": 1541,
+          "dependents_count": 2
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "parameterPropertyAliasForwardingFlows",
+          "before_start_line": 1539,
+          "after_start_line": 1564,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "aliasForwardingFlows",
+          "old_signature": "func aliasForwardingFlows(block string, params map[string]bool) []returnFlowCall",
+          "new_signature": "func aliasForwardingFlows(block string, params map[string]bool, aliases map[string]string) []returnFlowCall",
+          "before_start_line": 1599,
+          "after_start_line": 1622,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "destructuredAliasForwardingFlows",
+          "before_start_line": 1647,
+          "after_start_line": 1668,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "destructuredObjectAliases",
+          "before_start_line": 1710,
+          "after_start_line": 1730,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "objectFieldForwardingFlows",
+          "old_signature": "func objectFieldForwardingFlows(block string, params map[string]bool) []returnFlowCall",
+          "new_signature": "func objectFieldForwardingFlows(block string, params map[string]bool, aliases map[string]string) []returnFlowCall",
+          "before_start_line": 1729,
+          "after_start_line": 1749,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "collectionElementForwardingFlows",
+          "old_signature": "func collectionElementForwardingFlows(block string, params map[string]bool) []returnFlowCall",
+          "new_signature": "func collectionElementForwardingFlows(block string, params map[string]bool, aliases map[string]string) []returnFlowCall",
+          "before_start_line": 1843,
+          "after_start_line": 1861,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "callbackElementForwardingFlows",
+          "old_signature": "func callbackElementForwardingFlows(block string, params map[string]bool) []returnFlowCall",
+          "new_signature": "func callbackElementForwardingFlows(block string, params map[string]bool, aliases map[string]string) []returnFlowCall",
+          "before_start_line": 1951,
+          "after_start_line": 1967,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "callsWithArgument",
+          "before_start_line": 2018,
+          "after_start_line": 2033,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "directLiteralForwardingFlows",
+          "old_signature": "func directLiteralForwardingFlows(block string, params map[string]bool) []returnFlowCall",
+          "new_signature": "func directLiteralForwardingFlows(block string, params map[string]bool, aliases map[string]string) []returnFlowCall",
+          "before_start_line": 2039,
+          "after_start_line": 2053,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesImageRefs",
+          "before_start_line": 2503,
+          "after_start_line": 2517,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesEnvVarRefs",
+          "before_start_line": 2514,
+          "after_start_line": 2529,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "kubernetesPortRefs",
+          "before_start_line": 2543,
+          "after_start_line": 2559,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "looksLikeKubernetesManifest",
+          "before_start_line": 2574,
+          "after_start_line": 2594,
+          "dependents_count": 5
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "normalizeRouteParamSyntax",
+          "before_start_line": 2673,
+          "after_start_line": 2699,
+          "dependents_count": 7
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "fieldAccesses",
+          "old_signature": "func fieldAccesses(block string) []fieldAccess",
+          "new_signature": "func fieldAccesses(body symbolBody) []fieldAccess",
+          "before_start_line": 2707,
+          "after_start_line": 2733,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "receiverCalls",
+          "old_signature": "func receiverCalls(block string) []receiverCall",
+          "new_signature": "func receiverCalls(body symbolBody) []receiverCall",
+          "before_start_line": 2795,
+          "after_start_line": 2821,
+          "dependents_count": 2
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "chainedConstructorCalls",
+          "old_signature": "func chainedConstructorCalls(block string) []typedMethodCall",
+          "new_signature": "func chainedConstructorCalls(body symbolBody) []typedMethodCall",
+          "before_start_line": 2874,
+          "after_start_line": 2900,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "returnedReceiverCalls",
+          "old_signature": "func returnedReceiverCalls(block string) []returnedMethodCall",
+          "new_signature": "func returnedReceiverCalls(body symbolBody) []returnedMethodCall",
+          "before_start_line": 2895,
+          "after_start_line": 2921,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "chainedConstructorReturnCalls",
+          "old_signature": "func chainedConstructorReturnCalls(block string) []typedMethodChainCall",
+          "new_signature": "func chainedConstructorReturnCalls(body symbolBody) []typedMethodChainCall",
+          "before_start_line": 2917,
+          "after_start_line": 2943,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "chainedConstructorDeepReturnCalls",
+          "old_signature": "func chainedConstructorDeepReturnCalls(block string) []typedMethodDeepChainCall",
+          "new_signature": "func chainedConstructorDeepReturnCalls(body symbolBody) []typedMethodDeepChainCall",
+          "before_start_line": 2942,
+          "after_start_line": 2968,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "returnedReceiverChainCalls",
+          "old_signature": "func returnedReceiverChainCalls(block string) []returnedMethodChainCall",
+          "new_signature": "func returnedReceiverChainCalls(body symbolBody) []returnedMethodChainCall",
+          "before_start_line": 2972,
+          "after_start_line": 2998,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "returnedReceiverDeepChainCalls",
+          "old_signature": "func returnedReceiverDeepChainCalls(block string) []returnedMethodDeepChainCall",
+          "new_signature": "func returnedReceiverDeepChainCalls(body symbolBody) []returnedMethodDeepChainCall",
+          "before_start_line": 2994,
+          "after_start_line": 3020,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "localVarTypes",
+          "old_signature": "func localVarTypes(block string) map[string]string",
+          "new_signature": "func localVarTypes(body symbolBody) map[string]string",
+          "before_start_line": 3090,
+          "after_start_line": 3116,
+          "dependents_count": 2
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "factoryReturnVarTypes",
+          "old_signature": "func factoryReturnVarTypes(block, filePath string, returnTypesBySymbolNameAndFile map[string]map[string][]string) map[string]string",
+          "new_signature": "func factoryReturnVarTypes(body symbolBody, filePath string, returnTypesBySymbolNameAndFile map[string]map[string][]string) map[string]string",
+          "before_start_line": 3113,
+          "after_start_line": 3139,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "parameterVarTypes",
+          "before_start_line": 3134,
+          "after_start_line": 3166,
+          "dependents_count": 3
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "importedReceiverVarTypes",
+          "old_signature": "func importedReceiverVarTypes(signature, block string, importsByName map[string][]string, goModule string) map[string]string",
+          "new_signature": "func importedReceiverVarTypes(signature string, body symbolBody, importsByName map[string][]string, goModule string) map[string]string",
+          "before_start_line": 3254,
+          "after_start_line": 3283,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "goInModuleQualifiedReceiverTypes",
+          "old_signature": "func goInModuleQualifiedReceiverTypes(signature, block string, importsByName map[string][]string, goModule string) map[string]pkgQualType",
+          "new_signature": "func goInModuleQualifiedReceiverTypes(signature string, body symbolBody, importsByName map[string][]string, goModule string) map[string]pkgQualType",
+          "before_start_line": 3301,
+          "after_start_line": 3330,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "goMultiAssignReturnVarTypes",
+          "old_signature": "func goMultiAssignReturnVarTypes(block string, from SymbolRecord, symbolsByShortName map[string][]SymbolRecord) map[string]string",
+          "new_signature": "func goMultiAssignReturnVarTypes(body symbolBody, from SymbolRecord, symbolsByShortName map[string][]SymbolRecord) map[string]string",
+          "before_start_line": 3519,
+          "after_start_line": 3548,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "mise.toml",
+      "status": "M",
+      "language": "TOML",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "setting",
+          "name": "env",
+          "new_signature": "setting env",
+          "after_start_line": 16,
+          "dependents_count": 266
+        }
+      ]
+    },
+    {
+      "path": "scripts/entire-graph-statusline_test.sh",
+      "status": "M",
+      "language": "Bash",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "module",
+          "name": "scripts/entire-graph-statusline_test.sh",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "skills/stats/SKILL.md",
+      "status": "M",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "module",
+          "name": "skills/stats/SKILL.md",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "code": "W_MOVE_AMBIGUOUS",
+      "severity": "warning",
+      "file_path": "internal/cli/stats.go",
+      "effect_on_semantic_completeness": "symbol move could not be reconciled unambiguously; reported as remove/add",
+      "detail": "field pendingCall.graph has multiple equally similar destinations"
+    },
+    {
+      "code": "W_MOVE_AMBIGUOUS",
+      "severity": "warning",
+      "file_path": "internal/sem/provider_parallel.go",
+      "effect_on_semantic_completeness": "symbol move could not be reconciled unambiguously; reported as remove/add",
+      "detail": "field providerFileJob.path has multiple equally similar destinations"
+    },
+    {
+      "code": "E_PARSE_ERROR",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/clojure/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file may be undercounted because it failed to parse cleanly",
+      "detail": "tree-sitter syntax error nodes present: error ERROR at line 24605 column 95 near \".\"; error ERROR at line 24606 column 95 near \".\"; error ERROR at line 24607 column 95 near \".\"; error ERROR at line 24608 column 95 near \".\"; error ERROR at line 24609 column 96 near \".\""
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/csharp/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 29629301 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/dart/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 4758698 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_PARSE_ERROR",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/erlang/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file may be undercounted because it failed to parse cleanly",
+      "detail": "tree-sitter syntax error nodes present: error ERROR at line 4996 column 7 near \"if (('0' \u003c= lookahead \u0026\u0026 lookahead \u003c= '9'))\"; missing identifier at line 5030 column 17 near \"'~', 15,\"; missing identifier at line 5063 column 18 near \"'}', 343,\"; missing identifier at line 5086 column 17 near \"'~', 15,\"; missing identifier at line 5172 column 18 near \"'|', 260,\""
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/fsharp/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 31990757 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/haskell/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 19811235 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/julia/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 54714183 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/objc/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 28242603 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/perl/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 20080466 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_PARSE_ERROR",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/r/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file may be undercounted because it failed to parse cleanly",
+      "detail": "tree-sitter syntax error nodes present: missing identifier at line 3675 column 17 near \"'~', 31,\"; missing identifier at line 3706 column 17 near \"'~', 31,\"; missing identifier at line 3734 column 17 near \"'~', 31,\"; missing identifier at line 4217 column 17 near \"'w', 11,\"; error ERROR at line 149065 column 17 near \"TSLanguage\""
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/zig/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 5843608 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/pgsql/src/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 14524353 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/zsh/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 9737608 bytes, above max parser input 4194304 bytes"
+    }
+  ]
+}

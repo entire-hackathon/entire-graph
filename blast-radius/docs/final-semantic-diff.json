@@ -1,0 +1,3185 @@
+{
+  "base": "03bd0208",
+  "head": "HEAD",
+  "files": [
+    {
+      "path": ".github/workflows/blast-radius.yml",
+      "status": "M",
+      "language": "YAML",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "workflow",
+          "name": "blast-radius",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        },
+        {
+          "type": "body_changed",
+          "kind": "job",
+          "name": "jobs.blast-radius",
+          "before_start_line": 21,
+          "after_start_line": 21,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/ARCHITECTURE.md",
+      "status": "M",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "module",
+          "name": "blast-radius/ARCHITECTURE.md",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/README.md",
+      "status": "M",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Graph-is-evidence-not-an-oracle",
+          "new_signature": "markdown heading Graph is evidence, not an oracle",
+          "after_start_line": 44,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Databricks-Delta-export",
+          "new_signature": "markdown heading Databricks (Delta export)",
+          "after_start_line": 55,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/docs/databricks.md",
+      "status": "A",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Blast-Radius-Databricks-Delta-export",
+          "new_signature": "markdown heading Blast Radius → Databricks (Delta export)",
+          "after_start_line": 1,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "How-it-works",
+          "new_signature": "markdown heading How it works",
+          "after_start_line": 15,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "One-time-setup-deployment-owner",
+          "new_signature": "markdown heading One-time setup (deployment owner)",
+          "after_start_line": 34,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "GitHub-configuration",
+          "new_signature": "markdown heading GitHub configuration",
+          "after_start_line": 52,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Run-it-locally",
+          "new_signature": "markdown heading Run it locally",
+          "after_start_line": 73,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_1_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 75,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_2_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 81,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Table-schema",
+          "new_signature": "markdown heading Table schema",
+          "after_start_line": 83,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Example-Genie-/-SQL-questions",
+          "new_signature": "markdown heading Example Genie / SQL questions",
+          "after_start_line": 108,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_3_sql",
+          "new_signature": "markdown code fence sql",
+          "after_start_line": 110,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_4_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 127,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Free-Edition-notes",
+          "new_signature": "markdown heading Free Edition notes",
+          "after_start_line": 132,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/fixtures/numpy-partial/diff.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "base",
+          "new_signature": "json key base",
+          "after_start_line": 2,
+          "dependents_count": 329
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "head",
+          "new_signature": "json key head",
+          "after_start_line": 3,
+          "dependents_count": 329
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "files",
+          "new_signature": "json key files",
+          "after_start_line": 4,
+          "dependents_count": 407
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "path",
+          "new_signature": "json key path",
+          "after_start_line": 6,
+          "dependents_count": 1166
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "status",
+          "new_signature": "json key status",
+          "after_start_line": 7,
+          "dependents_count": 221
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "language",
+          "new_signature": "json key language",
+          "after_start_line": 8,
+          "dependents_count": 333
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "changes",
+          "new_signature": "json key changes",
+          "after_start_line": 9,
+          "dependents_count": 104
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "type",
+          "new_signature": "json key type",
+          "after_start_line": 11,
+          "dependents_count": 1020
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "kind",
+          "new_signature": "json key kind",
+          "after_start_line": 12,
+          "dependents_count": 299
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "name",
+          "new_signature": "json key name",
+          "after_start_line": 13,
+          "dependents_count": 1677
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "new_signature",
+          "new_signature": "json key new_signature",
+          "after_start_line": 14,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "after_start_line",
+          "new_signature": "json key after_start_line",
+          "after_start_line": 15,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "dependents_count",
+          "new_signature": "json key dependents_count",
+          "after_start_line": 16,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "before_start_line",
+          "new_signature": "json key before_start_line",
+          "after_start_line": 29,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "old_signature",
+          "new_signature": "json key old_signature",
+          "after_start_line": 59,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "warnings",
+          "new_signature": "json key warnings",
+          "after_start_line": 3900,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "code",
+          "new_signature": "json key code",
+          "after_start_line": 3902,
+          "dependents_count": 191
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "severity",
+          "new_signature": "json key severity",
+          "after_start_line": 3903,
+          "dependents_count": 19
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "file_path",
+          "new_signature": "json key file_path",
+          "after_start_line": 3904,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "effect_on_semantic_completeness",
+          "new_signature": "json key effect_on_semantic_completeness",
+          "after_start_line": 3905,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "detail",
+          "new_signature": "json key detail",
+          "after_start_line": 3906,
+          "dependents_count": 96
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/fixtures/numpy-partial/impact-TestPositive.test_valid.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "format_version",
+          "new_signature": "json key format_version",
+          "after_start_line": 2,
+          "dependents_count": 22
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "repo_root",
+          "new_signature": "json key repo_root",
+          "after_start_line": 3,
+          "dependents_count": 23
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "commit",
+          "new_signature": "json key commit",
+          "after_start_line": 4,
+          "dependents_count": 432
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "tree",
+          "new_signature": "json key tree",
+          "after_start_line": 5,
+          "dependents_count": 370
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "profile",
+          "new_signature": "json key profile",
+          "after_start_line": 6,
+          "dependents_count": 123
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "query",
+          "new_signature": "json key query",
+          "after_start_line": 7,
+          "dependents_count": 278
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "file",
+          "new_signature": "json key file",
+          "after_start_line": 8,
+          "dependents_count": 1023
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "depth",
+          "new_signature": "json key depth",
+          "after_start_line": 9,
+          "dependents_count": 180
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "index_cache_hit",
+          "new_signature": "json key index_cache_hit",
+          "after_start_line": 10,
+          "dependents_count": 12
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "index_latency_ms",
+          "new_signature": "json key index_latency_ms",
+          "after_start_line": 11,
+          "dependents_count": 11
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "query_latency_ms",
+          "new_signature": "json key query_latency_ms",
+          "after_start_line": 12,
+          "dependents_count": 11
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "total_latency_ms",
+          "new_signature": "json key total_latency_ms",
+          "after_start_line": 13,
+          "dependents_count": 10
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "focus_matches_total",
+          "new_signature": "json key focus_matches_total",
+          "after_start_line": 14,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "disambiguation_required",
+          "new_signature": "json key disambiguation_required",
+          "after_start_line": 15,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "focus",
+          "new_signature": "json key focus",
+          "after_start_line": 16,
+          "dependents_count": 119
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "id",
+          "new_signature": "json key id",
+          "after_start_line": 17,
+          "dependents_count": 345
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "name",
+          "new_signature": "json key name",
+          "after_start_line": 18,
+          "dependents_count": 1677
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "qualified_name",
+          "new_signature": "json key qualified_name",
+          "after_start_line": 19,
+          "dependents_count": 18
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "kind",
+          "new_signature": "json key kind",
+          "after_start_line": 20,
+          "dependents_count": 299
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "file_path",
+          "new_signature": "json key file_path",
+          "after_start_line": 21,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "start_line",
+          "new_signature": "json key start_line",
+          "after_start_line": 22,
+          "dependents_count": 47
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "end_line",
+          "new_signature": "json key end_line",
+          "after_start_line": 23,
+          "dependents_count": 28
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "language",
+          "new_signature": "json key language",
+          "after_start_line": 24,
+          "dependents_count": 333
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "container",
+          "new_signature": "json key container",
+          "after_start_line": 26,
+          "dependents_count": 119
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "callers",
+          "new_signature": "json key callers",
+          "after_start_line": 36,
+          "dependents_count": 69
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "total",
+          "new_signature": "json key total",
+          "after_start_line": 37,
+          "dependents_count": 185
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "entries",
+          "new_signature": "json key entries",
+          "after_start_line": 38,
+          "dependents_count": 140
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "callees",
+          "new_signature": "json key callees",
+          "after_start_line": 40,
+          "dependents_count": 21
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "out",
+          "new_signature": "json key out",
+          "after_start_line": 42,
+          "dependents_count": 744
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "endpoint",
+          "new_signature": "json key endpoint",
+          "after_start_line": 45,
+          "dependents_count": 35
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "external",
+          "new_signature": "json key external",
+          "after_start_line": 50,
+          "dependents_count": 127
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relation",
+          "new_signature": "json key relation",
+          "after_start_line": 52,
+          "dependents_count": 361
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "direction",
+          "new_signature": "json key direction",
+          "after_start_line": 53,
+          "dependents_count": 70
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "type_consumers",
+          "new_signature": "json key type_consumers",
+          "after_start_line": 70,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "data_flows",
+          "new_signature": "json key data_flows",
+          "after_start_line": 74,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "co_changes",
+          "new_signature": "json key co_changes",
+          "after_start_line": 78,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "detail",
+          "new_signature": "json key detail",
+          "after_start_line": 90,
+          "dependents_count": 96
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "siblings",
+          "new_signature": "json key siblings",
+          "after_start_line": 94,
+          "dependents_count": 25
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "warnings",
+          "new_signature": "json key warnings",
+          "after_start_line": 125,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "code",
+          "new_signature": "json key code",
+          "after_start_line": 127,
+          "dependents_count": 191
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "severity",
+          "new_signature": "json key severity",
+          "after_start_line": 128,
+          "dependents_count": 19
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "effect_on_semantic_completeness",
+          "new_signature": "json key effect_on_semantic_completeness",
+          "after_start_line": 129,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "partial_failures",
+          "new_signature": "json key partial_failures",
+          "after_start_line": 132,
+          "dependents_count": 26
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "stats",
+          "new_signature": "json key stats",
+          "after_start_line": 419,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "files",
+          "new_signature": "json key files",
+          "after_start_line": 420,
+          "dependents_count": 407
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "parsed_files",
+          "new_signature": "json key parsed_files",
+          "after_start_line": 421,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "symbols",
+          "new_signature": "json key symbols",
+          "after_start_line": 422,
+          "dependents_count": 253
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relations",
+          "new_signature": "json key relations",
+          "after_start_line": 423,
+          "dependents_count": 179
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "completeness_level",
+          "new_signature": "json key completeness_level",
+          "after_start_line": 425,
+          "dependents_count": 14
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "completeness",
+          "new_signature": "json key completeness",
+          "after_start_line": 427,
+          "dependents_count": 60
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "ASYNC_CALLS",
+          "new_signature": "json key ASYNC_CALLS",
+          "after_start_line": 429,
+          "dependents_count": 12
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "CALLS",
+          "new_signature": "json key CALLS",
+          "after_start_line": 430,
+          "dependents_count": 361
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "CONFIGURES",
+          "new_signature": "json key CONFIGURES",
+          "after_start_line": 431,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "CONSTRUCTS",
+          "new_signature": "json key CONSTRUCTS",
+          "after_start_line": 432,
+          "dependents_count": 27
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "CONTAINS",
+          "new_signature": "json key CONTAINS",
+          "after_start_line": 433,
+          "dependents_count": 35
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "DATA_FLOWS",
+          "new_signature": "json key DATA_FLOWS",
+          "after_start_line": 434,
+          "dependents_count": 58
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "DEFINES",
+          "new_signature": "json key DEFINES",
+          "after_start_line": 435,
+          "dependents_count": 18
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "EXTENDS",
+          "new_signature": "json key EXTENDS",
+          "after_start_line": 436,
+          "dependents_count": 24
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "FILE_CHANGES_WITH",
+          "new_signature": "json key FILE_CHANGES_WITH",
+          "after_start_line": 437,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "HANDLES_ROUTE",
+          "new_signature": "json key HANDLES_ROUTE",
+          "after_start_line": 438,
+          "dependents_count": 76
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "HANDLES_TOOL",
+          "new_signature": "json key HANDLES_TOOL",
+          "after_start_line": 439,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "IMPORTS",
+          "new_signature": "json key IMPORTS",
+          "after_start_line": 440,
+          "dependents_count": 33
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "INHERITS",
+          "new_signature": "json key INHERITS",
+          "after_start_line": 441,
+          "dependents_count": 14
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "OVERRIDES",
+          "new_signature": "json key OVERRIDES",
+          "after_start_line": 442,
+          "dependents_count": 17
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "PARAM_TYPE",
+          "new_signature": "json key PARAM_TYPE",
+          "after_start_line": 443,
+          "dependents_count": 24
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "RETURNS_TYPE",
+          "new_signature": "json key RETURNS_TYPE",
+          "after_start_line": 444,
+          "dependents_count": 16
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "SIMILAR_TO",
+          "new_signature": "json key SIMILAR_TO",
+          "after_start_line": 445,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "TESTS",
+          "new_signature": "json key TESTS",
+          "after_start_line": 446,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "USES_TYPE",
+          "new_signature": "json key USES_TYPE",
+          "after_start_line": 447,
+          "dependents_count": 22
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "languages_omitted_for_fixture",
+          "new_signature": "json key languages_omitted_for_fixture",
+          "after_start_line": 449,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "completeness_scope",
+          "new_signature": "json key completeness_scope",
+          "after_start_line": 451,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "language_files",
+          "new_signature": "json key language_files",
+          "after_start_line": 453,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "language_failed_files",
+          "new_signature": "json key language_failed_files",
+          "after_start_line": 454,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "other_language_failures",
+          "new_signature": "json key other_language_failures",
+          "after_start_line": 455,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "other_failure_languages",
+          "new_signature": "json key other_failure_languages",
+          "after_start_line": 456,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "in_scope_failures",
+          "new_signature": "json key in_scope_failures",
+          "after_start_line": 461,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "worktree_snapshot",
+          "new_signature": "json key worktree_snapshot",
+          "after_start_line": 484,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "level",
+          "new_signature": "json key level",
+          "after_start_line": 485,
+          "dependents_count": 154
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/fixtures/partial-analysis/diff.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "base",
+          "new_signature": "json key base",
+          "after_start_line": 2,
+          "dependents_count": 329
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "head",
+          "new_signature": "json key head",
+          "after_start_line": 3,
+          "dependents_count": 329
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "schema_version",
+          "new_signature": "json key schema_version",
+          "after_start_line": 4,
+          "dependents_count": 31
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "files",
+          "new_signature": "json key files",
+          "after_start_line": 5,
+          "dependents_count": 407
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "path",
+          "new_signature": "json key path",
+          "after_start_line": 7,
+          "dependents_count": 1166
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "status",
+          "new_signature": "json key status",
+          "after_start_line": 8,
+          "dependents_count": 221
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "language",
+          "new_signature": "json key language",
+          "after_start_line": 9,
+          "dependents_count": 333
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "changes",
+          "new_signature": "json key changes",
+          "after_start_line": 10,
+          "dependents_count": 104
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "type",
+          "new_signature": "json key type",
+          "after_start_line": 12,
+          "dependents_count": 1020
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "kind",
+          "new_signature": "json key kind",
+          "after_start_line": 13,
+          "dependents_count": 299
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "name",
+          "new_signature": "json key name",
+          "after_start_line": 14,
+          "dependents_count": 1677
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "dependents_count",
+          "new_signature": "json key dependents_count",
+          "after_start_line": 15,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "after_start_line",
+          "new_signature": "json key after_start_line",
+          "after_start_line": 16,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "old_signature",
+          "new_signature": "json key old_signature",
+          "after_start_line": 29,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "new_signature",
+          "new_signature": "json key new_signature",
+          "after_start_line": 30,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "warnings",
+          "new_signature": "json key warnings",
+          "after_start_line": 37,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "partial_failures",
+          "new_signature": "json key partial_failures",
+          "after_start_line": 38,
+          "dependents_count": 26
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/fixtures/partial-analysis/impact-DbClient.query.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "query",
+          "new_signature": "json key query",
+          "after_start_line": 2,
+          "dependents_count": 278
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "disambiguation_required",
+          "new_signature": "json key disambiguation_required",
+          "after_start_line": 3,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "callers",
+          "new_signature": "json key callers",
+          "after_start_line": 4,
+          "dependents_count": 69
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "total",
+          "new_signature": "json key total",
+          "after_start_line": 5,
+          "dependents_count": 185
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "entries",
+          "new_signature": "json key entries",
+          "after_start_line": 6,
+          "dependents_count": 140
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "endpoint",
+          "new_signature": "json key endpoint",
+          "after_start_line": 8,
+          "dependents_count": 35
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "id",
+          "new_signature": "json key id",
+          "after_start_line": 9,
+          "dependents_count": 345
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "name",
+          "new_signature": "json key name",
+          "after_start_line": 10,
+          "dependents_count": 1677
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "qualified_name",
+          "new_signature": "json key qualified_name",
+          "after_start_line": 11,
+          "dependents_count": 18
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "kind",
+          "new_signature": "json key kind",
+          "after_start_line": 12,
+          "dependents_count": 299
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "file_path",
+          "new_signature": "json key file_path",
+          "after_start_line": 13,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "start_line",
+          "new_signature": "json key start_line",
+          "after_start_line": 14,
+          "dependents_count": 47
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relation",
+          "new_signature": "json key relation",
+          "after_start_line": 16,
+          "dependents_count": 361
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "direction",
+          "new_signature": "json key direction",
+          "after_start_line": 17,
+          "dependents_count": 70
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "depth",
+          "new_signature": "json key depth",
+          "after_start_line": 18,
+          "dependents_count": 180
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "via",
+          "new_signature": "json key via",
+          "after_start_line": 32,
+          "dependents_count": 42
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "callees",
+          "new_signature": "json key callees",
+          "after_start_line": 36,
+          "dependents_count": 21
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "type_consumers",
+          "new_signature": "json key type_consumers",
+          "after_start_line": 37,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "data_flows",
+          "new_signature": "json key data_flows",
+          "after_start_line": 38,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "co_changes",
+          "new_signature": "json key co_changes",
+          "after_start_line": 39,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "siblings",
+          "new_signature": "json key siblings",
+          "after_start_line": 40,
+          "dependents_count": 25
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "warnings",
+          "new_signature": "json key warnings",
+          "after_start_line": 41,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "code",
+          "new_signature": "json key code",
+          "after_start_line": 43,
+          "dependents_count": 191
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "severity",
+          "new_signature": "json key severity",
+          "after_start_line": 44,
+          "dependents_count": 19
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "effect_on_semantic_completeness",
+          "new_signature": "json key effect_on_semantic_completeness",
+          "after_start_line": 45,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "partial_failures",
+          "new_signature": "json key partial_failures",
+          "after_start_line": 48,
+          "dependents_count": 26
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "detail",
+          "new_signature": "json key detail",
+          "after_start_line": 54,
+          "dependents_count": 96
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "stats",
+          "new_signature": "json key stats",
+          "after_start_line": 57,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "files",
+          "new_signature": "json key files",
+          "after_start_line": 58,
+          "dependents_count": 407
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "parsed_files",
+          "new_signature": "json key parsed_files",
+          "after_start_line": 59,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "symbols",
+          "new_signature": "json key symbols",
+          "after_start_line": 60,
+          "dependents_count": 253
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relations",
+          "new_signature": "json key relations",
+          "after_start_line": 61,
+          "dependents_count": 179
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "completeness_level",
+          "new_signature": "json key completeness_level",
+          "after_start_line": 63,
+          "dependents_count": 14
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/fixtures/partial-analysis/impact-RateLimiter.take.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "query",
+          "new_signature": "json key query",
+          "after_start_line": 2,
+          "dependents_count": 278
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "disambiguation_required",
+          "new_signature": "json key disambiguation_required",
+          "after_start_line": 3,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "callers",
+          "new_signature": "json key callers",
+          "after_start_line": 4,
+          "dependents_count": 69
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "total",
+          "new_signature": "json key total",
+          "after_start_line": 5,
+          "dependents_count": 185
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "entries",
+          "new_signature": "json key entries",
+          "after_start_line": 6,
+          "dependents_count": 140
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "endpoint",
+          "new_signature": "json key endpoint",
+          "after_start_line": 8,
+          "dependents_count": 35
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "id",
+          "new_signature": "json key id",
+          "after_start_line": 9,
+          "dependents_count": 345
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "name",
+          "new_signature": "json key name",
+          "after_start_line": 10,
+          "dependents_count": 1677
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "qualified_name",
+          "new_signature": "json key qualified_name",
+          "after_start_line": 11,
+          "dependents_count": 18
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "kind",
+          "new_signature": "json key kind",
+          "after_start_line": 12,
+          "dependents_count": 299
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "file_path",
+          "new_signature": "json key file_path",
+          "after_start_line": 13,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "start_line",
+          "new_signature": "json key start_line",
+          "after_start_line": 14,
+          "dependents_count": 47
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relation",
+          "new_signature": "json key relation",
+          "after_start_line": 16,
+          "dependents_count": 361
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "direction",
+          "new_signature": "json key direction",
+          "after_start_line": 17,
+          "dependents_count": 70
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "depth",
+          "new_signature": "json key depth",
+          "after_start_line": 18,
+          "dependents_count": 180
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "via",
+          "new_signature": "json key via",
+          "after_start_line": 32,
+          "dependents_count": 42
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "callees",
+          "new_signature": "json key callees",
+          "after_start_line": 36,
+          "dependents_count": 21
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "type_consumers",
+          "new_signature": "json key type_consumers",
+          "after_start_line": 37,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "data_flows",
+          "new_signature": "json key data_flows",
+          "after_start_line": 38,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "co_changes",
+          "new_signature": "json key co_changes",
+          "after_start_line": 39,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "siblings",
+          "new_signature": "json key siblings",
+          "after_start_line": 40,
+          "dependents_count": 25
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "warnings",
+          "new_signature": "json key warnings",
+          "after_start_line": 41,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "partial_failures",
+          "new_signature": "json key partial_failures",
+          "after_start_line": 42,
+          "dependents_count": 26
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "stats",
+          "new_signature": "json key stats",
+          "after_start_line": 43,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "files",
+          "new_signature": "json key files",
+          "after_start_line": 44,
+          "dependents_count": 407
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "parsed_files",
+          "new_signature": "json key parsed_files",
+          "after_start_line": 45,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "symbols",
+          "new_signature": "json key symbols",
+          "after_start_line": 46,
+          "dependents_count": 253
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relations",
+          "new_signature": "json key relations",
+          "after_start_line": 47,
+          "dependents_count": 179
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "completeness_level",
+          "new_signature": "json key completeness_level",
+          "after_start_line": 49,
+          "dependents_count": 14
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/fixtures/resolved/diff.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "base",
+          "new_signature": "json key base",
+          "after_start_line": 2,
+          "dependents_count": 329
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "head",
+          "new_signature": "json key head",
+          "after_start_line": 3,
+          "dependents_count": 329
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "schema_version",
+          "new_signature": "json key schema_version",
+          "after_start_line": 4,
+          "dependents_count": 31
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "files",
+          "new_signature": "json key files",
+          "after_start_line": 5,
+          "dependents_count": 407
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "path",
+          "new_signature": "json key path",
+          "after_start_line": 7,
+          "dependents_count": 1166
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "status",
+          "new_signature": "json key status",
+          "after_start_line": 8,
+          "dependents_count": 221
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "language",
+          "new_signature": "json key language",
+          "after_start_line": 9,
+          "dependents_count": 333
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "changes",
+          "new_signature": "json key changes",
+          "after_start_line": 10,
+          "dependents_count": 104
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "type",
+          "new_signature": "json key type",
+          "after_start_line": 12,
+          "dependents_count": 1020
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "kind",
+          "new_signature": "json key kind",
+          "after_start_line": 13,
+          "dependents_count": 299
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "name",
+          "new_signature": "json key name",
+          "after_start_line": 14,
+          "dependents_count": 1677
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "dependents_count",
+          "new_signature": "json key dependents_count",
+          "after_start_line": 15,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "after_start_line",
+          "new_signature": "json key after_start_line",
+          "after_start_line": 16,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "warnings",
+          "new_signature": "json key warnings",
+          "after_start_line": 21,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "partial_failures",
+          "new_signature": "json key partial_failures",
+          "after_start_line": 22,
+          "dependents_count": 26
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "stats",
+          "new_signature": "json key stats",
+          "after_start_line": 23,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "parsed_files",
+          "new_signature": "json key parsed_files",
+          "after_start_line": 25,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "symbols",
+          "new_signature": "json key symbols",
+          "after_start_line": 26,
+          "dependents_count": 253
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relations",
+          "new_signature": "json key relations",
+          "after_start_line": 27,
+          "dependents_count": 179
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "completeness_level",
+          "new_signature": "json key completeness_level",
+          "after_start_line": 29,
+          "dependents_count": 14
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/fixtures/resolved/impact-RateLimiter.take.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "query",
+          "new_signature": "json key query",
+          "after_start_line": 2,
+          "dependents_count": 278
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "disambiguation_required",
+          "new_signature": "json key disambiguation_required",
+          "after_start_line": 3,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "callers",
+          "new_signature": "json key callers",
+          "after_start_line": 4,
+          "dependents_count": 69
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "total",
+          "new_signature": "json key total",
+          "after_start_line": 5,
+          "dependents_count": 185
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "entries",
+          "new_signature": "json key entries",
+          "after_start_line": 6,
+          "dependents_count": 140
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "endpoint",
+          "new_signature": "json key endpoint",
+          "after_start_line": 8,
+          "dependents_count": 35
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "id",
+          "new_signature": "json key id",
+          "after_start_line": 9,
+          "dependents_count": 345
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "name",
+          "new_signature": "json key name",
+          "after_start_line": 10,
+          "dependents_count": 1677
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "qualified_name",
+          "new_signature": "json key qualified_name",
+          "after_start_line": 11,
+          "dependents_count": 18
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "kind",
+          "new_signature": "json key kind",
+          "after_start_line": 12,
+          "dependents_count": 299
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "file_path",
+          "new_signature": "json key file_path",
+          "after_start_line": 13,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "start_line",
+          "new_signature": "json key start_line",
+          "after_start_line": 14,
+          "dependents_count": 47
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relation",
+          "new_signature": "json key relation",
+          "after_start_line": 16,
+          "dependents_count": 361
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "direction",
+          "new_signature": "json key direction",
+          "after_start_line": 17,
+          "dependents_count": 70
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "depth",
+          "new_signature": "json key depth",
+          "after_start_line": 18,
+          "dependents_count": 180
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "via",
+          "new_signature": "json key via",
+          "after_start_line": 32,
+          "dependents_count": 42
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "callees",
+          "new_signature": "json key callees",
+          "after_start_line": 36,
+          "dependents_count": 21
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "type_consumers",
+          "new_signature": "json key type_consumers",
+          "after_start_line": 37,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "data_flows",
+          "new_signature": "json key data_flows",
+          "after_start_line": 38,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "co_changes",
+          "new_signature": "json key co_changes",
+          "after_start_line": 39,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "siblings",
+          "new_signature": "json key siblings",
+          "after_start_line": 40,
+          "dependents_count": 25
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "warnings",
+          "new_signature": "json key warnings",
+          "after_start_line": 41,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "partial_failures",
+          "new_signature": "json key partial_failures",
+          "after_start_line": 42,
+          "dependents_count": 26
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "stats",
+          "new_signature": "json key stats",
+          "after_start_line": 43,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "files",
+          "new_signature": "json key files",
+          "after_start_line": 44,
+          "dependents_count": 407
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "parsed_files",
+          "new_signature": "json key parsed_files",
+          "after_start_line": 45,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "symbols",
+          "new_signature": "json key symbols",
+          "after_start_line": 46,
+          "dependents_count": 253
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "relations",
+          "new_signature": "json key relations",
+          "after_start_line": 47,
+          "dependents_count": 179
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "completeness_level",
+          "new_signature": "json key completeness_level",
+          "after_start_line": 49,
+          "dependents_count": 14
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/adapters/cli.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "class",
+          "name": "EntireGraphCliProvider",
+          "before_start_line": 18,
+          "after_start_line": 19,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "EntireGraphCliProvider.disambiguation",
+          "old_signature": "disambiguation : boolean",
+          "before_start_line": 50,
+          "dependents_count": 10
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "EntireGraphCliProvider.nodes",
+          "old_signature": "nodes : ReturnType\u003ctypeof toRadiusNodes\u003e",
+          "before_start_line": 50,
+          "dependents_count": 41
+        },
+        {
+          "type": "signature_changed",
+          "kind": "method",
+          "name": "EntireGraphCliProvider.impact",
+          "old_signature": "async impact(q: ImpactQuery): Promise\u003c{ nodes: ReturnType\u003ctypeof toRadiusNodes\u003e; disambiguation: boolean }\u003e",
+          "new_signature": "async impact(q: ImpactQuery): ReturnType\u003cGraphProvider[\"impact\"]\u003e",
+          "before_start_line": 50,
+          "after_start_line": 51,
+          "dependents_count": 41
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/adapters/databricks.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "interface",
+          "name": "ReportRowMeta",
+          "new_signature": "interface ReportRowMeta",
+          "after_start_line": 14,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRowMeta.repo",
+          "new_signature": "repo : string",
+          "after_start_line": 16,
+          "dependents_count": 1773
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRowMeta.prNumber",
+          "new_signature": "prNumber : number | null",
+          "after_start_line": 17,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRowMeta.runAt",
+          "new_signature": "runAt : string",
+          "after_start_line": 19,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "interface",
+          "name": "ReportRow",
+          "new_signature": "interface ReportRow",
+          "after_start_line": 22,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.repo",
+          "new_signature": "repo : string",
+          "after_start_line": 23,
+          "dependents_count": 1773
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.pr_number",
+          "new_signature": "pr_number : number | null",
+          "after_start_line": 24,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.base",
+          "new_signature": "base : string",
+          "after_start_line": 25,
+          "dependents_count": 329
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.head",
+          "new_signature": "head : string",
+          "after_start_line": 26,
+          "dependents_count": 329
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.run_at",
+          "new_signature": "run_at : string",
+          "after_start_line": 27,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.generated_at",
+          "new_signature": "generated_at : string",
+          "after_start_line": 28,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.intent_source",
+          "new_signature": "intent_source : string | null",
+          "after_start_line": 29,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.completeness_level",
+          "new_signature": "completeness_level : string",
+          "after_start_line": 30,
+          "dependents_count": 14
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.unresolved_files",
+          "new_signature": "unresolved_files : number",
+          "after_start_line": 31,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.completeness_notes",
+          "new_signature": "completeness_notes : number",
+          "after_start_line": 32,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.radius_nodes",
+          "new_signature": "radius_nodes : number",
+          "after_start_line": 33,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.radius_confirmed",
+          "new_signature": "radius_confirmed : number",
+          "after_start_line": 34,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.radius_partial",
+          "new_signature": "radius_partial : number",
+          "after_start_line": 35,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.findings",
+          "new_signature": "findings : number",
+          "after_start_line": 36,
+          "dependents_count": 10
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.findings_high",
+          "new_signature": "findings_high : number",
+          "after_start_line": 37,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.findings_medium",
+          "new_signature": "findings_medium : number",
+          "after_start_line": 38,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.findings_low",
+          "new_signature": "findings_low : number",
+          "after_start_line": 39,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.findings_partial",
+          "new_signature": "findings_partial : number",
+          "after_start_line": 40,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.tests_selected",
+          "new_signature": "tests_selected : number",
+          "after_start_line": 41,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.coverage_gaps",
+          "new_signature": "coverage_gaps : number",
+          "after_start_line": 42,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.test_framework",
+          "new_signature": "test_framework : string",
+          "after_start_line": 43,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ReportRow.raw",
+          "new_signature": "raw : string",
+          "after_start_line": 45,
+          "dependents_count": 178
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "count",
+          "new_signature": "count = \u003cT\u003e(xs: readonly T[], p: (x: T) =\u003e boolean): number =\u003e",
+          "after_start_line": 48,
+          "dependents_count": 230
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "toReportRow",
+          "new_signature": "function toReportRow(report: AnalysisReport, meta: ReportRowMeta): ReportRow",
+          "after_start_line": 51,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "qualifyTable",
+          "new_signature": "function qualifyTable(catalog: string, schema: string, table: string): string",
+          "after_start_line": 108,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "buildCreateSchema",
+          "new_signature": "function buildCreateSchema(catalog: string, schema: string): string",
+          "after_start_line": 115,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "buildCreateTable",
+          "new_signature": "function buildCreateTable(fqTable: string): string",
+          "after_start_line": 121,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "buildInsert",
+          "new_signature": "function buildInsert(fqTable: string): string",
+          "after_start_line": 126,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "toSqlParameters",
+          "new_signature": "function toSqlParameters( row: ReportRow, ): Array\u003c{ name: string; value: string | null; type: string }\u003e",
+          "after_start_line": 133,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "interface",
+          "name": "DatabricksConfig",
+          "new_signature": "interface DatabricksConfig",
+          "after_start_line": 142,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "DatabricksConfig.host",
+          "new_signature": "host : string",
+          "after_start_line": 143,
+          "dependents_count": 53
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "DatabricksConfig.token",
+          "new_signature": "token : string",
+          "after_start_line": 144,
+          "dependents_count": 225
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "DatabricksConfig.warehouseId",
+          "new_signature": "warehouseId : string",
+          "after_start_line": 145,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "DatabricksConfig.catalog",
+          "new_signature": "catalog : string",
+          "after_start_line": 146,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "DatabricksConfig.schema",
+          "new_signature": "schema : string",
+          "after_start_line": 147,
+          "dependents_count": 127
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "DatabricksConfig.table",
+          "new_signature": "table : string",
+          "after_start_line": 148,
+          "dependents_count": 75
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "databricksConfigFromEnv",
+          "new_signature": "function databricksConfigFromEnv(env: NodeJS.ProcessEnv = process.env): DatabricksConfig | null",
+          "after_start_line": 152,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "Fetch",
+          "new_signature": "type Fetch = typeof fetch",
+          "after_start_line": 168,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "interface",
+          "name": "StatementResponse",
+          "new_signature": "interface StatementResponse",
+          "after_start_line": 170,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "StatementResponse.statement_id",
+          "new_signature": "statement_id : string",
+          "after_start_line": 171,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "StatementResponse.status",
+          "new_signature": "status : { state?: string; error?: { message?: string } }",
+          "after_start_line": 172,
+          "dependents_count": 221
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "sleep",
+          "new_signature": "sleep = (ms: number) =\u003e",
+          "after_start_line": 175,
+          "dependents_count": 10
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "api",
+          "new_signature": "async function api(cfg: DatabricksConfig, path: string, init: RequestInit, fetchImpl: Fetch): Promise\u003cStatementResponse\u003e",
+          "after_start_line": 177,
+          "dependents_count": 108
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "runStatement",
+          "new_signature": "async function runStatement( cfg: DatabricksConfig, statement: string, parameters: ReturnType\u003ctypeof toSqlParameters\u003e | undefined, fetchImpl: Fetch, maxWaitMs = 180_000, ): Promise\u003cvoid\u003e",
+          "after_start_line": 193,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "exportRow",
+          "new_signature": "async function exportRow( cfg: DatabricksConfig, row: ReportRow, fetchImpl: Fetch = fetch, ): Promise\u003c{ table: string }\u003e",
+          "after_start_line": 229,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/adapters/fixture.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "class",
+          "name": "FixtureGraphProvider",
+          "before_start_line": 11,
+          "after_start_line": 12,
+          "dependents_count": 1
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "FixtureGraphProvider.disambiguation",
+          "old_signature": "disambiguation : boolean",
+          "before_start_line": 29,
+          "dependents_count": 10
+        },
+        {
+          "type": "removed",
+          "kind": "field",
+          "name": "FixtureGraphProvider.nodes",
+          "old_signature": "nodes : ReturnType\u003ctypeof toRadiusNodes\u003e",
+          "before_start_line": 29,
+          "dependents_count": 41
+        },
+        {
+          "type": "signature_changed",
+          "kind": "method",
+          "name": "FixtureGraphProvider.impact",
+          "old_signature": "async impact(q: ImpactQuery): Promise\u003c{ nodes: ReturnType\u003ctypeof toRadiusNodes\u003e; disambiguation: boolean }\u003e",
+          "new_signature": "async impact(q: ImpactQuery): ReturnType\u003cGraphProvider[\"impact\"]\u003e",
+          "before_start_line": 29,
+          "after_start_line": 30,
+          "dependents_count": 41
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/cli.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "log",
+          "new_signature": "log = (m: string) =\u003e",
+          "after_start_line": 99,
+          "dependents_count": 38
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/domain/blast-radius.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "weaker",
+          "new_signature": "function weaker(a: Confidence, b: Confidence): Confidence",
+          "after_start_line": 24,
+          "dependents_count": 3
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "merge",
+          "before_start_line": 14,
+          "after_start_line": 28,
+          "dependents_count": 55
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "gradeConfidence",
+          "new_signature": "function gradeConfidence(node: RadiusNode, c: Completeness): Confidence",
+          "after_start_line": 46,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "computeBlastRadius",
+          "old_signature": "function computeBlastRadius( origin: readonly ChangedSymbol[], nodeLists: readonly (readonly RadiusNode[])[], ): BlastRadius",
+          "new_signature": "function computeBlastRadius( origin: readonly ChangedSymbol[], nodeLists: readonly (readonly RadiusNode[])[], completeness: Completeness = COMPLETE, ): BlastRadius",
+          "before_start_line": 25,
+          "after_start_line": 51,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/domain/completeness.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "interface",
+          "name": "RawGraphNote",
+          "new_signature": "interface RawGraphNote",
+          "after_start_line": 19,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RawGraphNote.code",
+          "new_signature": "code : string",
+          "after_start_line": 20,
+          "dependents_count": 191
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RawGraphNote.severity",
+          "new_signature": "severity : string",
+          "after_start_line": 21,
+          "dependents_count": 19
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RawGraphNote.file_path",
+          "new_signature": "file_path : string",
+          "after_start_line": 22,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RawGraphNote.effect_on_semantic_completeness",
+          "new_signature": "effect_on_semantic_completeness : string",
+          "after_start_line": 23,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RawGraphNote.detail",
+          "new_signature": "detail : string",
+          "after_start_line": 24,
+          "dependents_count": 96
+        },
+        {
+          "type": "added",
+          "kind": "interface",
+          "name": "RawCompletenessInput",
+          "new_signature": "interface RawCompletenessInput",
+          "after_start_line": 27,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RawCompletenessInput.stats",
+          "new_signature": "stats :\n    | { readonly completeness_level?: string; readonly partial_failures?: number }\n    | undefined",
+          "after_start_line": 28,
+          "dependents_count": 72
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RawCompletenessInput.partial_failures",
+          "new_signature": "partial_failures : readonly RawGraphNote[] | undefined",
+          "after_start_line": 31,
+          "dependents_count": 26
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RawCompletenessInput.warnings",
+          "new_signature": "warnings : readonly RawGraphNote[] | undefined",
+          "after_start_line": 32,
+          "dependents_count": 109
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "CompletenessLevel",
+          "new_signature": "type CompletenessLevel = \"complete\" | \"partial\" | \"degraded\"",
+          "after_start_line": 35,
+          "dependents_count": 34
+        },
+        {
+          "type": "added",
+          "kind": "interface",
+          "name": "Completeness",
+          "new_signature": "interface Completeness",
+          "after_start_line": 37,
+          "dependents_count": 51
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Completeness.level",
+          "new_signature": "level : CompletenessLevel",
+          "after_start_line": 38,
+          "dependents_count": 154
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Completeness.unresolvedFiles",
+          "new_signature": "unresolvedFiles : readonly string[]",
+          "after_start_line": 40,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Completeness.notes",
+          "new_signature": "notes : readonly string[]",
+          "after_start_line": 42,
+          "dependents_count": 39
+        },
+        {
+          "type": "added",
+          "kind": "variable",
+          "name": "COMPLETE",
+          "new_signature": "COMPLETE: Completeness = { level: \"complete\", unresolvedFiles: [], notes: [] }",
+          "after_start_line": 45,
+          "dependents_count": 10
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "norm",
+          "new_signature": "norm = (p: string): string =\u003e",
+          "after_start_line": 49,
+          "dependents_count": 16
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "marksFileUnresolved",
+          "new_signature": "function marksFileUnresolved(n: RawGraphNote): boolean",
+          "after_start_line": 58,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "noteLine",
+          "new_signature": "function noteLine(n: RawGraphNote): string",
+          "after_start_line": 63,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "extractCompleteness",
+          "new_signature": "function extractCompleteness(raw: RawCompletenessInput): Completeness",
+          "after_start_line": 73,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "worstCompleteness",
+          "new_signature": "function worstCompleteness(...parts: readonly Completeness[]): Completeness",
+          "after_start_line": 100,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "isUnresolved",
+          "new_signature": "function isUnresolved(c: Completeness, file: string | undefined): boolean",
+          "after_start_line": 112,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/domain/graph-mapping.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "toChangeSet",
+          "before_start_line": 43,
+          "after_start_line": 54,
+          "dependents_count": 4
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "toRadiusNodes",
+          "before_start_line": 91,
+          "after_start_line": 109,
+          "dependents_count": 4
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/domain/graph-schema.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "variable",
+          "name": "rawGraphNote",
+          "new_signature": "rawGraphNote = z .object({ code: z.string().optional(), severity: z.string().optional(), file_path: z.string().optional(), effect_on_semantic_completeness: z.string().optional(), detail: z.string().optional(), }) .passthrough()",
+          "after_start_line": 13,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "variable",
+          "name": "rawGraphStats",
+          "new_signature": "rawGraphStats = z .object({ files: z.number().int().optional(), parsed_files: z.number().int().optional(), symbols: z.number().int().optional(), relations: z.number().int().optional(), partial_failures: z.number().int().optional(), completeness_level: z.string().optional(), }) .passthrough()",
+          "after_start_line": 23,
+          "dependents_count": 0
+        },
+        {
+          "type": "signature_changed",
+          "kind": "variable",
+          "name": "rawDiffResult",
+          "old_signature": "rawDiffResult = z .object({ base: z.string(), head: z.string(), checkpoint: z.string().optional(), files: z.array(rawFileChange).default([]), }) .passthrough()",
+          "new_signature": "rawDiffResult = z .object({ base: z.string(), head: z.string(), checkpoint: z.string().optional(), files: z.array(rawFileChange).default([]), ...graphCoverage, }) .passthrough()",
+          "before_start_line": 33,
+          "after_start_line": 67,
+          "dependents_count": 5
+        },
+        {
+          "type": "signature_changed",
+          "kind": "variable",
+          "name": "rawImpactResult",
+          "old_signature": "rawImpactResult = z .object({ query: z.string().default(\"\"), disambiguation_required: z.boolean().default(false), callers: rawImpactSection.default({ total: 0, entries: [] }), callees: rawImpactSection.default({ total: 0, entries: [] }), type_consumers: rawImpactSection.default({ total: 0, entries: [] }), data_flows: rawImpactSection.default({ total: 0, entries: [] }), co_changes: rawImpactSection.default({ total: 0, entries: [] }), siblings: rawImpactSection.default({ total: 0, entries: [] }), }) .passthrough()",
+          "new_signature": "rawImpactResult = z .object({ query: z.string().default(\"\"), disambiguation_required: z.boolean().default(false), callers: rawImpactSection.default({ total: 0, entries: [] }), callees: rawImpactSection.default({ total: 0, entries: [] }), type_consumers: rawImpactSection.default({ total: 0, entries: [] }), data_flows: rawImpactSection.default({ total: 0, entries: [] }), co_changes: rawImpactSection.default({ total: 0, entries: [] }), siblings: rawImpactSection.default({ total: 0, entries: [] }), ...graphCoverage, }) .passthrough()",
+          "before_start_line": 69,
+          "after_start_line": 104,
+          "dependents_count": 5
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/domain/model.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "Confidence",
+          "new_signature": "type Confidence = \"confirmed\" | \"heuristic\" | \"partial\"",
+          "after_start_line": 11,
+          "dependents_count": 194
+        },
+        {
+          "type": "body_changed",
+          "kind": "interface",
+          "name": "ChangeSet",
+          "before_start_line": 28,
+          "after_start_line": 38,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ChangeSet.completeness",
+          "new_signature": "completeness : Completeness",
+          "after_start_line": 45,
+          "dependents_count": 60
+        },
+        {
+          "type": "body_changed",
+          "kind": "interface",
+          "name": "RadiusNode",
+          "before_start_line": 44,
+          "after_start_line": 56,
+          "dependents_count": 11
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "RadiusNode.confidence",
+          "new_signature": "confidence : Confidence",
+          "after_start_line": 65,
+          "dependents_count": 57
+        },
+        {
+          "type": "body_changed",
+          "kind": "interface",
+          "name": "BlastRadius",
+          "before_start_line": 60,
+          "after_start_line": 74,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "BlastRadius.completeness",
+          "new_signature": "completeness : Completeness",
+          "after_start_line": 80,
+          "dependents_count": 60
+        },
+        {
+          "type": "body_changed",
+          "kind": "interface",
+          "name": "Finding",
+          "before_start_line": 75,
+          "after_start_line": 91,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Finding.confidence",
+          "new_signature": "confidence : Confidence",
+          "after_start_line": 102,
+          "dependents_count": 57
+        },
+        {
+          "type": "body_changed",
+          "kind": "interface",
+          "name": "AnalysisReport",
+          "before_start_line": 96,
+          "after_start_line": 118,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AnalysisReport.completeness",
+          "new_signature": "completeness : Completeness",
+          "after_start_line": 128,
+          "dependents_count": 60
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/domain/render.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "renderCompletenessBanner",
+          "new_signature": "function renderCompletenessBanner(c: Completeness): string[]",
+          "after_start_line": 37,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "verifyCommand",
+          "new_signature": "function verifyCommand(sym: SymbolRef): string",
+          "after_start_line": 81,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "coveringTestHint",
+          "new_signature": "function coveringTestHint(r: AnalysisReport, qn: string): string",
+          "after_start_line": 88,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "renderMarkdown",
+          "before_start_line": 38,
+          "after_start_line": 95,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/domain/scope-creep.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "detectScopeCreep",
+          "before_start_line": 74,
+          "after_start_line": 75,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/ports.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "interface",
+          "name": "GraphProvider",
+          "before_start_line": 14,
+          "after_start_line": 15,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "GraphProvider.completeness",
+          "new_signature": "completeness : Completeness",
+          "after_start_line": 20,
+          "dependents_count": 60
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/src/review.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "runReview",
+          "before_start_line": 26,
+          "after_start_line": 27,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/test/blast-radius.test.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "node",
+          "before_start_line": 22,
+          "after_start_line": 22,
+          "dependents_count": 192
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/test/completeness.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "nonGitRepo",
+          "new_signature": "nonGitRepo = () =\u003e",
+          "after_start_line": 18,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "review",
+          "new_signature": "review = async (fixture: string, over: Partial\u003cParameters\u003ctypeof runReview\u003e[1]\u003e = {}) =\u003e",
+          "after_start_line": 20,
+          "dependents_count": 13
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/test/databricks.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "report",
+          "new_signature": "report = (over: Partial\u003cAnalysisReport\u003e = {}): AnalysisReport =\u003e",
+          "after_start_line": 15,
+          "dependents_count": 190
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "ok",
+          "new_signature": "ok = () =\u003e",
+          "after_start_line": 118,
+          "dependents_count": 896
+        }
+      ]
+    },
+    {
+      "path": "blast-radius/test/scope-creep.test.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "cs",
+          "before_start_line": 20,
+          "after_start_line": 22,
+          "dependents_count": 38
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "code": "E_PARSE_ERROR",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/clojure/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file may be undercounted because it failed to parse cleanly",
+      "detail": "tree-sitter syntax error nodes present: error ERROR at line 24605 column 95 near \".\"; error ERROR at line 24606 column 95 near \".\"; error ERROR at line 24607 column 95 near \".\"; error ERROR at line 24608 column 95 near \".\"; error ERROR at line 24609 column 96 near \".\""
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/csharp/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 29629301 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/dart/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 4758698 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_PARSE_ERROR",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/erlang/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file may be undercounted because it failed to parse cleanly",
+      "detail": "tree-sitter syntax error nodes present: error ERROR at line 4996 column 7 near \"if (('0' \u003c= lookahead \u0026\u0026 lookahead \u003c= '9'))\"; missing identifier at line 5030 column 17 near \"'~', 15,\"; missing identifier at line 5063 column 18 near \"'}', 343,\"; missing identifier at line 5086 column 17 near \"'~', 15,\"; missing identifier at line 5172 column 18 near \"'|', 260,\""
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/fsharp/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 31990757 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/haskell/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 19811235 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/julia/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 54714183 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/objc/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 28242603 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/perl/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 20080466 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_PARSE_ERROR",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/r/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file may be undercounted because it failed to parse cleanly",
+      "detail": "tree-sitter syntax error nodes present: missing identifier at line 3675 column 17 near \"'~', 31,\"; missing identifier at line 3706 column 17 near \"'~', 31,\"; missing identifier at line 3734 column 17 near \"'~', 31,\"; missing identifier at line 4217 column 17 near \"'w', 11,\"; error ERROR at line 149065 column 17 near \"TSLanguage\""
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/grammars/zig/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 5843608 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/pgsql/src/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 14524353 bytes, above max parser input 4194304 bytes"
+    },
+    {
+      "code": "E_FILE_TOO_LARGE",
+      "severity": "warning",
+      "file_path": "internal/sem/zsh/parser.c",
+      "effect_on_semantic_completeness": "dependent references in this file were not counted because it exceeds max parser input",
+      "detail": "file is 9737608 bytes, above max parser input 4194304 bytes"
+    }
+  ]
+}

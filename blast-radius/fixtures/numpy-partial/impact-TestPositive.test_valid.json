@@ -1,0 +1,487 @@
+{
+ "format_version": 1,
+ "repo_root": "C:\\Users\\amond07\\AppData\\Local\\Temp\\claude\\C--Users-amond07-Workspace-bangalore-tech-week-fork-entire-graph\\3503c620-fadf-4e69-a118-23f6c364e814\\scratchpad\\numpy",
+ "commit": "4938c984da9f7dc25527eaff8953e0cdfdadef37",
+ "tree": "11dfb8108f36af9d6ed8a4bd200652c79bfce793",
+ "profile": "full",
+ "query": "TestPositive.test_valid",
+ "file": "numpy/_core/tests/test_umath.py",
+ "depth": 2,
+ "index_cache_hit": false,
+ "index_latency_ms": 182364,
+ "query_latency_ms": 26,
+ "total_latency_ms": 182390,
+ "focus_matches_total": 1,
+ "disambiguation_required": false,
+ "focus": {
+  "id": "gh/numpy/numpy:Python:numpy/_core/tests/test_umath.py:method:TestPositive.test_valid",
+  "name": "test_valid",
+  "qualified_name": "TestPositive.test_valid",
+  "kind": "method",
+  "file_path": "numpy/_core/tests/test_umath.py",
+  "start_line": 3241,
+  "end_line": 3246,
+  "language": "Python"
+ },
+ "container": {
+  "id": "gh/numpy/numpy:Python:numpy/_core/tests/test_umath.py:class:TestPositive",
+  "name": "TestPositive",
+  "qualified_name": "TestPositive",
+  "kind": "class",
+  "file_path": "numpy/_core/tests/test_umath.py",
+  "start_line": 3240,
+  "end_line": 3263,
+  "language": "Python"
+ },
+ "callers": {
+  "total": 0,
+  "entries": []
+ },
+ "callees": {
+  "total": 2,
+  "out": 2,
+  "entries": [
+   {
+    "endpoint": {
+     "id": "external:symbol:numpy.arange",
+     "name": "arange",
+     "qualified_name": "numpy.arange",
+     "kind": "symbol",
+     "external": true
+    },
+    "relation": "CALLS",
+    "direction": "out",
+    "depth": 1
+   },
+   {
+    "endpoint": {
+     "id": "external:symbol:numpy.positive",
+     "name": "positive",
+     "qualified_name": "numpy.positive",
+     "kind": "symbol",
+     "external": true
+    },
+    "relation": "CALLS",
+    "direction": "out",
+    "depth": 1
+   }
+  ]
+ },
+ "type_consumers": {
+  "total": 0,
+  "entries": []
+ },
+ "data_flows": {
+  "total": 0,
+  "entries": []
+ },
+ "co_changes": {
+  "total": 1,
+  "entries": [
+   {
+    "endpoint": {
+     "id": "gh/numpy/numpy:file:numpy/_core/tests/test_ufunc.py",
+     "name": "test_ufunc.py",
+     "kind": "file",
+     "file_path": "numpy/_core/tests/test_ufunc.py",
+     "language": "Python"
+    },
+    "relation": "FILE_CHANGES_WITH",
+    "detail": "files changed together in 2 recent commits"
+   }
+  ]
+ },
+ "siblings": {
+  "total": 2,
+  "entries": [
+   {
+    "endpoint": {
+     "id": "gh/numpy/numpy:Python:numpy/_core/tests/test_umath.py:method:TestPositive.test_invalid",
+     "name": "test_invalid",
+     "qualified_name": "TestPositive.test_invalid",
+     "kind": "method",
+     "file_path": "numpy/_core/tests/test_umath.py",
+     "start_line": 3248,
+     "end_line": 3254,
+     "language": "Python"
+    },
+    "detail": "sibling"
+   },
+   {
+    "endpoint": {
+     "id": "gh/numpy/numpy:Python:numpy/_core/tests/test_umath.py:method:TestPositive.test_bool",
+     "name": "test_bool",
+     "qualified_name": "TestPositive.test_bool",
+     "kind": "method",
+     "file_path": "numpy/_core/tests/test_umath.py",
+     "start_line": 3256,
+     "end_line": 3263,
+     "language": "Python"
+    },
+    "detail": "sibling"
+   }
+  ]
+ },
+ "warnings": [
+  {
+   "code": "W_WORKTREE_SNAPSHOT",
+   "severity": "warning",
+   "effect_on_semantic_completeness": "snapshot records are read from the working tree because --worktree was requested"
+  }
+ ],
+ "partial_failures": [
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": ".github/workflows/linux_simd.yml",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 1 column 1 near \"name: Linux SIMD tests\\n\\n# To update the Intel SDE version (not handled by Depend...\""
+  },
+  {
+   "code": "E_UNSUPPORTED_LANGUAGE",
+   "severity": "warning",
+   "file_path": "doc/source/f2py/code/advanced/boilerplating/src/adder_base.f90",
+   "effect_on_semantic_completeness": "file omitted because no parser is available",
+   "detail": "unsupported source extension .f90"
+  },
+  {
+   "code": "E_UNSUPPORTED_LANGUAGE",
+   "severity": "warning",
+   "file_path": "doc/source/f2py/code/allocarr.f90",
+   "effect_on_semantic_completeness": "file omitted because no parser is available",
+   "detail": "unsupported source extension .f90"
+  },
+  {
+   "code": "E_UNSUPPORTED_LANGUAGE",
+   "severity": "warning",
+   "file_path": "doc/source/f2py/code/asterisk1.f90",
+   "effect_on_semantic_completeness": "file omitted because no parser is available",
+   "detail": "unsupported source extension .f90"
+  },
+  {
+   "code": "E_UNSUPPORTED_LANGUAGE",
+   "severity": "warning",
+   "file_path": "doc/source/f2py/code/asterisk2.f90",
+   "effect_on_semantic_completeness": "file omitted because no parser is available",
+   "detail": "unsupported source extension .f90"
+  },
+  {
+   "code": "E_UNSUPPORTED_LANGUAGE",
+   "severity": "warning",
+   "file_path": "doc/source/f2py/code/fib_mesonpy.f90",
+   "effect_on_semantic_completeness": "file omitted because no parser is available",
+   "detail": "unsupported source extension .f90"
+  },
+  {
+   "code": "E_UNSUPPORTED_LANGUAGE",
+   "severity": "warning",
+   "file_path": "doc/source/f2py/code/moddata.f90",
+   "effect_on_semantic_completeness": "file omitted because no parser is available",
+   "detail": "unsupported source extension .f90"
+  },
+  {
+   "code": "E_UNSUPPORTED_LANGUAGE",
+   "severity": "warning",
+   "file_path": "doc/source/f2py/code/myroutine.f90",
+   "effect_on_semantic_completeness": "file omitted because no parser is available",
+   "detail": "unsupported source extension .f90"
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/include/numpy/_neighborhood_iterator_imp.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: missing ; at line 43 column 30 near \"_UPDATE_COORD_ITER(i)\"; missing ; at line 57 column 26 near \"_UPDATE_COORD_ITER(1)\"; missing ; at line 58 column 26 near \"_UPDATE_COORD_ITER(0)\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/include/numpy/arrayscalars.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 8 column 18 near \"obval\"; error ERROR at line 15 column 16 near \"char\"; error ERROR at line 27 column 9 near \"int\"; error ERROR at line 39 column 22 near \"obval\"; error ERROR at line 45 column 18 near \"char\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/include/numpy/npy_2_compat.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 215 column 51 near \"*\"; missing ; at line 216 column 70 near \"/* ABI compatible in 1.x and 2.x, but defined together with others */\"; error ERROR at line 220 column 47 near \"*\"; missing ; at line 220 column 52 near \"DESCR_ACCESSOR(TYPEOBJ, typeobj, PyTypeObject *, 0)\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/_simd.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 24 column 23 near \"PyObject\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/_simd.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 31 column 23 near \"PyObject\"; error ERROR at line 41 column 1 near \"NPY_CPU_DISPATCH_DECLARE(NPY_VISIBILITY_HIDDEN PyObject *simd_create_module, (vo...\"; error ERROR at line 41 column 48 near \"PyObject\"; missing ) at line 41 column 58 near \"NPY_CPU_DISPATCH_DECLARE(NPY_VISIBILITY_HIDDEN PyObject *simd_create_module, (vo...\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/cpu_vsx.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 18 column 23 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/cpu_vsx3.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 6 column 27 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/cpu_vsx4.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 6 column 27 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/cpu_vx.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 8 column 21 near \"x\"; error ERROR at line 9 column 21 near \"y\"; missing ; at line 12 column 18 near \"__vector bool long long m = vec_cmpge(x, y);\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/cpu_vxe.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 8 column 20 near \"x\"; error ERROR at line 9 column 20 near \"y\"; missing ; at line 12 column 18 near \"__vector bool int m = vec_cmpge(x, y);\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/cpu_vxe2.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 12 column 28 near \"len\"; error ERROR at line 13 column 28 near \"res\"; error ERROR at line 14 column 20 near \"x\"; error ERROR at line 15 column 18 near \"i\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/extra_vsx3_half_double.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 9 column 5 near \"__asm__\"; error ERROR at line 9 column 26 near \"\\\"xscvhpdp %x0,%x1\\\" : \\\"=wa\\\"(f) :\"; error ERROR at line 10 column 13 near \"__volatile__\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/extra_vsx4_mma.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 6 column 18 near \"float\"; error ERROR at line 7 column 27 near \"char\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/_simd/checks/extra_vsx_asm.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 29 column 20 near \"vz4\"; error ERROR at line 30 column 21 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/array_assign.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 28 column 15 near \"int\"; error ERROR at line 88 column 15 near \"int\"; error ERROR at line 135 column 15 near \"int\"; error ERROR at line 143 column 15 near \"int\"; error ERROR at line 154 column 15 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/array_assign.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 28 column 15 near \"int\"; error ERROR at line 33 column 15 near \"int\"; error ERROR at line 46 column 15 near \"int\"; error ERROR at line 57 column 15 near \"int\"; error ERROR at line 82 column 15 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/blas_utils.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 28 column 23 near \"bool\"; error ERROR at line 38 column 23 near \"bool\"; error ERROR at line 48 column 23 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/blas_utils.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 22 column 23 near \"bool\"; error ERROR at line 26 column 23 near \"bool\"; error ERROR at line 32 column 23 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/cblasfuncs.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 192 column 15 near \"int\"; error ERROR at line 227 column 15 near \"PyObject\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/cblasfuncs.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 4 column 15 near \"PyObject\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/gil_utils.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 11 column 15 near \"void\"; error ERROR at line 36 column 15 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/half.hpp",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 28 column 17 near \"explicit\"; error ERROR at line 53 column 17 near \"explicit\"; error ERROR at line 69 column 17 near \"explicit\"; error ERROR at line 78 column 24 near \"vf32\"; error ERROR at line 79 column 9 near \"__asm__\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/mem_overlap.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 482 column 23 near \"mem_overlap_t\"; error ERROR at line 596 column 23 near \"int\"; error ERROR at line 659 column 23 near \"void\"; error ERROR at line 757 column 23 near \"mem_overlap_t\"; error ERROR at line 848 column 23 near \"mem_overlap_t\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/mem_overlap.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 29 column 23 near \"mem_overlap_t\"; error ERROR at line 34 column 23 near \"int\"; error ERROR at line 37 column 23 near \"mem_overlap_t\"; error ERROR at line 41 column 23 near \"mem_overlap_t\"; error ERROR at line 44 column 23 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/meta.hpp",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 15 column 1 near \"struct IntBySize<sizeof(uint8_t), unsig> {\\n    using Type = typename std::condit...\"; error ERROR at line 19 column 9 near \"<bool unsig>\\nstruct\"; error ERROR at line 25 column 1 near \"struct IntBySize<sizeof(uint32_t), unsig> {\\n    using Type = typename std::condi...\"; error ERROR at line 29 column 9 near \"<bool unsig>\\nstruct\"; error ERROR at line 51 column 1 near \"}}\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_argparse.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 28 column 15 near \"int\"; error ERROR at line 53 column 15 near \"int\"; error ERROR at line 271 column 15 near \"int\"; missing identifier at line 277 column 39 near \"if (!atomic_load_explicit((_Atomic(uint8_t) *)&cache->initialized, memory_order_...\"; missing identifier at line 279 column 43 near \"if (!atomic_load_explicit((_Atomic(uint8_t) *)&cache->initialized, memory_order_...\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_argparse.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 20 column 15 near \"int\"; error ERROR at line 99 column 1 near \"NPY_NO_EXPORT int\\n_npy_parse_arguments(const char *funcname,\\n        _NpyArgPars...\"; error ERROR at line 99 column 15 near \"int\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_cpu_dispatch.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 9 column 23 near \"int\"; error ERROR at line 34 column 23 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_cpu_dispatch.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 35 column 23 near \"int\"; error ERROR at line 75 column 23 near \"void\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_cpu_features.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 41 column 23 near \"int\"; error ERROR at line 49 column 23 near \"int\"; error ERROR at line 148 column 23 near \"PyObject\"; error ERROR at line 174 column 23 near \"PyObject\"; missing ; at line 181 column 68 near \"NPY_WITH_CPU_BASELINE_CALL(NPY__CPU_PYLIST_APPEND_CB, list)\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_dlpack.h",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 19 column 15 near \"PyObject\"; error ERROR at line 24 column 15 near \"PyObject\"; error ERROR at line 28 column 15 near \"PyObject\"; error ERROR at line 33 column 15 near \"PyObject\"; error ERROR at line 37 column 15 near \"PyObject\""
+  },
+  {
+   "code": "E_PARSE_ERROR",
+   "severity": "warning",
+   "file_path": "numpy/_core/src/common/npy_fenv.c",
+   "effect_on_semantic_completeness": "file parsed with syntax errors; semantic facts may be incomplete",
+   "detail": "tree-sitter syntax error nodes present: error ERROR at line 5 column 1 near \"_\""
+  },
+  {
+   "code": "_TRUNCATED_FOR_FIXTURE",
+   "severity": "info",
+   "effect_on_semantic_completeness": "fixture trimmed: original run reported 323 entries"
+  }
+ ],
+ "stats": {
+  "files": 1655,
+  "parsed_files": 1655,
+  "symbols": 27696,
+  "relations": 97757,
+  "partial_failures": 323,
+  "completeness_level": "degraded"
+ },
+ "completeness": {
+  "relations": {
+   "ASYNC_CALLS": 3,
+   "CALLS": 37275,
+   "CONFIGURES": 442,
+   "CONSTRUCTS": 911,
+   "CONTAINS": 10336,
+   "DATA_FLOWS": 2946,
+   "DEFINES": 27696,
+   "EXTENDS": 870,
+   "FILE_CHANGES_WITH": 45,
+   "HANDLES_ROUTE": 46,
+   "HANDLES_TOOL": 3,
+   "IMPORTS": 5019,
+   "INHERITS": 870,
+   "OVERRIDES": 179,
+   "PARAM_TYPE": 3066,
+   "RETURNS_TYPE": 689,
+   "SIMILAR_TO": 2257,
+   "TESTS": 588,
+   "USES_TYPE": 4516
+  },
+  "languages_omitted_for_fixture": true
+ },
+ "completeness_scope": {
+  "language": "Python",
+  "language_files": 499,
+  "language_failed_files": 76,
+  "other_language_failures": 247,
+  "other_failure_languages": [
+   "C 207",
+   "C++ 39",
+   "YAML 1"
+  ],
+  "in_scope_failures": [
+   {
+    "code": "E_UNSUPPORTED_LANGUAGE",
+    "severity": "warning",
+    "file_path": "doc/source/f2py/code/advanced/boilerplating/src/adder_base.f90",
+    "effect_on_semantic_completeness": "file omitted because no parser is available",
+    "detail": "unsupported source extension .f90"
+   },
+   {
+    "code": "E_UNSUPPORTED_LANGUAGE",
+    "severity": "warning",
+    "file_path": "doc/source/f2py/code/allocarr.f90",
+    "effect_on_semantic_completeness": "file omitted because no parser is available",
+    "detail": "unsupported source extension .f90"
+   },
+   {
+    "code": "E_UNSUPPORTED_LANGUAGE",
+    "severity": "warning",
+    "file_path": "doc/source/f2py/code/asterisk1.f90",
+    "effect_on_semantic_completeness": "file omitted because no parser is available",
+    "detail": "unsupported source extension .f90"
+   }
+  ],
+  "worktree_snapshot": true,
+  "level": "degraded"
+ }
+}
