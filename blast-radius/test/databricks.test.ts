@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import {
+  buildCreateSchema,
   buildCreateTable,
   buildInsert,
   exportRow,
@@ -76,6 +77,15 @@ describe("qualifyTable", () => {
   });
 });
 
+describe("buildCreateSchema", () => {
+  it("quotes a two-part name and guards the identifiers", () => {
+    expect(buildCreateSchema("workspace", "blast_radius")).toBe(
+      "CREATE SCHEMA IF NOT EXISTS `workspace`.`blast_radius`",
+    );
+    expect(() => buildCreateSchema("workspace", "br; drop schema x")).toThrow(/invalid/);
+  });
+});
+
 describe("SQL text", () => {
   it("binds every column by name — no value is interpolated", () => {
     const fq = qualifyTable("main", "br", "reports");
@@ -108,17 +118,21 @@ describe("exportRow", () => {
   const ok = () =>
     new Response(JSON.stringify({ status: { state: "SUCCEEDED" } }), { status: 200 });
 
-  it("issues CREATE TABLE then a parameterised INSERT to the SQL API", async () => {
+  it("issues CREATE SCHEMA, CREATE TABLE, then a parameterised INSERT", async () => {
     const fetchImpl = vi.fn(async () => ok());
     const { table } = await exportRow(cfg, toReportRow(report(), { repo: "a/b", prNumber: 3 }), fetchImpl as unknown as typeof fetch);
 
     expect(table).toBe("`main`.`blast_radius`.`reports`");
-    expect(fetchImpl).toHaveBeenCalledTimes(2);
-    const [url, init] = fetchImpl.mock.calls[1]!;
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    const statements = fetchImpl.mock.calls.map((c) => JSON.parse((c[1] as RequestInit).body as string).statement);
+    expect(statements[0]).toContain("CREATE SCHEMA IF NOT EXISTS");
+    expect(statements[1]).toContain("CREATE TABLE IF NOT EXISTS");
+    expect(statements[2]).toContain("INSERT INTO");
+
+    const [url, init] = fetchImpl.mock.calls[2]!;
     expect(url).toBe("https://example.cloud.databricks.com/api/2.0/sql/statements");
     const sent = JSON.parse((init as RequestInit).body as string);
     expect(sent.warehouse_id).toBe("wh123");
-    expect(sent.statement).toContain("INSERT INTO");
     expect(sent.parameters.find((p: { name: string }) => p.name === "completeness_level").value).toBe("degraded");
     expect((init as RequestInit).headers).toMatchObject({ authorization: "Bearer tok" });
   });

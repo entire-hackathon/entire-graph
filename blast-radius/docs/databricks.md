@@ -17,11 +17,16 @@ SQL warehouse, notebooks, dashboards, Genie), no GPU or model serving needed.
 `blast-radius databricks-export` reads a `--json-out` report and makes **two calls**
 to the [SQL Statement Execution API](https://docs.databricks.com/api/workspace/statementexecution):
 
-1. `CREATE TABLE IF NOT EXISTS <catalog>.<schema>.<table> (…) USING DELTA`
-2. `INSERT INTO … VALUES (:repo, :pr_number, …, :raw)` — **every value is a bound
+1. `CREATE SCHEMA IF NOT EXISTS <catalog>.<schema>`
+2. `CREATE TABLE IF NOT EXISTS <catalog>.<schema>.<table> (…) USING DELTA`
+3. `INSERT INTO … VALUES (:repo, :pr_number, …, :raw)` — **every value is a bound
    parameter**, including the raw JSON payload, so nothing from a PR title/body or
    a symbol name is ever concatenated into SQL. The only interpolated text is the
-   table name, validated against `^[A-Za-z0-9_]+$` per part.
+   catalog/schema/table names, each validated against `^[A-Za-z0-9_]+$`.
+
+The **catalog must already exist** (creating one needs metastore-admin rights).
+Free Edition ships a `workspace` catalog — that is the default. Set
+`DATABRICKS_CATALOG` if yours differs. The schema and table are auto-created.
 
 No secrets live in the repo. If the `DATABRICKS_*` env vars are absent the step
 logs one line and exits 0 — the review is unaffected.
@@ -30,16 +35,19 @@ logs one line and exits 0 — the review is unaffected.
 
 In the **one shared Free Edition workspace**:
 
-```sql
--- a warehouse is already provisioned on Free Edition; copy its ID from
--- SQL Warehouses → (your warehouse) → Connection details → "HTTP path"
--- (the id is the last path segment) or the warehouse list URL.
-
-CREATE SCHEMA IF NOT EXISTS main.blast_radius;
--- the table is auto-created on first export; nothing else to do.
-```
+- Copy the SQL warehouse ID: SQL Warehouses → (your warehouse) → Connection
+  details → "HTTP path" — the id is the last path segment
+  (`/sql/1.0/warehouses/<id>`).
+- Confirm your catalog name: Catalog Explorer → the top-level entry is usually
+  `workspace` on Free Edition. If it is something else, set `DATABRICKS_CATALOG`.
+- Nothing to create by hand — the export runs `CREATE SCHEMA IF NOT EXISTS` and
+  `CREATE TABLE IF NOT EXISTS` on first run.
 
 Create a **personal access token** (User Settings → Developer → Access tokens).
+
+> `Catalog '<x>' was not found (SQLSTATE 42704)` → the catalog name is wrong.
+> Set the `DATABRICKS_CATALOG` repo variable to the real one (`workspace` on
+> Free Edition).
 
 ## GitHub configuration
 
@@ -55,7 +63,7 @@ Repo **Variables** (same page → Variables), all optional:
 
 | variable | default |
 |--|--|
-| `DATABRICKS_CATALOG` | `main` |
+| `DATABRICKS_CATALOG` | `workspace` |
 | `DATABRICKS_SCHEMA` | `blast_radius` |
 | `DATABRICKS_TABLE` | `reports` |
 
@@ -102,7 +110,7 @@ One row per review. `raw` holds the entire `--format json` report for drill-down
 ```sql
 -- scope creep hotspots: which files show up most in findings?
 SELECT f.value:symbol:file AS file, count(*) AS findings
-FROM main.blast_radius.reports
+FROM workspace.blast_radius.reports
 LATERAL VARIANT_EXPLODE(parse_json(raw):findings) AS f
 GROUP BY 1 ORDER BY findings DESC LIMIT 10;
 
@@ -110,15 +118,15 @@ GROUP BY 1 ORDER BY findings DESC LIMIT 10;
 SELECT date_trunc('week', run_at) AS wk,
        count(*) AS runs,
        sum(CASE WHEN completeness_level <> 'complete' THEN 1 ELSE 0 END) AS partial_or_worse
-FROM main.blast_radius.reports GROUP BY 1 ORDER BY 1;
+FROM workspace.blast_radius.reports GROUP BY 1 ORDER BY 1;
 
 -- test-selection efficiency trend
 SELECT date_trunc('week', run_at) AS wk,
        avg(tests_selected) AS avg_tests, avg(coverage_gaps) AS avg_gaps
-FROM main.blast_radius.reports GROUP BY 1 ORDER BY 1;
+FROM workspace.blast_radius.reports GROUP BY 1 ORDER BY 1;
 ```
 
-Point a Genie space at `main.blast_radius.reports` with the descriptions above and
+Point a Genie space at `workspace.blast_radius.reports` with the descriptions above and
 ask the questions in natural language.
 
 ## Free Edition notes

@@ -112,6 +112,12 @@ export function qualifyTable(catalog: string, schema: string, table: string): st
   return `\`${catalog}\`.\`${schema}\`.\`${table}\``;
 }
 
+export function buildCreateSchema(catalog: string, schema: string): string {
+  if (!IDENT.test(catalog)) throw new Error(`invalid Databricks catalog identifier: ${JSON.stringify(catalog)}`);
+  if (!IDENT.test(schema)) throw new Error(`invalid Databricks schema identifier: ${JSON.stringify(schema)}`);
+  return `CREATE SCHEMA IF NOT EXISTS \`${catalog}\`.\`${schema}\``;
+}
+
 export function buildCreateTable(fqTable: string): string {
   const cols = COLUMNS.map(([name, type]) => `  ${name} ${type}`).join(",\n");
   return `CREATE TABLE IF NOT EXISTS ${fqTable} (\n${cols}\n) USING DELTA`;
@@ -152,7 +158,8 @@ export function databricksConfigFromEnv(env: NodeJS.ProcessEnv = process.env): D
     host,
     token,
     warehouseId,
-    catalog: env.DATABRICKS_CATALOG || "main",
+    // Free Edition ships a `workspace` catalog (not `main`); override if yours differs.
+    catalog: env.DATABRICKS_CATALOG || "workspace",
     schema: env.DATABRICKS_SCHEMA || "blast_radius",
     table: env.DATABRICKS_TABLE || "reports",
   };
@@ -194,6 +201,7 @@ export async function exportRow(
   fetchImpl: Fetch = fetch,
 ): Promise<{ table: string }> {
   const fqTable = qualifyTable(cfg.catalog, cfg.schema, cfg.table);
+  await runStatement(cfg, buildCreateSchema(cfg.catalog, cfg.schema), undefined, fetchImpl);
   await runStatement(cfg, buildCreateTable(fqTable), undefined, fetchImpl);
   await runStatement(cfg, buildInsert(fqTable), toSqlParameters(row), fetchImpl);
   return { table: fqTable };
