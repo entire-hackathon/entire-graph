@@ -39,6 +39,25 @@ node dist/cli.js review --repo .. --base HEAD~2 --head HEAD --format json
 | `--blob-url-base <url>` | `https://host/owner/repo/blob/<sha>` — makes symbols clickable |
 | `--max-tests <n>` / `--max-symbols <n>` | caps |
 | `--fail-on-findings` | exit non-zero when scope findings exist |
+| `--json-out <file>` | also write the JSON report here (for the Delta export) |
+
+## Graph is evidence, not an oracle
+
+`entire graph` reports its own coverage (`stats.completeness_level`,
+`partial_failures[]`, `warnings[]`). Blast Radius reads it — `domain/completeness.ts` —
+and threads a `Completeness` (`complete` / `partial` / `degraded`) onto the change
+set, the blast radius and the report. Each node and finding is graded: a
+structural edge from a parsed file is `🔒 confirmed`; the scope-creep verdict is
+lexical, so `~ heuristic — verify against source`; anything touching a file the
+graph could not fully analyse is `? unverified`. When coverage isn't `complete`
+the comment leads with a banner and drops every "covers all / every" claim.
+
+## Databricks (Delta export)
+
+`blast-radius databricks-export --report <json-out>` appends one row per run to a
+Delta table via the SQL Statement Execution API (all values bound as parameters).
+Turns the reports into a Genie/dashboard dataset. Off unless `DATABRICKS_*` env is
+set. See [`docs/databricks.md`](docs/databricks.md).
 
 ## How it works
 

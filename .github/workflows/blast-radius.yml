@@ -20,6 +20,15 @@ permissions:
 jobs:
   blast-radius:
     runs-on: ubuntu-latest
+    # Optional: set these repo secrets/vars to also land one row per run in Delta.
+    # Absent → the export step is skipped and the review is unaffected.
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DATABRICKS_WAREHOUSE_ID: ${{ secrets.DATABRICKS_WAREHOUSE_ID }}
+      DATABRICKS_CATALOG: ${{ vars.DATABRICKS_CATALOG }}
+      DATABRICKS_SCHEMA: ${{ vars.DATABRICKS_SCHEMA }}
+      DATABRICKS_TABLE: ${{ vars.DATABRICKS_TABLE }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -69,12 +78,23 @@ jobs:
             --graph-head --profile full --max-symbols 20 \
             --pr-title "${PR_TITLE:-}" --pr-body "${PR_BODY:-}" \
             --blob-url-base "${{ github.server_url }}/${{ github.repository }}/blob/$HEAD" \
-            --out "$RUNNER_TEMP/blast-radius.md"
+            --out "$RUNNER_TEMP/blast-radius.md" \
+            --json-out "$RUNNER_TEMP/blast-radius.json"
           {
             echo "## 🧨 Blast Radius"
             echo
             cat "$RUNNER_TEMP/blast-radius.md"
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Export the report to Delta
+        if: ${{ env.DATABRICKS_HOST != '' }}
+        run: |
+          set -euo pipefail
+          node blast-radius/dist/cli.js databricks-export \
+            --report "$RUNNER_TEMP/blast-radius.json" \
+            --repo "${{ github.repository }}" \
+            --pr "${{ github.event.pull_request.number || 0 }}" \
+            --skip-if-unconfigured
 
       - name: Comment on the PR
         if: github.event_name == 'pull_request'
