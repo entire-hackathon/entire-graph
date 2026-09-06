@@ -24,6 +24,7 @@ program
   .option("--pr-title <s>", "PR title (intent fallback)")
   .option("--pr-body <s>", "PR body (intent fallback)")
   .option("--dependents-threshold <n>", "wide-reaching-change threshold", (v) => parseInt(v, 10))
+  .option("--max-tests <n>", "cap the recommended test list", (v) => parseInt(v, 10))
   .option("--fail-on-findings", "exit non-zero when scope findings exist")
   .option("--quiet", "suppress progress logs")
   .action(async (opts) => {
@@ -44,6 +45,7 @@ program
         prTitle: opts.prTitle,
         prBody: opts.prBody,
         scope: opts.dependentsThreshold ? { wideThreshold: opts.dependentsThreshold } : {},
+        maxTests: opts.maxTests,
         log,
       });
 

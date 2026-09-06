@@ -17,6 +17,7 @@ export interface ReviewRequest {
   readonly prTitle?: string | undefined;
   readonly prBody?: string | undefined;
   readonly scope?: ScopeOptions;
+  readonly maxTests?: number | undefined;
   readonly log?: (msg: string) => void;
 }
 
@@ -50,7 +51,7 @@ export async function runReview(
   log(intent ? `intent from ${intent.source}` : "no stated intent found");
 
   const findings = detectScopeCreep(changeSet, intent, radius, req.scope);
-  const testPlan = selectTests(radius, changeSet.symbols);
+  const testPlan = selectTests(radius, changeSet.symbols, req.maxTests ?? 12);
 
   const report: AnalysisReport = {
     schemaVersion: "1.0.0",

@@ -30,9 +30,9 @@ function stem(w: string): string {
   return w.replace(/(ies)$/, "y").replace(/(ing|ed|ly|es|s|er|or)$/, "");
 }
 
-export function keywords(text: string): string[] {
+export function keywords(text: string, extraTerms: readonly string[] = []): string[] {
   const out = new Set<string>();
-  for (const w of splitIdent(text)) {
+  for (const w of [...splitIdent(text), ...extraTerms]) {
     if (w.length < 3 || STOP.has(w)) continue;
     const s = stem(w);
     if (s.length >= 3 && !STOP.has(s)) out.add(s);
