@@ -1,0 +1,76 @@
+add the --format json to Delta export step
+
+---
+
+Catalog 'main' was not found. Please verify the catalog name and then retry the query or command again. SQLSTATE: 42704
+
+---
+
+ran this - CREATE SCHEMA IF NOT EXISTS blast_radius;
+
+what next?
+
+---
+
+What steps to be followed next?
+
+---
+
+/sql/1.0/warehouses/11252eaf71f9151a
+REDACTED
+
+---
+
+that is fine i will revoke it after the demo
+
+---
+
+PS C:\Users\amond07\Workspace\bangalore_tech_week\fork-entire-graph\blast-radius>   --pr-body "Make numpy.positive reject boolean arrays instead of returning them." \
+At line:1 char:5
++   --pr-body "Make numpy.positive reject boolean arrays instead of ret ...
++     ~
+Missing expression after unary operator '--'.
+At line:1 char:5
++   --pr-body "Make numpy.positive reject boolean arrays instead of ret ...
++     ~~~~~~~
+Unexpected token 'pr-body' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingExpressionAfterOperator
+
+PS C:\Users\amond07\Workspace\bangalore_tech_week\fork-entire-graph\blast-radius>   --json-out report.json --out report.md
+At line:1 char:5
++   --json-out report.json --out report.md
++     ~
+Missing expression after unary operator '--'.
+At line:1 char:5
++   --json-out report.json --out report.md
++     ~~~~~~~~
+Unexpected token 'json-out' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingExpressionAfterOperator
+
+PS C:\Users\amond07\Workspace\bangalore_tech_week\fork-entire-graph\blast-radius>
+PS C:\Users\amond07\Workspace\bangalore_tech_week\fork-entire-graph\blast-radius> node dist/cli.js databricks-export --report report.json --repo numpy/numpy --pr 1
+
+---
+
+orkspace\bangalore_tech_week\fork-entire-graph\blast-radius> node dist/cli.js databricks-export --report report.json --repo numpy/numpy --pr 1
+
+✖ Databricks export not configured (need DATABRICKS_HOST, DATABRICKS_TOKEN, DATABRICKS_WAREHOUSE_ID)
+PS C:\Users\amond07\Workspace\bangalore_tech_week\fork-entire-graph\blast-radius>
+
+---
+
+dbc-8a07c9dd-3776
+
+---
+
+Now I want to submit
+
+---
+
+I need to upload a documentations and Pitch Deck
+
+---
+
+2 separate doc

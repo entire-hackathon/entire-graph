@@ -1,0 +1,50 @@
+{
+  "cli_version": "0.10.5",
+  "checkpoint_id": "5bd1e73f39e9",
+  "session_id": "3503c620-fadf-4e69-a118-23f6c364e814",
+  "strategy": "manual-commit",
+  "created_at": "2026-09-06T08:09:12.2851191Z",
+  "branch": "build/blast-radius",
+  "checkpoints_count": 6,
+  "save_step_count": 1,
+  "files_touched": [],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5",
+  "turn_id": "befbfec2a16d",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 374,
+    "cache_creation_tokens": 290408,
+    "cache_read_tokens": 40901697,
+    "output_tokens": 157135,
+    "api_call_count": 187
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-sql/1.0/warehouses/11252eaf71f9151a-2026-09-06T07:53:08.179024Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "sql/1.0/warehouses/11252eaf71f9151a"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "37e175f8fb80",
+      "timestamp": "2026-09-06T07:53:08.179024Z",
+      "native": {
+        "command": "/sql/1.0/warehouses/11252eaf71f9151a"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/sql/1.0/warehouses/11252eaf71f9151a",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 9
+  }
+}
