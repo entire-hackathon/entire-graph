@@ -120,7 +120,9 @@ export function detectScopeCreep(
       reason: reasons.join("; "),
       dependentsCount: s.dependentsCount,
       evidence: [
-        intent ? `intent (${intent.source}): "${intent.text.slice(0, 90)}"` : "no stated intent",
+        intent
+          ? `intent (${intent.source}): "${intent.text.split("\n")[0]!.trim().slice(0, 100)}"`
+          : "no stated intent",
         `changed — ${s.changeType.replace("_", " ")}, ${s.dependentsCount} dependents` +
           (loc(s.ref) ? ` — ${loc(s.ref)}` : ""),
         ...(trail.length ? [`reaches ${trail.join(" → ")}`] : []),

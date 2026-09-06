@@ -81,7 +81,8 @@ export function renderMarkdown(report: AnalysisReport, opts: RenderOptions = {})
   out.push("");
 
   if (r.intent) {
-    out.push(`> **Intent** — _${JSON.stringify(r.intent.text.slice(0, 160))}_  `);
+    const line1 = r.intent.text.split("\n")[0]!.trim().slice(0, 160);
+    out.push(`> **Intent** — _${JSON.stringify(line1)}_  `);
     out.push(`> source: \`${r.intent.source}\`` + (r.range.checkpoint ? ` · \`${r.range.checkpoint}\`` : ""));
   } else {
     out.push("> **Intent** — none found. Scope drift can't be judged; showing radius + tests only.");
